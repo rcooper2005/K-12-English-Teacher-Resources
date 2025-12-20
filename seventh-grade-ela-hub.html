@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seventh Grade ELA Teacher Resource Hub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .header p { font-size: 1.2rem; opacity: 0.9; }
+        .tab-container { display: flex; flex-wrap: wrap; background: #2c3e50; padding: 10px; gap: 5px; justify-content: center; }
+        .tab { padding: 12px 18px; background: #34495e; color: white; border: none; cursor: pointer; border-radius: 8px; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; }
+        .tab:hover { background: #3498db; transform: translateY(-2px); }
+        .tab.active { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4); }
+        .content { padding: 30px; min-height: 600px; }
+        .content-section { display: none; }
+        .content-section.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .content-section h2 { color: #2c3e50; font-size: 1.8rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #3498db; }
+        .content-section h3 { color: #34495e; font-size: 1.3rem; margin: 20px 0 10px 0; }
+        .content-section h4 { color: #3498db; font-size: 1.1rem; margin: 15px 0 10px 0; }
+        .content-section p, .content-section li { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .content-section ul, .content-section ol { margin-left: 25px; margin-bottom: 15px; }
+        .standards-box { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-left: 4px solid #3498db; padding: 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0; }
+        .resource-card { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; padding: 20px; border: 1px solid #dee2e6; transition: all 0.3s ease; }
+        .resource-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .resource-card h4 { color: #2c3e50; margin-bottom: 10px; }
+        .resource-card a { color: #3498db; text-decoration: none; }
+        .resource-card a:hover { text-decoration: underline; }
+        .tip-box { background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); border-left: 4px solid #28a745; padding: 15px 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .warning-box { background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%); border-left: 4px solid #ffc107; padding: 15px 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .book-section { background: #f8f9fa; padding: 15px; border-radius: 10px; margin: 10px 0; }
+        .book-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .book-item { background: white; padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #dee2e6; padding: 12px; text-align: left; }
+        th { background: #3498db; color: white; }
+        tr:nth-child(even) { background: #f8f9fa; }
+        .footer { background: #2c3e50; color: white; text-align: center; padding: 20px; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Seventh Grade ELA Teacher Resource Hub</h1>
+            <p>Comprehensive English Language Arts Resources for Seventh Grade Teachers</p>
+        </div>
+        
+        <div class="tab-container">
+            <button class="tab active" onclick="showTab('standards')">Standards</button>
+            <button class="tab" onclick="showTab('background')">Background</button>
+            <button class="tab" onclick="showTab('websites')">Websites</button>
+            <button class="tab" onclick="showTab('lessons')">Lessons</button>
+            <button class="tab" onclick="showTab('investigations')">Investigations</button>
+            <button class="tab" onclick="showTab('videos')">Videos</button>
+            <button class="tab" onclick="showTab('articles')">Articles</button>
+            <button class="tab" onclick="showTab('assessments')">Assessments</button>
+            <button class="tab" onclick="showTab('printables')">Printables</button>
+            <button class="tab" onclick="showTab('vocabulary')">Vocabulary</button>
+            <button class="tab" onclick="showTab('games')">Games</button>
+            <button class="tab" onclick="showTab('differentiation')">Differentiation</button>
+            <button class="tab" onclick="showTab('misconceptions')">Misconceptions</button>
+            <button class="tab" onclick="showTab('cultural')">Cultural</button>
+            <button class="tab" onclick="showTab('books')">Books</button>
+            <button class="tab" onclick="showTab('aiteachers')">AI for Teachers</button>
+            <button class="tab" onclick="showTab('aistudents')">AI for Students</button>
+        </div>
+        
+        <div class="content">
+            <!-- Standards Tab -->
+            <div id="standards" class="content-section active">
+                <h2>📋 Seventh Grade ELA Standards</h2>
+                
+                <h3>Georgia Standards of Excellence (GSE) - Seventh Grade ELA</h3>
+                <div class="standards-box">
+                    <h4>Reading Literary Text (ELAGSE7RL)</h4>
+                    <ul>
+                        <li><strong>ELAGSE7RL1:</strong> Cite several pieces of textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text</li>
+                        <li><strong>ELAGSE7RL2:</strong> Determine a theme or central idea of a text and analyze its development over the course of the text; provide an objective summary of the text</li>
+                        <li><strong>ELAGSE7RL3:</strong> Analyze how particular elements of a story or drama interact (e.g., how setting shapes the characters or plot)</li>
+                        <li><strong>ELAGSE7RL4:</strong> Determine the meaning of words and phrases as they are used in a text, including figurative and connotative meanings; analyze the impact of rhymes and other repetitions of sounds on a specific verse or stanza of a poem or section of a story or drama</li>
+                        <li><strong>ELAGSE7RL5:</strong> Analyze how a drama's or poem's form or structure contributes to its meaning</li>
+                        <li><strong>ELAGSE7RL6:</strong> Analyze how an author develops and contrasts the points of view of different characters or narrators in a text</li>
+                        <li><strong>ELAGSE7RL7:</strong> Compare and contrast a written story, drama, or poem to its audio, filmed, staged, or multimedia version, analyzing the effects of techniques unique to each medium</li>
+                        <li><strong>ELAGSE7RL9:</strong> Compare and contrast a fictional portrayal of a time, place, or character and a historical account of the same period as a means of understanding how authors of fiction use or alter history</li>
+                        <li><strong>ELAGSE7RL10:</strong> By the end of the year, read and comprehend literature, including stories, dramas, and poems, in the grades 6-8 text complexity band proficiently</li>
+                    </ul>
+                    
+                    <h4>Reading Informational Text (ELAGSE7RI)</h4>
+                    <ul>
+                        <li><strong>ELAGSE7RI1:</strong> Cite several pieces of textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text</li>
+                        <li><strong>ELAGSE7RI2:</strong> Determine two or more central ideas in a text and analyze their development over the course of the text; provide an objective summary of the text</li>
+                        <li><strong>ELAGSE7RI3:</strong> Analyze the interactions between individuals, events, and ideas in a text</li>
+                        <li><strong>ELAGSE7RI4:</strong> Determine the meaning of words and phrases as they are used in a text, including figurative, connotative, and technical meanings; analyze the impact of a specific word choice on meaning and tone</li>
+                        <li><strong>ELAGSE7RI5:</strong> Analyze the structure an author uses to organize a text, including how the major sections contribute to the whole and to the development of the ideas</li>
+                        <li><strong>ELAGSE7RI6:</strong> Determine an author's point of view or purpose in a text and analyze how the author distinguishes his or her position from that of others</li>
+                        <li><strong>ELAGSE7RI7:</strong> Compare and contrast a text to an audio, video, or multimedia version of the text, analyzing each medium's portrayal of the subject</li>
+                        <li><strong>ELAGSE7RI8:</strong> Trace and evaluate the argument and specific claims in a text, assessing whether the reasoning is sound and the evidence is relevant and sufficient to support the claims</li>
+                        <li><strong>ELAGSE7RI9:</strong> Analyze how two or more authors writing about the same topic shape their presentations of key information by emphasizing different evidence or advancing different interpretations of facts</li>
+                        <li><strong>ELAGSE7RI10:</strong> By the end of the year, read and comprehend literary nonfiction in the grades 6-8 text complexity band proficiently</li>
+                    </ul>
+                    
+                    <h4>Writing (ELAGSE7W)</h4>
+                    <ul>
+                        <li><strong>ELAGSE7W1:</strong> Write arguments to support claims with clear reasons and relevant evidence</li>
+                        <li><strong>ELAGSE7W2:</strong> Write informative/explanatory texts to examine a topic and convey ideas, concepts, and information through the selection, organization, and analysis of relevant content</li>
+                        <li><strong>ELAGSE7W3:</strong> Write narratives to develop real or imagined experiences or events using effective technique, relevant descriptive details, and well-structured event sequences</li>
+                        <li><strong>ELAGSE7W4:</strong> Produce clear and coherent writing in which the development, organization, and style are appropriate to task, purpose, and audience</li>
+                        <li><strong>ELAGSE7W5:</strong> With some guidance and support from peers and adults, develop and strengthen writing as needed by planning, revising, editing, rewriting, or trying a new approach</li>
+                        <li><strong>ELAGSE7W6:</strong> Use technology, including the Internet, to produce and publish writing and link to and cite sources as well as to interact and collaborate with others</li>
+                        <li><strong>ELAGSE7W7:</strong> Conduct short research projects to answer a question, drawing on several sources and generating additional related, focused questions for further research and investigation</li>
+                        <li><strong>ELAGSE7W8:</strong> Gather relevant information from multiple print and digital sources, using search terms effectively; assess the credibility and accuracy of each source; and quote or paraphrase the data and conclusions of others while avoiding plagiarism and following a standard format for citation</li>
+                        <li><strong>ELAGSE7W9:</strong> Draw evidence from literary or informational texts to support analysis, reflection, and research</li>
+                        <li><strong>ELAGSE7W10:</strong> Write routinely over extended time frames and shorter time frames for a range of discipline-specific tasks, purposes, and audiences</li>
+                    </ul>
+                    
+                    <h4>Speaking and Listening (ELAGSE7SL)</h4>
+                    <ul>
+                        <li><strong>ELAGSE7SL1:</strong> Engage effectively in a range of collaborative discussions with diverse partners on grade 7 topics, texts, and issues, building on others' ideas and expressing their own clearly</li>
+                        <li><strong>ELAGSE7SL2:</strong> Analyze the main ideas and supporting details presented in diverse media and formats and explain how the ideas clarify a topic, text, or issue under study</li>
+                        <li><strong>ELAGSE7SL3:</strong> Delineate a speaker's argument and specific claims, evaluating the soundness of the reasoning and the relevance and sufficiency of the evidence</li>
+                        <li><strong>ELAGSE7SL4:</strong> Present claims and findings, emphasizing salient points in a focused, coherent manner with pertinent descriptions, facts, details, and examples; use appropriate eye contact, adequate volume, and clear pronunciation</li>
+                        <li><strong>ELAGSE7SL5:</strong> Include multimedia components and visual displays in presentations to clarify claims and findings and emphasize salient points</li>
+                        <li><strong>ELAGSE7SL6:</strong> Adapt speech to a variety of contexts and tasks, demonstrating command of formal English when indicated or appropriate</li>
+                    </ul>
+                    
+                    <h4>Language (ELAGSE7L)</h4>
+                    <ul>
+                        <li><strong>ELAGSE7L1:</strong> Demonstrate command of the conventions of standard English grammar and usage when writing or speaking</li>
+                        <li><strong>ELAGSE7L2:</strong> Demonstrate command of the conventions of standard English capitalization, punctuation, and spelling when writing</li>
+                        <li><strong>ELAGSE7L3:</strong> Use knowledge of language and its conventions when writing, speaking, reading, or listening</li>
+                        <li><strong>ELAGSE7L4:</strong> Determine or clarify the meaning of unknown and multiple-meaning words and phrases based on grade 7 reading and content</li>
+                        <li><strong>ELAGSE7L5:</strong> Demonstrate understanding of figurative language, word relationships, and nuances in word meanings</li>
+                        <li><strong>ELAGSE7L6:</strong> Acquire and use accurately grade-appropriate general academic and domain-specific words and phrases</li>
+                    </ul>
+                </div>
+                
+                <h3>Science of Reading - Seventh Grade Application</h3>
+                <div class="standards-box">
+                    <h4>Advanced Comprehension</h4>
+                    <ul>
+                        <li>Cite SEVERAL pieces of textual evidence for both explicit and inferential analysis</li>
+                        <li>Analyze how elements interact (setting, character, plot)</li>
+                        <li>Analyze development of theme/central ideas over the course of a text</li>
+                        <li>Evaluate soundness of reasoning and sufficiency of evidence</li>
+                        <li>Compare authors' presentations of the same information</li>
+                    </ul>
+                    
+                    <h4>Vocabulary and Language</h4>
+                    <ul>
+                        <li>Analyze impact of word choice on meaning and tone</li>
+                        <li>Analyze effects of sound devices in poetry</li>
+                        <li>Interpret figurative language and connotations</li>
+                        <li>Acquire and use academic and domain-specific vocabulary</li>
+                    </ul>
+                    
+                    <h4>Critical Analysis</h4>
+                    <ul>
+                        <li>Analyze how form/structure contributes to meaning</li>
+                        <li>Analyze development and contrast of multiple points of view</li>
+                        <li>Compare written text to multimedia versions</li>
+                        <li>Compare fiction to historical accounts</li>
+                    </ul>
+                </div>
+                
+                <h3>Gwinnett County Academic Knowledge and Skills (AKS) - Seventh Grade ELA</h3>
+                <div class="standards-box">
+                    <h4>Reading</h4>
+                    <ul>
+                        <li>Cite several pieces of textual evidence for explicit and inferential analysis</li>
+                        <li>Analyze theme/central idea development over the course of text</li>
+                        <li>Analyze how story elements interact</li>
+                        <li>Analyze impact of word choice including sound devices</li>
+                        <li>Analyze how form/structure contributes to meaning</li>
+                        <li>Analyze development and contrast of points of view</li>
+                        <li>Compare text to multimedia versions</li>
+                    </ul>
+                    
+                    <h4>Writing</h4>
+                    <ul>
+                        <li>Write arguments with clear claims and relevant evidence</li>
+                        <li>Write informative/explanatory texts with organized content</li>
+                        <li>Write narratives with effective technique</li>
+                        <li>Conduct research using effective search terms</li>
+                        <li>Assess credibility and accuracy of sources</li>
+                        <li>Follow standard citation format</li>
+                    </ul>
+                    
+                    <h4>Language</h4>
+                    <ul>
+                        <li>Use phrases and clauses correctly</li>
+                        <li>Use commas to separate coordinate adjectives</li>
+                        <li>Spell correctly</li>
+                        <li>Choose language for conciseness and formality</li>
+                    </ul>
+                </div>
+                
+                <h3>NCTE/IRA Standards</h3>
+                <div class="standards-box">
+                    <ul>
+                        <li><strong>Standard 1:</strong> Read wide range of print and non-print texts</li>
+                        <li><strong>Standard 2:</strong> Read wide range of literature from many periods/genres</li>
+                        <li><strong>Standard 3:</strong> Apply strategies to comprehend, interpret, evaluate texts</li>
+                        <li><strong>Standard 4:</strong> Adjust language for different purposes and audiences</li>
+                        <li><strong>Standard 5:</strong> Employ range of writing strategies</li>
+                        <li><strong>Standard 6:</strong> Apply knowledge of language conventions</li>
+                        <li><strong>Standard 7:</strong> Conduct research on issues and interests</li>
+                        <li><strong>Standard 8:</strong> Use technological and information resources</li>
+                        <li><strong>Standard 9:</strong> Develop understanding of diversity in language</li>
+                        <li><strong>Standard 10:</strong> Use first language to develop English competency</li>
+                        <li><strong>Standard 11:</strong> Participate in literacy communities</li>
+                        <li><strong>Standard 12:</strong> Use language to accomplish own purposes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Background Tab -->
+            <div id="background" class="content-section">
+                <h2>📖 Teacher Background Knowledge</h2>
+                
+                <h3>Seventh Grade Literacy Focus</h3>
+                <p>Seventh grade builds on sixth grade foundations with increased emphasis on analysis and evaluation. Key shifts include citing SEVERAL pieces of evidence, analyzing how elements INTERACT, and evaluating the SOUNDNESS of reasoning. Students move from identifying to analyzing and evaluating.</p>
+                
+                <div class="tip-box">
+                    <strong>Key Progression:</strong> 6th grade = cite evidence, identify; 7th grade = cite SEVERAL pieces of evidence, ANALYZE interactions, EVALUATE reasoning
+                </div>
+                
+                <h3>Analyzing Interactions</h3>
+                <div class="resource-card">
+                    <h4>Story Element Interactions</h4>
+                    <p>Seventh graders analyze HOW elements interact, not just identify them:</p>
+                    <ul>
+                        <li>How does setting shape character? (time period influences values)</li>
+                        <li>How does setting shape plot? (isolated location creates conflict)</li>
+                        <li>How does character drive plot? (choices create consequences)</li>
+                        <li>How does conflict reveal character? (pressure shows true nature)</li>
+                    </ul>
+                </div>
+                
+                <h3>Analyzing Point of View Development</h3>
+                <div class="resource-card">
+                    <h4>Beyond Identification to Analysis</h4>
+                    <table>
+                        <tr>
+                            <th>6th Grade</th>
+                            <th>7th Grade</th>
+                        </tr>
+                        <tr>
+                            <td>Explain how author develops narrator's POV</td>
+                            <td>Analyze how author develops AND CONTRASTS different characters' or narrators' POV</td>
+                        </tr>
+                    </table>
+                    <p>Questions to guide analysis:</p>
+                    <ul>
+                        <li>How does each character/narrator see the same event differently?</li>
+                        <li>What techniques does the author use to show contrast?</li>
+                        <li>Why does the author include multiple perspectives?</li>
+                        <li>How does contrasting viewpoints affect the reader's understanding?</li>
+                    </ul>
+                </div>
+                
+                <h3>Evaluating Arguments</h3>
+                <div class="resource-card">
+                    <h4>Sound Reasoning and Sufficient Evidence</h4>
+                    <p>Seventh graders evaluate arguments more rigorously:</p>
+                    <ul>
+                        <li><strong>Sound Reasoning:</strong> Is the logic valid? Are there logical fallacies?</li>
+                        <li><strong>Relevant Evidence:</strong> Does the evidence actually relate to the claim?</li>
+                        <li><strong>Sufficient Evidence:</strong> Is there enough evidence to support the claim?</li>
+                    </ul>
+                    
+                    <h4>Common Logical Fallacies to Teach</h4>
+                    <ul>
+                        <li><strong>Ad Hominem:</strong> Attacking the person instead of the argument</li>
+                        <li><strong>Bandwagon:</strong> Everyone does it, so it must be right</li>
+                        <li><strong>False Cause:</strong> Assuming one event caused another</li>
+                        <li><strong>Either/Or:</strong> Presenting only two options when more exist</li>
+                    </ul>
+                </div>
+                
+                <h3>Comparing Fiction to History</h3>
+                <div class="resource-card">
+                    <h4>Historical Fiction Analysis</h4>
+                    <p>Seventh grade standard: Compare fictional portrayal to historical account to understand how authors use or alter history.</p>
+                    <ul>
+                        <li>What historical elements are accurate?</li>
+                        <li>What has the author changed or invented?</li>
+                        <li>Why might the author have made these choices?</li>
+                        <li>How does fiction help us understand history differently than nonfiction?</li>
+                    </ul>
+                </div>
+                
+                <h3>Analyzing Form and Structure</h3>
+                <div class="resource-card">
+                    <h4>Poetry and Drama Structure</h4>
+                    <ul>
+                        <li><strong>Poetry:</strong> How does the form (sonnet, free verse, haiku) contribute to meaning?</li>
+                        <li><strong>Drama:</strong> How do acts, scenes, and stage directions contribute to meaning?</li>
+                        <li><strong>Sound Devices:</strong> How do rhyme, repetition, and rhythm affect meaning?</li>
+                    </ul>
+                </div>
+                
+                <h3>Grammar Focus</h3>
+                <table>
+                    <tr>
+                        <th>Skill</th>
+                        <th>Seventh Grade Expectations</th>
+                    </tr>
+                    <tr>
+                        <td>Phrases and Clauses</td>
+                        <td>Explain function of phrases and clauses; use correctly</td>
+                    </tr>
+                    <tr>
+                        <td>Sentence Types</td>
+                        <td>Use simple, compound, complex, and compound-complex sentences</td>
+                    </tr>
+                    <tr>
+                        <td>Modifiers</td>
+                        <td>Place phrases and clauses correctly; avoid misplaced/dangling modifiers</td>
+                    </tr>
+                    <tr>
+                        <td>Punctuation</td>
+                        <td>Use commas to separate coordinate adjectives</td>
+                    </tr>
+                    <tr>
+                        <td>Style</td>
+                        <td>Choose language for conciseness and eliminate wordiness/redundancy</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Websites Tab -->
+            <div id="websites" class="content-section">
+                <h2>🌐 Educational Websites</h2>
+                
+                <h3>Reading and Analysis</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>CommonLit</h4>
+                        <p>Extensive library with paired texts and annotation tools.</p>
+                        <a href="https://www.commonlit.org" target="_blank">Visit CommonLit →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Newsela</h4>
+                        <p>Current events at multiple Lexile levels.</p>
+                        <a href="https://newsela.com" target="_blank">Visit Newsela →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Achieve the Core</h4>
+                        <p>Close reading protocols and text-dependent questions.</p>
+                        <a href="https://achievethecore.org" target="_blank">Visit Achieve the Core →</a>
+                    </div>
+                </div>
+                
+                <h3>Writing and Grammar</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>NoRedInk</h4>
+                        <p>Adaptive grammar and writing practice.</p>
+                        <a href="https://www.noredink.com" target="_blank">Visit NoRedInk →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Quill.org</h4>
+                        <p>Free writing and grammar activities.</p>
+                        <a href="https://www.quill.org" target="_blank">Visit Quill →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lessons Tab -->
+            <div id="lessons" class="content-section">
+                <h2>📝 Lesson Ideas</h2>
+                
+                <h3>Analyzing Element Interactions</h3>
+                <div class="resource-card">
+                    <h4>Setting Shapes Character Lesson</h4>
+                    <ol>
+                        <li>Identify the setting's key features (time period, location, social context)</li>
+                        <li>Analyze how setting influences character's beliefs, values, opportunities</li>
+                        <li>Find evidence of setting's impact on character's actions/choices</li>
+                        <li>Write analysis: "The setting shapes [character] by..."</li>
+                    </ol>
+                </div>
+                
+                <h3>Contrasting Points of View</h3>
+                <div class="resource-card">
+                    <h4>Multiple Narrator Analysis</h4>
+                    <ul>
+                        <li>Use texts with multiple narrators (Wonder, The Westing Game)</li>
+                        <li>Chart each narrator's perspective on key events</li>
+                        <li>Analyze techniques author uses to distinguish voices</li>
+                        <li>Discuss why author chose multiple perspectives</li>
+                    </ul>
+                </div>
+                
+                <h3>Evaluating Arguments</h3>
+                <div class="resource-card">
+                    <h4>Argument Evaluation Protocol</h4>
+                    <ol>
+                        <li>Identify the main claim</li>
+                        <li>List the reasons and evidence</li>
+                        <li>Evaluate: Is reasoning sound? Is evidence relevant? Sufficient?</li>
+                        <li>Identify any logical fallacies</li>
+                        <li>Write evaluation with specific examples</li>
+                    </ol>
+                </div>
+                
+                <h3>Fiction vs. History</h3>
+                <div class="resource-card">
+                    <h4>Historical Fiction Comparison</h4>
+                    <p>Pair historical fiction with primary/secondary sources:</p>
+                    <ul>
+                        <li>Read historical fiction selection</li>
+                        <li>Research the actual historical events/period</li>
+                        <li>Compare: What's accurate? What's changed?</li>
+                        <li>Analyze: Why might author have altered history?</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Investigations Tab -->
+            <div id="investigations" class="content-section">
+                <h2>🔍 Close Reading and Text Analysis</h2>
+                
+                <h3>Element Interaction Investigation</h3>
+                <div class="resource-card">
+                    <h4>Essential Question</h4>
+                    <p>How do setting, character, and plot interact to create meaning?</p>
+                    
+                    <h4>Investigation Protocol</h4>
+                    <ol>
+                        <li>Select a complex text (The Giver, Roll of Thunder)</li>
+                        <li>Map setting features and their effects</li>
+                        <li>Trace how setting shapes character choices</li>
+                        <li>Analyze how character choices drive plot</li>
+                        <li>Write analytical essay on interactions</li>
+                    </ol>
+                </div>
+                
+                <h3>Author Comparison Investigation</h3>
+                <div class="resource-card">
+                    <h4>Essential Question</h4>
+                    <p>How do two authors presenting the same information shape their presentations differently?</p>
+                    
+                    <h4>Analysis Questions</h4>
+                    <ul>
+                        <li>What evidence does each author emphasize?</li>
+                        <li>What different interpretations do they advance?</li>
+                        <li>How do word choices reveal perspective?</li>
+                        <li>Why might authors present differently?</li>
+                    </ul>
+                </div>
+                
+                <h3>Media Comparison Investigation</h3>
+                <div class="resource-card">
+                    <h4>Text to Film Analysis</h4>
+                    <ol>
+                        <li>Read a story/drama/novel</li>
+                        <li>View film/audio/staged version</li>
+                        <li>Analyze techniques unique to each medium</li>
+                        <li>Compare effects on understanding and emotion</li>
+                        <li>Evaluate which medium is more effective and why</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Videos Tab -->
+            <div id="videos" class="content-section">
+                <h2>🎬 Video Resources</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Crash Course Literature</h4>
+                        <p>Literary analysis of classic and contemporary works.</p>
+                        <a href="https://www.youtube.com/crashcourse" target="_blank">Visit Crash Course →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>TED-Ed</h4>
+                        <p>Educational videos on literature and writing.</p>
+                        <a href="https://ed.ted.com" target="_blank">Visit TED-Ed →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Flocabulary</h4>
+                        <p>Hip-hop videos teaching ELA concepts.</p>
+                        <a href="https://www.flocabulary.com" target="_blank">Visit Flocabulary →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Articles Tab -->
+            <div id="articles" class="content-section">
+                <h2>📰 Articles and Resources</h2>
+                
+                <h3>Professional Reading</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Voices from the Middle (NCTE)</h4>
+                        <p>Middle school ELA journal.</p>
+                        <a href="https://ncte.org" target="_blank">Visit NCTE →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>AMLE Magazine</h4>
+                        <p>Middle level education resources.</p>
+                        <a href="https://www.amle.org" target="_blank">Visit AMLE →</a>
+                    </div>
+                </div>
+                
+                <h3>Student Resources</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Newsela</h4>
+                        <p>Leveled current events.</p>
+                        <a href="https://newsela.com" target="_blank">Visit Newsela →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>CommonLit</h4>
+                        <p>Literary and informational texts.</p>
+                        <a href="https://www.commonlit.org" target="_blank">Visit CommonLit →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Assessments Tab -->
+            <div id="assessments" class="content-section">
+                <h2>📊 Assessment Strategies</h2>
+                
+                <h3>Formative Assessment</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Text-Dependent Questions</h4>
+                        <p>Require citing several pieces of evidence.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Analytical Quick Writes</h4>
+                        <p>Analyze interactions or evaluate arguments.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Socratic Seminars</h4>
+                        <p>Student-led discussions with evidence.</p>
+                    </div>
+                </div>
+                
+                <h3>Writing Assessment</h3>
+                <div class="resource-card">
+                    <h4>Argument Writing Focus</h4>
+                    <ul>
+                        <li>Clear, debatable claim</li>
+                        <li>Logical organization</li>
+                        <li>Relevant, sufficient evidence</li>
+                        <li>Sound reasoning</li>
+                        <li>Counterargument acknowledgment</li>
+                        <li>Formal style and conventions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Printables Tab -->
+            <div id="printables" class="content-section">
+                <h2>📄 Graphic Organizers</h2>
+                
+                <h3>Analysis Organizers</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Element Interaction Chart</h4>
+                        <p>Map how setting, character, and plot interact.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Point of View Contrast Chart</h4>
+                        <p>Compare multiple narrators' perspectives.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Argument Evaluation Checklist</h4>
+                        <p>Assess soundness, relevance, sufficiency.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vocabulary Tab -->
+            <div id="vocabulary" class="content-section">
+                <h2>📚 Vocabulary Instruction</h2>
+                
+                <h3>Academic Vocabulary</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Analysis Terms</h4>
+                        <ul>
+                            <li>analyze, evaluate, assess</li>
+                            <li>interaction, relationship</li>
+                            <li>contrast, compare</li>
+                            <li>sound reasoning, sufficient evidence</li>
+                            <li>relevant, irrelevant</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Literary Terms</h4>
+                        <ul>
+                            <li>point of view, perspective</li>
+                            <li>form, structure</li>
+                            <li>rhyme scheme, repetition</li>
+                            <li>connotation, denotation</li>
+                            <li>tone, mood</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Games Tab -->
+            <div id="games" class="content-section">
+                <h2>🎮 Games and Activities</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Digital Games</h4>
+                        <ul>
+                            <li><a href="https://www.vocabulary.com" target="_blank">Vocabulary.com</a></li>
+                            <li><a href="https://www.noredink.com" target="_blank">NoRedInk</a></li>
+                            <li><a href="https://www.quill.org" target="_blank">Quill</a></li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Classroom Activities</h4>
+                        <ul>
+                            <li>Fallacy Hunt: Find logical fallacies</li>
+                            <li>Perspective Switch: Rewrite from different POV</li>
+                            <li>Evidence Challenge: Find several pieces of evidence</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Differentiation Tab -->
+            <div id="differentiation" class="content-section">
+                <h2>🎯 Differentiation</h2>
+                
+                <h3>Struggling Readers</h3>
+                <div class="resource-card">
+                    <ul>
+                        <li>Provide texts at instructional level</li>
+                        <li>Use graphic organizers</li>
+                        <li>Chunk complex texts</li>
+                        <li>Offer evidence stems and frames</li>
+                    </ul>
+                </div>
+                
+                <h3>Advanced Learners</h3>
+                <div class="resource-card">
+                    <ul>
+                        <li>Complex texts above grade level</li>
+                        <li>Independent research projects</li>
+                        <li>Sophisticated literary analysis</li>
+                        <li>Publication opportunities</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Misconceptions Tab -->
+            <div id="misconceptions" class="content-section">
+                <h2>❌ Common Misconceptions</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>One quote is enough evidence</h4>
+                        <p><strong>Reality:</strong> Seventh grade requires citing SEVERAL pieces of evidence.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Any evidence supports any claim</h4>
+                        <p><strong>Reality:</strong> Evidence must be RELEVANT and SUFFICIENT.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Story elements exist separately</h4>
+                        <p><strong>Reality:</strong> Elements INTERACT to create meaning.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cultural Tab -->
+            <div id="cultural" class="content-section">
+                <h2>🌍 Diverse Literature</h2>
+                
+                <h3>Diverse Authors</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Contemporary Authors</h4>
+                        <ul>
+                            <li>Jason Reynolds</li>
+                            <li>Angie Thomas</li>
+                            <li>Kwame Alexander</li>
+                            <li>Elizabeth Acevedo</li>
+                            <li>Renée Watson</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Award Winners</h3>
+                <div class="resource-card">
+                    <ul>
+                        <li>Long Way Down by Jason Reynolds</li>
+                        <li>The Poet X by Elizabeth Acevedo</li>
+                        <li>One Crazy Summer by Rita Williams-Garcia</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Books Tab -->
+            <div id="books" class="content-section">
+                <h2>📚 Book Recommendations</h2>
+                
+                <h3>Whole Class Novels</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>The Giver</strong> by Lois Lowry<br>
+                            <em>Dystopian classic. Lexile 760L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Roll of Thunder, Hear My Cry</strong> by Mildred Taylor<br>
+                            <em>Civil rights era. Lexile 920L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>The Outsiders</strong> by S.E. Hinton<br>
+                            <em>Coming-of-age classic. Lexile 750L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Long Way Down</strong> by Jason Reynolds<br>
+                            <em>Novel in verse. Lexile HL600L</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Literature Circles</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Refugee</strong> by Alan Gratz<br>
+                            <em>Three refugee stories. Lexile 800L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>The Hate U Give</strong> by Angie Thomas<br>
+                            <em>Contemporary social justice. Lexile 590L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Speak</strong> by Laurie Halse Anderson<br>
+                            <em>Trauma and healing. Lexile 690L</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI for Teachers Tab -->
+            <div id="aiteachers" class="content-section">
+                <h2>🤖 AI Tools for Teachers</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>ChatGPT / Claude</h4>
+                        <p>Generate analysis questions, differentiated materials, and rubrics.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>MagicSchool AI</h4>
+                        <p>Education-specific tools for planning and assessment.</p>
+                        <a href="https://www.magicschool.ai" target="_blank">Visit MagicSchool →</a>
+                    </div>
+                </div>
+                
+                <h3>Useful Prompts</h3>
+                <div class="resource-card">
+                    <ul>
+                        <li>"Create questions analyzing how setting shapes character in [text]."</li>
+                        <li>"Generate a rubric for evaluating argument soundness."</li>
+                        <li>"Design a lesson comparing fictional and historical accounts of [event]."</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- AI for Students Tab -->
+            <div id="aistudents" class="content-section">
+                <h2>🎓 AI Tools for Students</h2>
+                
+                <div class="warning-box">
+                    <p>Most AI tools require users to be 13+. Students should use AI under supervision and with academic integrity in mind.</p>
+                </div>
+                
+                <h3>Appropriate Uses</h3>
+                <div class="resource-card">
+                    <ul>
+                        <li>Brainstorming ideas (then develop independently)</li>
+                        <li>Research questions (then verify with sources)</li>
+                        <li>Grammar feedback (then make thoughtful revisions)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Georgia Gwinnett College Educator Preparation | Standards: GSE | AKS | NCTE | Science of Reading</p>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

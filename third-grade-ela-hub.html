@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third Grade ELA Teacher Resource Hub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .header p { font-size: 1.2rem; opacity: 0.9; }
+        .tab-container { display: flex; flex-wrap: wrap; background: #2c3e50; padding: 10px; gap: 5px; justify-content: center; }
+        .tab { padding: 12px 18px; background: #34495e; color: white; border: none; cursor: pointer; border-radius: 8px; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; }
+        .tab:hover { background: #27ae60; transform: translateY(-2px); }
+        .tab.active { background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4); }
+        .content { padding: 30px; min-height: 600px; }
+        .content-section { display: none; }
+        .content-section.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .content-section h2 { color: #2c3e50; font-size: 1.8rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #27ae60; }
+        .content-section h3 { color: #34495e; font-size: 1.3rem; margin: 20px 0 10px 0; }
+        .content-section h4 { color: #27ae60; font-size: 1.1rem; margin: 15px 0 10px 0; }
+        .content-section p, .content-section li { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .content-section ul, .content-section ol { margin-left: 25px; margin-bottom: 15px; }
+        .standards-box { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-left: 4px solid #27ae60; padding: 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0; }
+        .resource-card { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; padding: 20px; border: 1px solid #dee2e6; transition: all 0.3s ease; }
+        .resource-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .resource-card h4 { color: #2c3e50; margin-bottom: 10px; }
+        .resource-card a { color: #27ae60; text-decoration: none; }
+        .resource-card a:hover { text-decoration: underline; }
+        .tip-box { background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); border-left: 4px solid #28a745; padding: 15px 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .warning-box { background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%); border-left: 4px solid #ffc107; padding: 15px 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .book-section { background: #f8f9fa; padding: 15px; border-radius: 10px; margin: 10px 0; }
+        .book-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .book-item { background: white; padding: 12px; border-radius: 8px; border-left: 3px solid #27ae60; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #dee2e6; padding: 12px; text-align: left; }
+        th { background: #27ae60; color: white; }
+        tr:nth-child(even) { background: #f8f9fa; }
+        .footer { background: #2c3e50; color: white; text-align: center; padding: 20px; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Third Grade ELA Teacher Resource Hub</h1>
+            <p>Comprehensive English Language Arts Resources for Third Grade Teachers</p>
+        </div>
+        
+        <div class="tab-container">
+            <button class="tab active" onclick="showTab('standards')">Standards</button>
+            <button class="tab" onclick="showTab('background')">Background</button>
+            <button class="tab" onclick="showTab('websites')">Websites</button>
+            <button class="tab" onclick="showTab('lessons')">Lessons</button>
+            <button class="tab" onclick="showTab('investigations')">Investigations</button>
+            <button class="tab" onclick="showTab('videos')">Videos</button>
+            <button class="tab" onclick="showTab('articles')">Articles</button>
+            <button class="tab" onclick="showTab('assessments')">Assessments</button>
+            <button class="tab" onclick="showTab('printables')">Printables</button>
+            <button class="tab" onclick="showTab('vocabulary')">Vocabulary</button>
+            <button class="tab" onclick="showTab('games')">Games</button>
+            <button class="tab" onclick="showTab('differentiation')">Differentiation</button>
+            <button class="tab" onclick="showTab('misconceptions')">Misconceptions</button>
+            <button class="tab" onclick="showTab('cultural')">Cultural</button>
+            <button class="tab" onclick="showTab('books')">Books</button>
+            <button class="tab" onclick="showTab('aiteachers')">AI for Teachers</button>
+            <button class="tab" onclick="showTab('aistudents')">AI for Students</button>
+        </div>
+        
+        <div class="content">
+            <!-- Standards Tab -->
+            <div id="standards" class="content-section active">
+                <h2>📋 Third Grade ELA Standards</h2>
+                
+                <h3>Georgia Standards of Excellence (GSE) - Third Grade ELA</h3>
+                <div class="standards-box">
+                    <h4>Reading Literary Text (ELAGSE3RL)</h4>
+                    <ul>
+                        <li><strong>ELAGSE3RL1:</strong> Ask and answer questions to demonstrate understanding of a text, referring explicitly to the text as the basis for the answers</li>
+                        <li><strong>ELAGSE3RL2:</strong> Recount stories, including fables, folktales, and myths from diverse cultures; determine the central message, lesson, or moral and explain how it is conveyed through key details</li>
+                        <li><strong>ELAGSE3RL3:</strong> Describe characters in a story (traits, motivations, feelings) and explain how their actions contribute to the sequence of events</li>
+                        <li><strong>ELAGSE3RL4:</strong> Determine the meaning of words and phrases as they are used in a text, distinguishing literal from nonliteral language</li>
+                        <li><strong>ELAGSE3RL5:</strong> Refer to parts of stories, dramas, and poems when writing or speaking about a text, using terms such as chapter, scene, and stanza</li>
+                        <li><strong>ELAGSE3RL6:</strong> Distinguish their own point of view from that of the narrator or those of the characters</li>
+                        <li><strong>ELAGSE3RL7:</strong> Explain how specific aspects of a text's illustrations contribute to what is conveyed by the words</li>
+                        <li><strong>ELAGSE3RL9:</strong> Compare and contrast themes, settings, and plots of stories written by the same author about the same or similar characters</li>
+                        <li><strong>ELAGSE3RL10:</strong> By the end of the year, read and comprehend literature at the high end of the grades 2-3 text complexity band independently and proficiently</li>
+                    </ul>
+                    
+                    <h4>Reading Informational Text (ELAGSE3RI)</h4>
+                    <ul>
+                        <li><strong>ELAGSE3RI1:</strong> Ask and answer questions to demonstrate understanding of a text, referring explicitly to the text as the basis for the answers</li>
+                        <li><strong>ELAGSE3RI2:</strong> Determine the main idea of a text; recount the key details and explain how they support the main idea</li>
+                        <li><strong>ELAGSE3RI3:</strong> Describe the relationship between a series of historical events, scientific ideas or concepts, or steps in technical procedures, using language that pertains to time, sequence, and cause/effect</li>
+                        <li><strong>ELAGSE3RI4:</strong> Determine the meaning of general academic and domain-specific words and phrases in a text relevant to a grade 3 topic or subject area</li>
+                        <li><strong>ELAGSE3RI5:</strong> Use text features and search tools to locate information relevant to a given topic efficiently</li>
+                        <li><strong>ELAGSE3RI6:</strong> Distinguish their own point of view from that of the author of a text</li>
+                        <li><strong>ELAGSE3RI7:</strong> Use information gained from illustrations and the words in a text to demonstrate understanding of the text</li>
+                        <li><strong>ELAGSE3RI8:</strong> Describe the logical connection between particular sentences and paragraphs in a text (comparison, cause/effect, first/second/third in a sequence)</li>
+                        <li><strong>ELAGSE3RI9:</strong> Compare and contrast the most important points and key details presented in two texts on the same topic</li>
+                        <li><strong>ELAGSE3RI10:</strong> By the end of the year, read and comprehend informational texts at the high end of the grades 2-3 text complexity band independently and proficiently</li>
+                    </ul>
+                    
+                    <h4>Reading Foundational Skills (ELAGSE3RF)</h4>
+                    <ul>
+                        <li><strong>ELAGSE3RF3:</strong> Know and apply grade-level phonics and word analysis skills in decoding words</li>
+                        <li><strong>ELAGSE3RF3a:</strong> Identify and know the meaning of the most common prefixes and derivational suffixes</li>
+                        <li><strong>ELAGSE3RF3b:</strong> Decode words with common Latin suffixes</li>
+                        <li><strong>ELAGSE3RF3c:</strong> Decode multisyllable words</li>
+                        <li><strong>ELAGSE3RF3d:</strong> Read grade-appropriate irregularly spelled words</li>
+                        <li><strong>ELAGSE3RF4:</strong> Read with sufficient accuracy and fluency to support comprehension</li>
+                        <li><strong>ELAGSE3RF4a:</strong> Read grade-level text with purpose and understanding</li>
+                        <li><strong>ELAGSE3RF4b:</strong> Read grade-level prose and poetry orally with accuracy, appropriate rate, and expression</li>
+                        <li><strong>ELAGSE3RF4c:</strong> Use context to confirm or self-correct word recognition and understanding, rereading as necessary</li>
+                    </ul>
+                    
+                    <h4>Writing (ELAGSE3W)</h4>
+                    <ul>
+                        <li><strong>ELAGSE3W1:</strong> Write opinion pieces on topics or texts, supporting a point of view with reasons</li>
+                        <li><strong>ELAGSE3W2:</strong> Write informative/explanatory texts to examine a topic and convey ideas and information clearly</li>
+                        <li><strong>ELAGSE3W3:</strong> Write narratives to develop real or imagined experiences or events using effective technique, descriptive details, and clear event sequences</li>
+                        <li><strong>ELAGSE3W4:</strong> With guidance and support from adults, produce writing in which the development and organization are appropriate to task and purpose</li>
+                        <li><strong>ELAGSE3W5:</strong> With guidance and support from peers and adults, develop and strengthen writing by planning, revising, and editing</li>
+                        <li><strong>ELAGSE3W6:</strong> With guidance and support from adults, use technology to produce and publish writing</li>
+                        <li><strong>ELAGSE3W7:</strong> Conduct short research projects that build knowledge about a topic</li>
+                        <li><strong>ELAGSE3W8:</strong> Recall information from experiences or gather information from print and digital sources</li>
+                        <li><strong>ELAGSE3W10:</strong> Write routinely over extended time frames and shorter time frames for a range of discipline-specific tasks, purposes, and audiences</li>
+                    </ul>
+                    
+                    <h4>Speaking and Listening (ELAGSE3SL)</h4>
+                    <ul>
+                        <li><strong>ELAGSE3SL1:</strong> Engage effectively in a range of collaborative discussions with diverse partners on grade 3 topics and texts</li>
+                        <li><strong>ELAGSE3SL2:</strong> Determine the main ideas and supporting details of a text read aloud or information presented in diverse media and formats</li>
+                        <li><strong>ELAGSE3SL3:</strong> Ask and answer questions about information from a speaker, offering appropriate elaboration and detail</li>
+                        <li><strong>ELAGSE3SL4:</strong> Report on a topic or text, tell a story, or recount an experience with appropriate facts and relevant, descriptive details</li>
+                        <li><strong>ELAGSE3SL5:</strong> Create engaging audio recordings of stories or poems that demonstrate fluid reading at an understandable pace</li>
+                        <li><strong>ELAGSE3SL6:</strong> Speak in complete sentences when appropriate to task and situation</li>
+                    </ul>
+                    
+                    <h4>Language (ELAGSE3L)</h4>
+                    <ul>
+                        <li><strong>ELAGSE3L1:</strong> Demonstrate command of the conventions of standard English grammar and usage when writing or speaking</li>
+                        <li><strong>ELAGSE3L2:</strong> Demonstrate command of the conventions of standard English capitalization, punctuation, and spelling when writing</li>
+                        <li><strong>ELAGSE3L3:</strong> Use knowledge of language and its conventions when writing, speaking, reading, or listening</li>
+                        <li><strong>ELAGSE3L4:</strong> Determine or clarify the meaning of unknown and multiple-meaning words and phrases based on grade 3 reading and content</li>
+                        <li><strong>ELAGSE3L5:</strong> Demonstrate understanding of word relationships and nuances in word meanings</li>
+                        <li><strong>ELAGSE3L6:</strong> Acquire and use accurately grade-appropriate conversational, general academic, and domain-specific words and phrases</li>
+                    </ul>
+                </div>
+                
+                <h3>Science of Reading Standards - Third Grade</h3>
+                <div class="standards-box">
+                    <h4>Advanced Phonics and Word Analysis</h4>
+                    <ul>
+                        <li>Decode multisyllable words using knowledge of syllable types (closed, open, VCe, vowel teams, r-controlled, consonant-le)</li>
+                        <li>Apply knowledge of morphology: prefixes (un-, re-, pre-, dis-, mis-, non-), suffixes (-ful, -less, -ly, -er, -est, -ment, -ness)</li>
+                        <li>Recognize and read grade-level irregular/sight words automatically</li>
+                        <li>Use syllabication patterns to decode unfamiliar multisyllable words</li>
+                        <li>Recognize common Latin roots (port, form, ject, spect, dict)</li>
+                    </ul>
+                    
+                    <h4>Fluency Development</h4>
+                    <ul>
+                        <li>Beginning of year: 70-90 WCPM with accuracy of 95%+</li>
+                        <li>End of year: 100-120 WCPM with accuracy of 97%+</li>
+                        <li>Read with appropriate prosody (expression, phrasing, intonation)</li>
+                        <li>Adjust reading rate based on purpose and text difficulty</li>
+                        <li>Self-monitor and self-correct during reading</li>
+                    </ul>
+                    
+                    <h4>Vocabulary Development</h4>
+                    <ul>
+                        <li>Use context clues to determine meaning of unknown words</li>
+                        <li>Use knowledge of word parts (prefixes, suffixes, roots) to determine meaning</li>
+                        <li>Distinguish between literal and figurative language</li>
+                        <li>Understand and use academic vocabulary across content areas</li>
+                        <li>Recognize and understand multiple-meaning words</li>
+                    </ul>
+                    
+                    <h4>Comprehension Strategies</h4>
+                    <ul>
+                        <li>Determine main idea and supporting details</li>
+                        <li>Make inferences using text evidence</li>
+                        <li>Summarize texts accurately and concisely</li>
+                        <li>Compare and contrast texts, themes, and author's purpose</li>
+                        <li>Use text features to locate and comprehend information</li>
+                        <li>Monitor comprehension and apply fix-up strategies</li>
+                    </ul>
+                </div>
+                
+                <h3>Gwinnett County Academic Knowledge and Skills (AKS) - Third Grade ELA</h3>
+                <div class="standards-box">
+                    <h4>Reading and Vocabulary</h4>
+                    <ul>
+                        <li>Ask and answer questions referring explicitly to text evidence</li>
+                        <li>Determine main idea and recount key details in literary and informational texts</li>
+                        <li>Describe characters, settings, and events in stories</li>
+                        <li>Determine meaning of words and phrases, including figurative language</li>
+                        <li>Compare and contrast themes, settings, plots, and points of view</li>
+                        <li>Use text features and search tools to locate information</li>
+                    </ul>
+                    
+                    <h4>Reading Foundations</h4>
+                    <ul>
+                        <li>Know and apply grade-level phonics skills including prefixes, suffixes, and multisyllable words</li>
+                        <li>Read grade-level text with purpose, accuracy, appropriate rate, and expression</li>
+                        <li>Use context to confirm or self-correct word recognition</li>
+                    </ul>
+                    
+                    <h4>Writing</h4>
+                    <ul>
+                        <li>Write opinion pieces with clear reasons and linking words</li>
+                        <li>Write informative texts with facts, definitions, and details</li>
+                        <li>Write narratives with dialogue, descriptions, and temporal words</li>
+                        <li>Use the writing process: plan, draft, revise, edit, publish</li>
+                        <li>Conduct short research projects to build knowledge</li>
+                    </ul>
+                    
+                    <h4>Speaking, Listening, and Language</h4>
+                    <ul>
+                        <li>Participate in collaborative discussions following agreed-upon rules</li>
+                        <li>Report on topics with appropriate facts and details</li>
+                        <li>Use correct grammar including nouns, pronouns, verbs, adjectives, adverbs</li>
+                        <li>Use correct capitalization, punctuation, and spelling</li>
+                        <li>Use dictionaries and glossaries to determine pronunciation and meaning</li>
+                    </ul>
+                </div>
+                
+                <h3>NCTE/IRA Standards for English Language Arts</h3>
+                <div class="standards-box">
+                    <ul>
+                        <li><strong>Standard 1:</strong> Students read a wide range of print and non-print texts to build understanding</li>
+                        <li><strong>Standard 2:</strong> Students read a wide range of literature from many periods in many genres</li>
+                        <li><strong>Standard 3:</strong> Students apply a wide range of strategies to comprehend, interpret, evaluate, and appreciate texts</li>
+                        <li><strong>Standard 4:</strong> Students adjust their use of spoken, written, and visual language for different purposes and audiences</li>
+                        <li><strong>Standard 5:</strong> Students employ a wide range of strategies as they write for different purposes</li>
+                        <li><strong>Standard 6:</strong> Students apply knowledge of language structure and conventions</li>
+                        <li><strong>Standard 7:</strong> Students conduct research on issues and interests by generating ideas and questions</li>
+                        <li><strong>Standard 8:</strong> Students use a variety of technological and information resources</li>
+                        <li><strong>Standard 9:</strong> Students develop an understanding of and respect for diversity in language</li>
+                        <li><strong>Standard 10:</strong> Students whose first language is not English use their first language to develop competency in English</li>
+                        <li><strong>Standard 11:</strong> Students participate as knowledgeable, reflective, creative members of literacy communities</li>
+                        <li><strong>Standard 12:</strong> Students use spoken, written, and visual language to accomplish their own purposes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Background Tab -->
+            <div id="background" class="content-section">
+                <h2>📖 Teacher Background Knowledge</h2>
+                
+                <h3>The Third Grade Reading Transition</h3>
+                <p>Third grade marks a critical shift from "learning to read" to "reading to learn." Students transition from developing foundational skills to applying those skills to gain knowledge across all content areas. Research identifies the "third grade reading guarantee" as a crucial milestone—students who aren't reading proficiently by the end of third grade are four times more likely to not graduate from high school.</p>
+                
+                <div class="tip-box">
+                    <strong>Key Transition:</strong> Third grade is when the focus shifts from decoding to comprehension. Students should be automatic decoders by now, freeing cognitive resources for understanding complex texts and building content knowledge.
+                </div>
+                
+                <h3>Scarborough's Reading Rope - Third Grade Focus</h3>
+                <div class="resource-card">
+                    <h4>Word Recognition Strands (Increasingly Automatic)</h4>
+                    <ul>
+                        <li><strong>Phonological Awareness:</strong> Should be nearly complete; focus on manipulation of sounds in multisyllable words</li>
+                        <li><strong>Decoding:</strong> Apply advanced phonics patterns, morphology, and syllabication</li>
+                        <li><strong>Sight Recognition:</strong> Automatic recognition of grade-level and below words</li>
+                    </ul>
+                    
+                    <h4>Language Comprehension Strands (Increasingly Strategic)</h4>
+                    <ul>
+                        <li><strong>Background Knowledge:</strong> Actively build content knowledge through reading</li>
+                        <li><strong>Vocabulary:</strong> Learn academic and domain-specific vocabulary; use morphology</li>
+                        <li><strong>Language Structures:</strong> Understand complex sentences and text structures</li>
+                        <li><strong>Verbal Reasoning:</strong> Make inferences, draw conclusions, think critically</li>
+                        <li><strong>Literacy Knowledge:</strong> Apply genre knowledge and comprehension strategies</li>
+                    </ul>
+                </div>
+                
+                <h3>Morphological Awareness</h3>
+                <p>Third grade introduces systematic instruction in morphology—the study of word parts and their meanings. This significantly impacts vocabulary development and reading comprehension.</p>
+                
+                <table>
+                    <tr>
+                        <th>Morpheme Type</th>
+                        <th>Examples</th>
+                        <th>Instructional Focus</th>
+                    </tr>
+                    <tr>
+                        <td>Prefixes</td>
+                        <td>un-, re-, pre-, dis-, mis-, non-</td>
+                        <td>How prefixes change word meaning</td>
+                    </tr>
+                    <tr>
+                        <td>Suffixes</td>
+                        <td>-ful, -less, -ly, -er, -est, -ment, -ness</td>
+                        <td>How suffixes change part of speech</td>
+                    </tr>
+                    <tr>
+                        <td>Latin Roots</td>
+                        <td>port (carry), form (shape), spect (see)</td>
+                        <td>Using roots to unlock word meaning</td>
+                    </tr>
+                    <tr>
+                        <td>Compound Words</td>
+                        <td>anything, everyone, understand</td>
+                        <td>Breaking compounds into meaningful parts</td>
+                    </tr>
+                </table>
+                
+                <h3>Text Complexity and the Staircase</h3>
+                <p>Third graders engage with increasingly complex texts across the 2-3 grade band. The three dimensions of text complexity include:</p>
+                <ul>
+                    <li><strong>Quantitative:</strong> Lexile range 420L-820L (grades 2-3 band)</li>
+                    <li><strong>Qualitative:</strong> Text structure, language features, knowledge demands, meaning/purpose</li>
+                    <li><strong>Reader and Task:</strong> Student motivation, prior knowledge, task purpose</li>
+                </ul>
+                
+                <h3>Fluency Development</h3>
+                <div class="standards-box">
+                    <h4>Fluency Components</h4>
+                    <ul>
+                        <li><strong>Accuracy:</strong> Reading words correctly (target: 97%+ for instructional level)</li>
+                        <li><strong>Rate:</strong> Words correct per minute (WCPM) - end of year goal: 100-120 WCPM</li>
+                        <li><strong>Prosody:</strong> Expression, phrasing, and attention to punctuation</li>
+                    </ul>
+                    
+                    <h4>NAEP Oral Reading Fluency Scale</h4>
+                    <ul>
+                        <li><strong>Level 4:</strong> Reads primarily in larger, meaningful phrase groups with expressive interpretation</li>
+                        <li><strong>Level 3:</strong> Reads primarily in three- or four-word phrase groups with some expression</li>
+                        <li><strong>Level 2:</strong> Reads primarily in two-word phrases with some three- or four-word groupings</li>
+                        <li><strong>Level 1:</strong> Reads word-by-word with occasional two-word or three-word phrases</li>
+                    </ul>
+                </div>
+                
+                <h3>Comprehension Strategy Instruction</h3>
+                <p>Third graders need explicit instruction in comprehension strategies with gradual release to independent application:</p>
+                <ul>
+                    <li><strong>Making Connections:</strong> Text-to-self, text-to-text, text-to-world</li>
+                    <li><strong>Questioning:</strong> Generating and answering questions before, during, and after reading</li>
+                    <li><strong>Visualizing:</strong> Creating mental images to support comprehension</li>
+                    <li><strong>Inferring:</strong> Reading between the lines using text evidence and background knowledge</li>
+                    <li><strong>Determining Importance:</strong> Identifying main ideas and key details</li>
+                    <li><strong>Synthesizing:</strong> Combining information to create new understanding</li>
+                    <li><strong>Monitoring:</strong> Checking for understanding and applying fix-up strategies</li>
+                </ul>
+                
+                <h3>Writing Development</h3>
+                <p>Third graders expand their writing across three text types with increasing sophistication:</p>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Opinion Writing</h4>
+                        <ul>
+                            <li>Clear opinion statement</li>
+                            <li>Organized reasons with supporting details</li>
+                            <li>Linking words (because, therefore, since)</li>
+                            <li>Concluding statement</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Informative Writing</h4>
+                        <ul>
+                            <li>Topic introduction</li>
+                            <li>Facts, definitions, details grouped by subtopic</li>
+                            <li>Linking words (also, another, and, more)</li>
+                            <li>Concluding statement</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Narrative Writing</h4>
+                        <ul>
+                            <li>Establish situation and narrator/characters</li>
+                            <li>Dialogue and descriptions of actions, thoughts, feelings</li>
+                            <li>Temporal words (first, next, then, finally)</li>
+                            <li>Sense of closure</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Grammar and Language Conventions</h3>
+                <table>
+                    <tr>
+                        <th>Skill Area</th>
+                        <th>Third Grade Expectations</th>
+                    </tr>
+                    <tr>
+                        <td>Nouns</td>
+                        <td>Regular and irregular plurals; abstract nouns (courage, freedom)</td>
+                    </tr>
+                    <tr>
+                        <td>Pronouns</td>
+                        <td>Subject, object, and possessive pronouns</td>
+                    </tr>
+                    <tr>
+                        <td>Verbs</td>
+                        <td>Regular and irregular past tense; simple verb tenses; subject-verb agreement</td>
+                    </tr>
+                    <tr>
+                        <td>Adjectives/Adverbs</td>
+                        <td>Comparative and superlative forms</td>
+                    </tr>
+                    <tr>
+                        <td>Sentences</td>
+                        <td>Simple and compound sentences; coordinating conjunctions</td>
+                    </tr>
+                    <tr>
+                        <td>Punctuation</td>
+                        <td>Commas in addresses and dialogue; possessive apostrophes</td>
+                    </tr>
+                    <tr>
+                        <td>Spelling</td>
+                        <td>Spelling patterns, high-frequency words, reference use</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Websites Tab -->
+            <div id="websites" class="content-section">
+                <h2>🌐 Educational Websites</h2>
+                
+                <h3>Reading and Literacy</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>ReadWorks</h4>
+                        <p>Free reading passages, comprehension questions, and vocabulary support aligned to standards. Lexile-leveled texts across genres.</p>
+                        <a href="https://www.readworks.org" target="_blank">Visit ReadWorks →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Newsela</h4>
+                        <p>Current events articles at multiple reading levels. Students can adjust Lexile levels while reading the same content.</p>
+                        <a href="https://newsela.com" target="_blank">Visit Newsela →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Epic!</h4>
+                        <p>Digital library with thousands of books, audiobooks, and videos. Reading logs and comprehension quizzes available.</p>
+                        <a href="https://www.getepic.com" target="_blank">Visit Epic! →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>CommonLit</h4>
+                        <p>Free reading passages with paired texts, discussion questions, and assessment tools. Great for close reading practice.</p>
+                        <a href="https://www.commonlit.org" target="_blank">Visit CommonLit →</a>
+                    </div>
+                </div>
+                
+                <h3>Writing Resources</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Writing A-Z</h4>
+                        <p>Process writing lessons, interactive tools, and rubrics for opinion, informative, and narrative writing.</p>
+                        <a href="https://www.writinga-z.com" target="_blank">Visit Writing A-Z →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>ReadWriteThink</h4>
+                        <p>NCTE resource with interactive writing tools, graphic organizers, and lesson plans for all writing genres.</p>
+                        <a href="http://www.readwritethink.org" target="_blank">Visit ReadWriteThink →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Storybird</h4>
+                        <p>Visual storytelling platform where students create picture books, longform stories, and poetry.</p>
+                        <a href="https://storybird.com" target="_blank">Visit Storybird →</a>
+                    </div>
+                </div>
+                
+                <h3>Phonics and Word Study</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Florida Center for Reading Research</h4>
+                        <p>Research-based activities for phonics, vocabulary, fluency, and comprehension organized by skill.</p>
+                        <a href="https://fcrr.org" target="_blank">Visit FCRR →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Vocabulary.com</h4>
+                        <p>Adaptive vocabulary instruction with gamified learning. Great for building academic vocabulary.</p>
+                        <a href="https://www.vocabulary.com" target="_blank">Visit Vocabulary.com →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Spellingcity</h4>
+                        <p>Vocabulary and spelling activities including games, tests, and printable worksheets.</p>
+                        <a href="https://www.spellingcity.com" target="_blank">Visit Spellingcity →</a>
+                    </div>
+                </div>
+                
+                <h3>Comprehensive ELA Platforms</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>IXL Language Arts</h4>
+                        <p>Comprehensive practice covering reading, writing, vocabulary, and grammar with adaptive technology.</p>
+                        <a href="https://www.ixl.com/ela" target="_blank">Visit IXL →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Scholastic Learn at Home</h4>
+                        <p>Daily projects combining reading, writing, and enrichment activities organized by grade level.</p>
+                        <a href="https://classroommagazines.scholastic.com/support/learnathome.html" target="_blank">Visit Scholastic →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>PBS LearningMedia</h4>
+                        <p>Free videos, lesson plans, and interactive activities from PBS educational programming.</p>
+                        <a href="https://www.pbslearningmedia.org" target="_blank">Visit PBS →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lessons Tab -->
+            <div id="lessons" class="content-section">
+                <h2>📝 Lesson Ideas and Instructional Strategies</h2>
+                
+                <h3>Morphology Lesson: Prefixes that Mean "Not"</h3>
+                <div class="resource-card">
+                    <h4>Objective</h4>
+                    <p>Students will identify and use prefixes un-, dis-, non-, and mis- to determine word meanings.</p>
+                    
+                    <h4>Materials</h4>
+                    <ul>
+                        <li>Prefix anchor chart</li>
+                        <li>Word cards with base words</li>
+                        <li>Interactive notebooks</li>
+                    </ul>
+                    
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li><strong>Introduction (5 min):</strong> Show words "happy" and "unhappy" - discuss how the meaning changed. Explain that prefixes are word parts added to the beginning that change meaning.</li>
+                        <li><strong>Explicit Teaching (10 min):</strong> Introduce each prefix with examples: un- (unfair), dis- (disagree), non- (nonfiction), mis- (misunderstand). All mean "not" or "opposite of."</li>
+                        <li><strong>Guided Practice (10 min):</strong> Give base words; students add prefixes and explain new meanings: kind→unkind, obey→disobey, sense→nonsense, behave→misbehave</li>
+                        <li><strong>Independent Practice (10 min):</strong> Word sort activity—students sort words by prefix and write sentences using three words.</li>
+                        <li><strong>Closure (5 min):</strong> Exit ticket: Add a prefix to make the opposite: honest, trust, stop, agree</li>
+                    </ol>
+                </div>
+                
+                <h3>Close Reading Lesson: Finding Main Idea and Details</h3>
+                <div class="resource-card">
+                    <h4>Objective</h4>
+                    <p>Students will determine the main idea of an informational text and identify key supporting details.</p>
+                    
+                    <h4>Text Selection</h4>
+                    <p>Choose a grade-level informational text (Lexile 600-800) with clear topic sentences and supporting details.</p>
+                    
+                    <h4>Close Reading Protocol (3 Reads)</h4>
+                    <ol>
+                        <li><strong>First Read - What does the text say?</strong> Read for gist. Students identify the topic. "This text is mostly about..."</li>
+                        <li><strong>Second Read - How does the text work?</strong> Annotate topic sentences. Underline key details that support the main idea. Use symbols: ★ main idea, → supporting detail</li>
+                        <li><strong>Third Read - What does the text mean?</strong> Summarize using main idea + key details. Discuss author's purpose and text structure.</li>
+                    </ol>
+                    
+                    <h4>Graphic Organizer</h4>
+                    <p>Use a "Main Idea Table" - main idea is the tabletop, supporting details are the legs that hold it up.</p>
+                </div>
+                
+                <h3>Writing Workshop: Opinion Writing with Reasons</h3>
+                <div class="resource-card">
+                    <h4>Mini-Lesson: Organizing Reasons</h4>
+                    <p>Teach students to use OREO structure: Opinion, Reasons, Examples, Opinion restated</p>
+                    
+                    <h4>Procedure</h4>
+                    <ol>
+                        <li><strong>Connection:</strong> "Writers, we've been working on stating our opinions clearly. Today we'll learn how to organize our reasons to convince our readers."</li>
+                        <li><strong>Teaching:</strong> Model using mentor text. Show how the author states opinion, gives reasons with examples, and uses linking words (because, for example, also).</li>
+                        <li><strong>Active Engagement:</strong> Give students a simple opinion topic (e.g., "Recess should be longer"). Partners brainstorm 3 reasons with examples.</li>
+                        <li><strong>Link:</strong> "Today during writing time, organize your reasons from strongest to weakest. Use linking words to connect your ideas."</li>
+                        <li><strong>Independent Writing:</strong> 20-30 minutes of sustained writing with teacher conferring</li>
+                        <li><strong>Share:</strong> Partners read opening paragraph and one reason. Listeners give feedback: "I was convinced because..."</li>
+                    </ol>
+                    
+                    <div class="tip-box">
+                        <strong>Linking Words Anchor Chart:</strong> To give reasons: because, since, for example, such as. To add reasons: also, another, in addition, furthermore. To conclude: therefore, for these reasons, in conclusion.
+                    </div>
+                </div>
+                
+                <h3>Fluency Lesson: Reader's Theater</h3>
+                <div class="resource-card">
+                    <h4>Objective</h4>
+                    <p>Students will read with appropriate expression, phrasing, and rate through repeated readings of a script.</p>
+                    
+                    <h4>Weekly Schedule</h4>
+                    <table>
+                        <tr>
+                            <th>Day</th>
+                            <th>Activity</th>
+                        </tr>
+                        <tr>
+                            <td>Monday</td>
+                            <td>Teacher reads script aloud modeling fluency. Discuss story elements and character traits.</td>
+                        </tr>
+                        <tr>
+                            <td>Tuesday</td>
+                            <td>Assign parts. Echo reading - teacher reads a line, students repeat with same expression.</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td>Choral reading in groups. Practice highlighting punctuation cues for expression.</td>
+                        </tr>
+                        <tr>
+                            <td>Thursday</td>
+                            <td>Small group rehearsal with peer feedback on expression and rate.</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>Performance for class or partner class. Self-reflection on fluency growth.</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <h3>Vocabulary Lesson: Context Clues</h3>
+                <div class="resource-card">
+                    <h4>Teaching the PAVE Strategy</h4>
+                    <p><strong>P</strong>redict the meaning, <strong>A</strong>nalyze context clues, <strong>V</strong>erify with dictionary, <strong>E</strong>valuate your prediction</p>
+                    
+                    <h4>Types of Context Clues</h4>
+                    <ul>
+                        <li><strong>Definition:</strong> The author directly tells you the meaning</li>
+                        <li><strong>Synonym:</strong> A word with similar meaning is nearby</li>
+                        <li><strong>Antonym:</strong> A word with opposite meaning is nearby</li>
+                        <li><strong>Example:</strong> Examples help explain the word</li>
+                        <li><strong>Inference:</strong> You figure it out from surrounding sentences</li>
+                    </ul>
+                    
+                    <h4>Practice Sentences</h4>
+                    <p>"The frigid water was so cold that my toes went numb." (Definition clue)</p>
+                    <p>"Unlike his timid sister, Jake was bold and fearless." (Antonym clue)</p>
+                    <p>"Nutritious foods like vegetables, fruits, and whole grains keep you healthy." (Example clue)</p>
+                </div>
+            </div>
+            
+            <!-- Investigations Tab -->
+            <div id="investigations" class="content-section">
+                <h2>🔍 Close Reading and Text Analysis</h2>
+                
+                <h3>Close Reading Investigation: Comparing Folktales</h3>
+                <div class="resource-card">
+                    <h4>Essential Question</h4>
+                    <p>How do different cultures tell similar stories, and what can we learn from the differences?</p>
+                    
+                    <h4>Text Set: Cinderella Stories</h4>
+                    <ul>
+                        <li>"Cinderella" (Perrault, European)</li>
+                        <li>"Yeh-Shen" (Chinese)</li>
+                        <li>"The Rough-Face Girl" (Algonquin Native American)</li>
+                        <li>"Adelita" (Mexican)</li>
+                    </ul>
+                    
+                    <h4>Investigation Protocol</h4>
+                    <ol>
+                        <li><strong>Day 1:</strong> Read first version closely. Chart story elements: setting, main character, helper, transformation, ending.</li>
+                        <li><strong>Day 2-3:</strong> Read additional versions. Add to comparison chart. Note similarities and differences.</li>
+                        <li><strong>Day 4:</strong> Analyze: What themes appear in all versions? What cultural details are unique? Why might cultures have similar stories?</li>
+                        <li><strong>Day 5:</strong> Synthesis: Write a compare/contrast paragraph or create your own cultural version.</li>
+                    </ol>
+                    
+                    <h4>Comparison Chart Template</h4>
+                    <table>
+                        <tr>
+                            <th>Element</th>
+                            <th>Cinderella (Europe)</th>
+                            <th>Yeh-Shen (China)</th>
+                            <th>Rough-Face Girl (Algonquin)</th>
+                        </tr>
+                        <tr>
+                            <td>Setting</td>
+                            <td>European kingdom</td>
+                            <td>Ancient China</td>
+                            <td>Village by lake</td>
+                        </tr>
+                        <tr>
+                            <td>Magical Helper</td>
+                            <td>Fairy godmother</td>
+                            <td>Magic fish bones</td>
+                            <td>Invisible Being</td>
+                        </tr>
+                        <tr>
+                            <td>Transformation Object</td>
+                            <td>Glass slipper</td>
+                            <td>Golden slipper</td>
+                            <td>Seeing the Invisible Being</td>
+                        </tr>
+                        <tr>
+                            <td>Theme</td>
+                            <td>Kindness rewarded</td>
+                            <td>Kindness rewarded</td>
+                            <td>Inner beauty/truthfulness</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <h3>Text Structure Investigation</h3>
+                <div class="resource-card">
+                    <h4>Learning Target</h4>
+                    <p>Identify and analyze how authors use text structures to organize information.</p>
+                    
+                    <h4>Text Structure Types</h4>
+                    <ul>
+                        <li><strong>Description:</strong> Describes a topic with details and characteristics</li>
+                        <li><strong>Sequence/Order:</strong> Events or steps in order (signal words: first, next, then, finally)</li>
+                        <li><strong>Compare/Contrast:</strong> Shows how things are alike and different (signal words: both, however, unlike)</li>
+                        <li><strong>Cause/Effect:</strong> Shows why something happened and what resulted (signal words: because, so, therefore, as a result)</li>
+                        <li><strong>Problem/Solution:</strong> Presents a problem and how it was solved</li>
+                    </ul>
+                    
+                    <h4>Investigation Activity</h4>
+                    <ol>
+                        <li>Read short passages representing each text structure</li>
+                        <li>Highlight signal words in each passage</li>
+                        <li>Match passages to graphic organizers (Venn diagram, flow chart, cause-effect chart, etc.)</li>
+                        <li>Explain how the structure helps readers understand the information</li>
+                    </ol>
+                </div>
+                
+                <h3>Author's Purpose Investigation</h3>
+                <div class="resource-card">
+                    <h4>PIE Framework</h4>
+                    <ul>
+                        <li><strong>P</strong>ersuade - convince the reader to think or do something</li>
+                        <li><strong>I</strong>nform - teach the reader about a topic</li>
+                        <li><strong>E</strong>ntertain - amuse or engage the reader with a story</li>
+                    </ul>
+                    
+                    <h4>Text Evidence Hunt</h4>
+                    <p>Give students various texts (advertisement, encyclopedia article, fairy tale, recipe, editorial, poem). Students determine purpose and cite specific evidence:</p>
+                    <ul>
+                        <li>"The author's purpose is to _____ because the text _____."</li>
+                        <li>"I know this is meant to persuade/inform/entertain because _____."</li>
+                    </ul>
+                </div>
+                
+                <h3>Character Analysis Investigation</h3>
+                <div class="resource-card">
+                    <h4>STEAL Method for Character Analysis</h4>
+                    <p>Authors reveal character through:</p>
+                    <ul>
+                        <li><strong>S</strong>peech - What does the character say?</li>
+                        <li><strong>T</strong>houghts - What is the character thinking?</li>
+                        <li><strong>E</strong>ffect on Others - How do other characters react?</li>
+                        <li><strong>A</strong>ctions - What does the character do?</li>
+                        <li><strong>L</strong>ooks - How is the character described?</li>
+                    </ul>
+                    
+                    <h4>Character Traits Investigation</h4>
+                    <ol>
+                        <li>Choose a main character from current read-aloud or novel</li>
+                        <li>Complete STEAL chart with text evidence</li>
+                        <li>Infer 3 character traits based on evidence</li>
+                        <li>Write a paragraph: "In [title], [character] is [trait] because..."</li>
+                    </ol>
+                </div>
+                
+                <h3>Research Investigation: Animal Adaptations</h3>
+                <div class="resource-card">
+                    <h4>Inquiry Question</h4>
+                    <p>How do animals adapt to survive in their environments?</p>
+                    
+                    <h4>Research Process</h4>
+                    <ol>
+                        <li><strong>Wonder:</strong> Generate questions about an animal of choice</li>
+                        <li><strong>Investigate:</strong> Use books and approved websites to gather information</li>
+                        <li><strong>Synthesize:</strong> Organize information into categories (habitat, diet, physical adaptations, behavioral adaptations)</li>
+                        <li><strong>Express:</strong> Create an informative poster, report, or digital presentation</li>
+                        <li><strong>Reflect:</strong> What did you learn? What new questions do you have?</li>
+                    </ol>
+                    
+                    <h4>Note-Taking Template</h4>
+                    <p>Teach students to paraphrase rather than copy. Model: "The book says... In my own words..."</p>
+                    <p>Use fact cards or graphic organizers to collect information from multiple sources.</p>
+                </div>
+            </div>
+            
+            <!-- Videos Tab -->
+            <div id="videos" class="content-section">
+                <h2>🎬 Video Resources</h2>
+                
+                <h3>Reading Comprehension</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>BrainPOP ELA</h4>
+                        <p>Animated videos covering reading strategies, grammar, writing, and vocabulary with quizzes and activities.</p>
+                        <a href="https://www.brainpop.com/english/" target="_blank">Visit BrainPOP →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Flocabulary</h4>
+                        <p>Hip-hop videos teaching vocabulary, reading skills, and language arts concepts. Highly engaging for students.</p>
+                        <a href="https://www.flocabulary.com" target="_blank">Visit Flocabulary →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Reading Strategies Videos (Teaching Channel)</h4>
+                        <p>Classroom videos showing effective reading instruction in action.</p>
+                        <a href="https://www.teachingchannel.com" target="_blank">Visit Teaching Channel →</a>
+                    </div>
+                </div>
+                
+                <h3>Grammar and Language</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Schoolhouse Rock Grammar</h4>
+                        <p>Classic educational videos teaching parts of speech, sentence structure, and grammar concepts through catchy songs.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Grammar Girl Videos</h4>
+                        <p>Quick tips on grammar, punctuation, and usage explained in student-friendly language.</p>
+                    </div>
+                </div>
+                
+                <h3>Writing Instruction</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Two Writing Teachers</h4>
+                        <p>Video resources for writing workshop, including mini-lesson examples and conferring strategies.</p>
+                        <a href="https://twowritingteachers.org" target="_blank">Visit Two Writing Teachers →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Writing Process Videos</h4>
+                        <p>Videos modeling each stage of the writing process: prewriting, drafting, revising, editing, publishing.</p>
+                    </div>
+                </div>
+                
+                <h3>Read-Alouds</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Storyline Online</h4>
+                        <p>Celebrities read children's books aloud with illustrations. Great for author studies and listening comprehension.</p>
+                        <a href="https://www.storylineonline.net" target="_blank">Visit Storyline Online →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>KidLit TV</h4>
+                        <p>Author interviews, read-alouds, and behind-the-scenes looks at children's book creation.</p>
+                        <a href="https://kidlit.tv" target="_blank">Visit KidLit TV →</a>
+                    </div>
+                </div>
+                
+                <h3>Author Studies</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Author Visit Videos</h4>
+                        <p>Virtual author visits and interviews with popular children's authors discussing their writing process.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Behind the Book Videos</h4>
+                        <p>Authors and illustrators explain how their books were created, inspiring student writers.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Articles Tab -->
+            <div id="articles" class="content-section">
+                <h2>📰 Professional Articles and Student Resources</h2>
+                
+                <h3>Professional Reading for Teachers</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>The Science of Reading (Louisa Moats)</h4>
+                        <p>Research-based articles on effective reading instruction and the science behind how children learn to read.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Reading Rockets Articles</h4>
+                        <p>Practical articles on comprehension, vocabulary, fluency, and phonics instruction.</p>
+                        <a href="https://www.readingrockets.org/articles" target="_blank">Visit Reading Rockets →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>NCTE Journals</h4>
+                        <p>Language Arts and Voices from the Middle offer research and practical strategies for ELA instruction.</p>
+                        <a href="https://ncte.org/resources/journals/" target="_blank">Visit NCTE →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Heinemann Blog</h4>
+                        <p>Articles from leading literacy educators including Jennifer Serravallo, Lucy Calkins, and others.</p>
+                        <a href="https://blog.heinemann.com" target="_blank">Visit Heinemann →</a>
+                    </div>
+                </div>
+                
+                <h3>Student Reading Resources</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Newsela</h4>
+                        <p>Current events articles adjusted to multiple Lexile levels. Great for informational text practice.</p>
+                        <a href="https://newsela.com" target="_blank">Visit Newsela →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Scholastic News</h4>
+                        <p>Grade-level news magazine with articles, videos, and comprehension activities.</p>
+                        <a href="https://sn3.scholastic.com" target="_blank">Visit Scholastic News →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Time for Kids</h4>
+                        <p>Age-appropriate news articles covering current events, science, and social studies topics.</p>
+                        <a href="https://www.timeforkids.com" target="_blank">Visit Time for Kids →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>National Geographic Kids</h4>
+                        <p>Engaging articles about animals, science, geography, and world cultures.</p>
+                        <a href="https://kids.nationalgeographic.com" target="_blank">Visit Nat Geo Kids →</a>
+                    </div>
+                </div>
+                
+                <h3>Research and Best Practices</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>What Works Clearinghouse</h4>
+                        <p>Evidence-based literacy intervention guides and practice guides from the Institute of Education Sciences.</p>
+                        <a href="https://ies.ed.gov/ncee/wwc/" target="_blank">Visit WWC →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Reading Research Quarterly</h4>
+                        <p>Peer-reviewed research on literacy learning and instruction from the International Literacy Association.</p>
+                        <a href="https://ila.onlinelibrary.wiley.com/journal/19362722" target="_blank">Visit ILA →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Assessments Tab -->
+            <div id="assessments" class="content-section">
+                <h2>📊 Assessment Strategies</h2>
+                
+                <h3>Formative Assessment Tools</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Exit Tickets</h4>
+                        <p>Quick checks for understanding at the end of lessons:</p>
+                        <ul>
+                            <li>3-2-1: 3 things learned, 2 questions, 1 connection</li>
+                            <li>Ticket Out the Door: Answer one question on a sticky note</li>
+                            <li>Muddy/Clear: What's still confusing? What's clear?</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Quick Writes</h4>
+                        <p>Timed writing to assess comprehension or skill application:</p>
+                        <ul>
+                            <li>Summarize the main idea in 3 sentences</li>
+                            <li>Write about the character's feelings and why</li>
+                            <li>Explain how you figured out an unknown word</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Thumbs Up/Down/Sideways</h4>
+                        <p>Quick whole-class check for understanding. Students show thumbs to indicate their confidence level.</p>
+                    </div>
+                </div>
+                
+                <h3>Reading Assessments</h3>
+                <div class="resource-card">
+                    <h4>Running Records</h4>
+                    <p>Ongoing assessment of oral reading to determine accuracy, fluency, and reading level. Calculate:</p>
+                    <ul>
+                        <li><strong>Accuracy Rate:</strong> (Words correct ÷ Total words) × 100</li>
+                        <li><strong>Independent Level:</strong> 95-100% accuracy</li>
+                        <li><strong>Instructional Level:</strong> 90-94% accuracy</li>
+                        <li><strong>Frustration Level:</strong> Below 90% accuracy</li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>DIBELS/Acadience Reading</h4>
+                    <p>Universal screening measures for third grade:</p>
+                    <ul>
+                        <li><strong>ORF (Oral Reading Fluency):</strong> Words correct per minute from grade-level passages</li>
+                        <li><strong>Retell:</strong> Comprehension check after reading</li>
+                        <li><strong>Maze:</strong> Silent reading comprehension measure</li>
+                    </ul>
+                    <table>
+                        <tr>
+                            <th>Benchmark</th>
+                            <th>Beginning of Year</th>
+                            <th>Middle of Year</th>
+                            <th>End of Year</th>
+                        </tr>
+                        <tr>
+                            <td>ORF (WCPM)</td>
+                            <td>70</td>
+                            <td>92</td>
+                            <td>110</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <h3>Writing Assessments</h3>
+                <div class="resource-card">
+                    <h4>Writing Rubrics by Genre</h4>
+                    <p>Use rubrics aligned to standards for each writing type:</p>
+                    <ul>
+                        <li><strong>Opinion:</strong> Clear opinion, organized reasons, linking words, conclusion</li>
+                        <li><strong>Informative:</strong> Topic introduction, facts and details, linking words, conclusion</li>
+                        <li><strong>Narrative:</strong> Situation/characters, sequence of events, dialogue/description, closure</li>
+                    </ul>
+                    <p>Include criteria for conventions: grammar, punctuation, spelling</p>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>Writing Conferences</h4>
+                    <p>One-on-one assessment and teaching during writing workshop:</p>
+                    <ol>
+                        <li><strong>Research:</strong> "What are you working on as a writer?"</li>
+                        <li><strong>Compliment:</strong> Note something the student is doing well</li>
+                        <li><strong>Teach:</strong> Offer one teaching point based on need</li>
+                        <li><strong>Link:</strong> Remind student to use this strategy going forward</li>
+                    </ol>
+                </div>
+                
+                <h3>Comprehension Assessments</h3>
+                <div class="resource-card">
+                    <h4>Reading Response Questions</h4>
+                    <p>Assess comprehension with text-dependent questions:</p>
+                    <ul>
+                        <li><strong>Key Ideas:</strong> What is the main idea? What key details support it?</li>
+                        <li><strong>Craft and Structure:</strong> What does the word ___ mean in this context? How does the author organize this text?</li>
+                        <li><strong>Integration:</strong> How do the illustrations help you understand ___? Compare this text to ___.</li>
+                    </ul>
+                    <p>Require students to cite text evidence: "According to the text..." or "On page ___, it says..."</p>
+                </div>
+                
+                <h3>Student Self-Assessment</h3>
+                <div class="resource-card">
+                    <h4>Reading Logs with Reflection</h4>
+                    <p>Students track reading and reflect on their growth:</p>
+                    <ul>
+                        <li>What reading goal are you working on?</li>
+                        <li>What strategy did you use today when you got stuck?</li>
+                        <li>How did your reading go today? What will you work on tomorrow?</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Printables Tab -->
+            <div id="printables" class="content-section">
+                <h2>📄 Graphic Organizers and Printables</h2>
+                
+                <h3>Reading Comprehension Organizers</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Main Idea and Details</h4>
+                        <ul>
+                            <li>Main Idea Table (tabletop = main idea, legs = details)</li>
+                            <li>Umbrella organizer (main idea covers supporting details)</li>
+                            <li>Main Idea/Details T-chart</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Story Elements</h4>
+                        <ul>
+                            <li>Story Map (characters, setting, problem, events, solution)</li>
+                            <li>Character Traits Web</li>
+                            <li>Beginning-Middle-End organizer</li>
+                            <li>Plot Mountain (exposition, rising action, climax, falling action, resolution)</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Compare and Contrast</h4>
+                        <ul>
+                            <li>Venn Diagram</li>
+                            <li>Comparison Chart (side-by-side columns)</li>
+                            <li>Same/Different T-chart</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Cause and Effect</h4>
+                        <ul>
+                            <li>Cause-Effect arrows</li>
+                            <li>If/Then chart</li>
+                            <li>Chain of events (domino effect)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Writing Templates</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Opinion Writing</h4>
+                        <ul>
+                            <li>OREO planner (Opinion, Reason, Examples, Opinion restated)</li>
+                            <li>Opinion paragraph frame</li>
+                            <li>Reasons and Evidence organizer</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Informative Writing</h4>
+                        <ul>
+                            <li>Research organizer (topic, subtopics, details)</li>
+                            <li>Informative paragraph planner</li>
+                            <li>All About... book template</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Narrative Writing</h4>
+                        <ul>
+                            <li>Story planning sheet (characters, setting, problem, solution)</li>
+                            <li>Small Moment planner</li>
+                            <li>Dialogue planning template</li>
+                            <li>Narrative transition words list</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Vocabulary and Word Study</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Vocabulary Development</h4>
+                        <ul>
+                            <li>Frayer Model (definition, characteristics, examples, non-examples)</li>
+                            <li>Word Map (word, meaning, sentence, picture)</li>
+                            <li>Context Clues detective worksheet</li>
+                            <li>Multiple Meaning Words chart</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Morphology</h4>
+                        <ul>
+                            <li>Prefix/Suffix chart</li>
+                            <li>Word Sum template (base + affix = new word)</li>
+                            <li>Word Family trees</li>
+                            <li>Root Word organizer</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Grammar and Language</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Parts of Speech</h4>
+                        <ul>
+                            <li>Noun/Verb/Adjective sorting mats</li>
+                            <li>Pronoun reference chart</li>
+                            <li>Verb tense timeline</li>
+                            <li>Adjective/Adverb comparison chart</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Sentence Work</h4>
+                        <ul>
+                            <li>Sentence expanding worksheet</li>
+                            <li>Combining sentences practice</li>
+                            <li>Punctuation practice pages</li>
+                            <li>Editing checklist</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <strong>Printable Resources:</strong> Find downloadable graphic organizers at ReadWriteThink.org, Teachers Pay Teachers, and Florida Center for Reading Research (FCRR) Student Center Activities.
+                </div>
+            </div>
+            
+            <!-- Vocabulary Tab -->
+            <div id="vocabulary" class="content-section">
+                <h2>📚 Vocabulary Instruction</h2>
+                
+                <h3>Third Grade Academic Vocabulary</h3>
+                <p>Focus on Tier 2 (academic) words that appear across content areas and Tier 3 (domain-specific) words for ELA.</p>
+                
+                <h4>Essential ELA Terms</h4>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Reading/Literature</h4>
+                        <ul>
+                            <li>main idea, supporting details</li>
+                            <li>theme, moral, lesson</li>
+                            <li>character traits, motivation</li>
+                            <li>setting, plot, sequence</li>
+                            <li>point of view, narrator</li>
+                            <li>compare, contrast</li>
+                            <li>literal, figurative</li>
+                            <li>fable, folktale, myth</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Informational Text</h4>
+                        <ul>
+                            <li>text features (heading, caption, diagram)</li>
+                            <li>author's purpose</li>
+                            <li>cause and effect</li>
+                            <li>compare and contrast</li>
+                            <li>fact vs. opinion</li>
+                            <li>evidence, reasons</li>
+                            <li>primary/secondary source</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Writing</h4>
+                        <ul>
+                            <li>opinion, reasons, evidence</li>
+                            <li>informative/explanatory</li>
+                            <li>narrative, dialogue</li>
+                            <li>introduction, conclusion</li>
+                            <li>linking words/transitions</li>
+                            <li>revise, edit, publish</li>
+                            <li>audience, purpose</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Language</h4>
+                        <ul>
+                            <li>noun, verb, adjective, adverb</li>
+                            <li>pronoun (subject, object, possessive)</li>
+                            <li>simple, compound sentence</li>
+                            <li>prefix, suffix, root</li>
+                            <li>synonym, antonym</li>
+                            <li>context clues</li>
+                            <li>multiple-meaning words</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Vocabulary Instruction Strategies</h3>
+                <div class="resource-card">
+                    <h4>Robust Vocabulary Instruction (Beck, McKeown, Kucan)</h4>
+                    <ol>
+                        <li>Introduce word in context from text</li>
+                        <li>Provide student-friendly definition</li>
+                        <li>Give examples in various contexts</li>
+                        <li>Have students interact with the word</li>
+                        <li>Provide multiple exposures over time</li>
+                    </ol>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>Vocabulary Activities</h4>
+                    <ul>
+                        <li><strong>Word Walls:</strong> Display and interact with vocabulary daily</li>
+                        <li><strong>Frayer Model:</strong> Definition, characteristics, examples, non-examples</li>
+                        <li><strong>Vocabulary Journals:</strong> Personal word collections with sentences and illustrations</li>
+                        <li><strong>Word Sorts:</strong> Categorize words by meaning, word part, or relationship</li>
+                        <li><strong>Act It Out:</strong> Dramatize vocabulary words</li>
+                        <li><strong>Word Relationships:</strong> Synonyms, antonyms, analogies</li>
+                    </ul>
+                </div>
+                
+                <h3>Morphology Instruction</h3>
+                <table>
+                    <tr>
+                        <th>Prefix</th>
+                        <th>Meaning</th>
+                        <th>Example Words</th>
+                    </tr>
+                    <tr>
+                        <td>un-</td>
+                        <td>not, opposite</td>
+                        <td>unhappy, unfair, undo</td>
+                    </tr>
+                    <tr>
+                        <td>re-</td>
+                        <td>again, back</td>
+                        <td>reread, return, replay</td>
+                    </tr>
+                    <tr>
+                        <td>pre-</td>
+                        <td>before</td>
+                        <td>preview, prefix, preheat</td>
+                    </tr>
+                    <tr>
+                        <td>dis-</td>
+                        <td>not, opposite</td>
+                        <td>disagree, dislike, disappear</td>
+                    </tr>
+                    <tr>
+                        <td>mis-</td>
+                        <td>wrong, badly</td>
+                        <td>misspell, misunderstand, mistake</td>
+                    </tr>
+                </table>
+                
+                <table>
+                    <tr>
+                        <th>Suffix</th>
+                        <th>Meaning</th>
+                        <th>Example Words</th>
+                    </tr>
+                    <tr>
+                        <td>-ful</td>
+                        <td>full of</td>
+                        <td>helpful, careful, beautiful</td>
+                    </tr>
+                    <tr>
+                        <td>-less</td>
+                        <td>without</td>
+                        <td>careless, helpless, fearless</td>
+                    </tr>
+                    <tr>
+                        <td>-ly</td>
+                        <td>in a way</td>
+                        <td>quickly, slowly, carefully</td>
+                    </tr>
+                    <tr>
+                        <td>-er, -est</td>
+                        <td>more, most</td>
+                        <td>taller, tallest, faster, fastest</td>
+                    </tr>
+                    <tr>
+                        <td>-ment</td>
+                        <td>result of</td>
+                        <td>enjoyment, excitement, movement</td>
+                    </tr>
+                    <tr>
+                        <td>-ness</td>
+                        <td>state of</td>
+                        <td>kindness, sadness, happiness</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Games Tab -->
+            <div id="games" class="content-section">
+                <h2>🎮 Interactive Games and Activities</h2>
+                
+                <h3>Digital Games</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Vocabulary Games</h4>
+                        <ul>
+                            <li><a href="https://www.vocabulary.com" target="_blank">Vocabulary.com</a> - Adaptive vocabulary practice</li>
+                            <li><a href="https://www.spellingcity.com" target="_blank">SpellingCity</a> - Vocabulary and spelling games</li>
+                            <li><a href="https://www.freerice.com" target="_blank">Free Rice</a> - Vocabulary with charitable giving</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Reading Games</h4>
+                        <ul>
+                            <li><a href="https://www.roomrecess.com" target="_blank">Room Recess</a> - Reading comprehension games</li>
+                            <li><a href="https://www.funbrain.com" target="_blank">Funbrain</a> - Reading games and books</li>
+                            <li><a href="https://www.abcya.com" target="_blank">ABCya</a> - Language arts games</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Grammar Games</h4>
+                        <ul>
+                            <li><a href="https://www.grammaropolis.com" target="_blank">Grammaropolis</a> - Parts of speech adventures</li>
+                            <li><a href="https://www.turtlediary.com" target="_blank">Turtle Diary</a> - Grammar practice games</li>
+                            <li><a href="https://www.ixl.com/ela" target="_blank">IXL</a> - Comprehensive ELA practice</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Classroom Games</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Vocabulary Games</h4>
+                        <ul>
+                            <li><strong>Vocabulary Charades:</strong> Act out vocabulary words for classmates to guess</li>
+                            <li><strong>Word Association:</strong> Quick-fire related word connections</li>
+                            <li><strong>Prefix/Suffix Concentration:</strong> Match word parts with meanings</li>
+                            <li><strong>Vocabulary Bingo:</strong> Match definitions to vocabulary words</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Reading Games</h4>
+                        <ul>
+                            <li><strong>Text Feature Scavenger Hunt:</strong> Find and identify text features in books</li>
+                            <li><strong>Character Hot Seat:</strong> Student becomes character, classmates ask questions</li>
+                            <li><strong>Story Element Relay:</strong> Teams race to identify story elements</li>
+                            <li><strong>Main Idea Match:</strong> Match main ideas to supporting details</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Grammar Games</h4>
+                        <ul>
+                            <li><strong>Parts of Speech Sort:</strong> Categorize words by part of speech</li>
+                            <li><strong>Sentence Building:</strong> Arrange word cards into sentences</li>
+                            <li><strong>Grammar Police:</strong> Find and fix errors in sentences</li>
+                            <li><strong>Verb Tense Timeline:</strong> Act out past, present, future actions</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Writing Games</h4>
+                        <ul>
+                            <li><strong>Story Starters:</strong> Random prompts for creative writing</li>
+                            <li><strong>Pass the Story:</strong> Collaborative story writing in groups</li>
+                            <li><strong>Word Challenge:</strong> Include specific words in a paragraph</li>
+                            <li><strong>Sentence Stretching:</strong> Expand simple sentences with details</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Movement and Kinesthetic Activities</h3>
+                <div class="resource-card">
+                    <h4>Active Learning Games</h4>
+                    <ul>
+                        <li><strong>Four Corners:</strong> Move to corner representing your answer choice</li>
+                        <li><strong>Gallery Walk:</strong> Rotate through stations with reading/writing tasks</li>
+                        <li><strong>Act It Out:</strong> Dramatize vocabulary, story events, or character feelings</li>
+                        <li><strong>Human Sentence:</strong> Students hold word cards to form sentences</li>
+                        <li><strong>Fluency Tag:</strong> Read passage fluently without getting "tagged" by mistakes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Differentiation Tab -->
+            <div id="differentiation" class="content-section">
+                <h2>🎯 Differentiation Strategies</h2>
+                
+                <h3>Supporting Struggling Readers</h3>
+                <div class="resource-card">
+                    <h4>Intervention Strategies</h4>
+                    <ul>
+                        <li><strong>Small Group Instruction:</strong> Provide targeted instruction at students' instructional level</li>
+                        <li><strong>Decodable Texts:</strong> Use texts that match students' phonics skills</li>
+                        <li><strong>Repeated Reading:</strong> Build fluency through practice with familiar texts</li>
+                        <li><strong>Graphic Organizers:</strong> Provide visual supports for comprehension</li>
+                        <li><strong>Sentence Frames:</strong> Support written and oral responses</li>
+                        <li><strong>Explicit Vocabulary:</strong> Pre-teach key vocabulary before reading</li>
+                        <li><strong>Audio Support:</strong> Provide audiobooks or text-to-speech for access</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <strong>Third Grade Reading Guarantee:</strong> Georgia requires intervention plans for students not reading on grade level. Progress monitor regularly and adjust instruction based on data.
+                </div>
+                
+                <h3>English Language Learners (ELL)</h3>
+                <div class="resource-card">
+                    <h4>Language Support Strategies</h4>
+                    <ul>
+                        <li><strong>Visual Supports:</strong> Pictures, diagrams, graphic organizers with every lesson</li>
+                        <li><strong>Sentence Stems:</strong> Provide language frames for discussion and writing</li>
+                        <li><strong>Cognates:</strong> Connect English words to students' home languages</li>
+                        <li><strong>Total Physical Response:</strong> Use gestures and movement with vocabulary</li>
+                        <li><strong>Partner Work:</strong> Pair with English-proficient peers for support</li>
+                        <li><strong>Extended Wait Time:</strong> Allow processing time for responses</li>
+                        <li><strong>Home Language Support:</strong> Allow use of L1 for understanding before English output</li>
+                        <li><strong>Leveled Questions:</strong> Ask questions that match language proficiency</li>
+                    </ul>
+                </div>
+                
+                <h3>Gifted and Advanced Learners</h3>
+                <div class="resource-card">
+                    <h4>Extension Strategies</h4>
+                    <ul>
+                        <li><strong>Complex Texts:</strong> Provide above-grade-level reading materials</li>
+                        <li><strong>Literature Circles:</strong> Student-led discussions of challenging books</li>
+                        <li><strong>Author Studies:</strong> Deep dive into author's craft and techniques</li>
+                        <li><strong>Creative Writing Projects:</strong> Publish original works in various genres</li>
+                        <li><strong>Independent Research:</strong> Self-directed inquiry projects</li>
+                        <li><strong>Critical Analysis:</strong> Analyze author's purpose, bias, and technique</li>
+                        <li><strong>Genre Exploration:</strong> Read and write in new and complex genres</li>
+                        <li><strong>Mentorship:</strong> Pair with younger students as reading buddies</li>
+                    </ul>
+                </div>
+                
+                <h3>Universal Design for Learning (UDL)</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Multiple Means of Representation</h4>
+                        <ul>
+                            <li>Provide text in multiple formats (print, audio, digital)</li>
+                            <li>Use visuals and graphic organizers</li>
+                            <li>Highlight key vocabulary and concepts</li>
+                            <li>Offer background knowledge supports</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Multiple Means of Action/Expression</h4>
+                        <ul>
+                            <li>Allow choice in how to demonstrate learning</li>
+                            <li>Provide scaffolds for writing (graphic organizers, sentence frames)</li>
+                            <li>Offer technology tools for composition</li>
+                            <li>Allow verbal responses as alternative to written</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Multiple Means of Engagement</h4>
+                        <ul>
+                            <li>Offer choices in reading materials</li>
+                            <li>Connect to student interests and experiences</li>
+                            <li>Provide opportunities for collaboration</li>
+                            <li>Set personal goals and track progress</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Flexible Grouping</h3>
+                <div class="resource-card">
+                    <h4>Grouping Strategies</h4>
+                    <ul>
+                        <li><strong>Skill-Based Groups:</strong> Temporary groups for specific skill instruction</li>
+                        <li><strong>Interest Groups:</strong> Groups based on reading interests or topics</li>
+                        <li><strong>Heterogeneous Groups:</strong> Mixed-ability groups for collaborative learning</li>
+                        <li><strong>Partner Reading:</strong> Strategic pairing for fluency and comprehension</li>
+                        <li><strong>Literature Circles:</strong> Student-led discussion groups with roles</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Misconceptions Tab -->
+            <div id="misconceptions" class="content-section">
+                <h2>❌ Common Misconceptions</h2>
+                
+                <h3>Reading Misconceptions</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Misconception: Fast reading = good reading</h4>
+                        <p><strong>Reality:</strong> Fluency includes rate, accuracy, AND prosody. Reading too fast can hurt comprehension. Good readers adjust their rate based on text difficulty and purpose.</p>
+                        <p><strong>Address It:</strong> Model adjusting reading rate for different texts. Teach prosody explicitly. Emphasize that understanding matters more than speed.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Misconception: Main idea is the first sentence</h4>
+                        <p><strong>Reality:</strong> Main idea can be stated anywhere in a paragraph or may be implied. Students must consider all information to determine what the text is mostly about.</p>
+                        <p><strong>Address It:</strong> Practice with paragraphs where main idea is in different positions. Teach the difference between topic and main idea.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Misconception: Fiction = fake, Nonfiction = true</h4>
+                        <p><strong>Reality:</strong> Fiction is imaginative but can contain true elements. Nonfiction aims to inform but may include bias or errors. Critical reading applies to both.</p>
+                        <p><strong>Address It:</strong> Discuss historical fiction, realistic fiction, and how to evaluate nonfiction sources.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Misconception: All characters are good or bad</h4>
+                        <p><strong>Reality:</strong> Characters are complex with multiple traits. They can change throughout a story. Even protagonists have flaws.</p>
+                        <p><strong>Address It:</strong> Analyze characters using STEAL method. Discuss character change and growth. Use character trait continuums.</p>
+                    </div>
+                </div>
+                
+                <h3>Writing Misconceptions</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Misconception: More is always better</h4>
+                        <p><strong>Reality:</strong> Quality matters more than quantity. Strong writing is focused, clear, and uses precise words. Adding unnecessary details weakens writing.</p>
+                        <p><strong>Address It:</strong> Teach revision for focus. Practice "tightening" writing by removing unnecessary words. Compare short, powerful sentences to wordy ones.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Misconception: Revising = editing</h4>
+                        <p><strong>Reality:</strong> Revising focuses on meaning, organization, and development. Editing focuses on conventions. Both are important but different processes.</p>
+                        <p><strong>Address It:</strong> Separate revision and editing in the writing process. Use different checklists for each. Model both processes explicitly.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Misconception: Good writers get it right the first time</h4>
+                        <p><strong>Reality:</strong> All writers revise. The writing process involves multiple drafts. Published authors do extensive revision.</p>
+                        <p><strong>Address It:</strong> Share author interviews about revision. Show drafts of mentor texts. Celebrate growth through revision.</p>
+                    </div>
+                </div>
+                
+                <h3>Grammar and Spelling Misconceptions</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Misconception: "Sound it out" works for all words</h4>
+                        <p><strong>Reality:</strong> English has many irregular spellings that don't follow patterns. Some words must be memorized (sight words).</p>
+                        <p><strong>Address It:</strong> Teach regular patterns AND irregular words. Use word walls and practice with high-frequency words. Discuss word origins.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Misconception: Adding -ed always makes past tense</h4>
+                        <p><strong>Reality:</strong> English has many irregular past tense verbs (go→went, run→ran, eat→ate). The -ed ending also has different sounds (/t/, /d/, /id/).</p>
+                        <p><strong>Address It:</strong> Explicitly teach irregular verbs. Sort verbs by regular/irregular. Practice with common irregular verbs.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Misconception: Sentences can't start with "And" or "But"</h4>
+                        <p><strong>Reality:</strong> Professional writers often start sentences with coordinating conjunctions for effect. It's a stylistic choice, not a rule.</p>
+                        <p><strong>Address It:</strong> Find examples in mentor texts. Discuss when it's effective versus overused.</p>
+                    </div>
+                </div>
+                
+                <h3>Vocabulary Misconceptions</h3>
+                <div class="resource-card">
+                    <h4>Misconception: Looking up every word in the dictionary</h4>
+                    <p><strong>Reality:</strong> Good readers use multiple strategies including context clues, word parts, and sometimes skipping words that aren't essential.</p>
+                    <p><strong>Address It:</strong> Teach context clues strategies. Practice morphology. Help students identify when they need a dictionary versus when they can figure it out.</p>
+                </div>
+            </div>
+            
+            <!-- Cultural Tab -->
+            <div id="cultural" class="content-section">
+                <h2>🌍 Diverse and Multicultural Literature</h2>
+                
+                <h3>Windows, Mirrors, and Sliding Glass Doors</h3>
+                <p>Dr. Rudine Sims Bishop's framework reminds us that children need:</p>
+                <ul>
+                    <li><strong>Mirrors:</strong> Books that reflect their own lives, cultures, and experiences</li>
+                    <li><strong>Windows:</strong> Books that offer views into others' experiences and cultures</li>
+                    <li><strong>Sliding Glass Doors:</strong> Books that allow readers to walk through and become part of another world</li>
+                </ul>
+                
+                <h3>Diverse Authors for Third Grade</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>African American Authors</h4>
+                        <ul>
+                            <li>Jacqueline Woodson (Each Kindness, The Other Side)</li>
+                            <li>Christopher Paul Curtis (Elijah of Buxton)</li>
+                            <li>Jason Reynolds (Ghost, Look Both Ways)</li>
+                            <li>Derrick Barnes (Crown: An Ode to the Fresh Cut)</li>
+                            <li>Andrea Davis Pinkney (Duke Ellington)</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Latinx Authors</h4>
+                        <ul>
+                            <li>Yuyi Morales (Dreamers, Bright Star)</li>
+                            <li>Pam Muñoz Ryan (Esperanza Rising, Riding Freedom)</li>
+                            <li>Matt de la Peña (Last Stop on Market Street)</li>
+                            <li>Duncan Tonatiuh (Funny Bones, Pancho Rabbit)</li>
+                            <li>Meg Medina (Mango, Abuela, and Me)</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Asian American Authors</h4>
+                        <ul>
+                            <li>Grace Lin (Where the Mountain Meets the Moon, Year of the Dog)</li>
+                            <li>Cynthia Kadohata (Kira-Kira, Weedflower)</li>
+                            <li>Linda Sue Park (A Single Shard, Long Walk to Water)</li>
+                            <li>Andrea Wang (Watercress)</li>
+                            <li>Kelly Yang (Front Desk)</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Native American/Indigenous Authors</h4>
+                        <ul>
+                            <li>Cynthia Leitich Smith (Jingle Dancer, Indian Shoes)</li>
+                            <li>Joseph Bruchac (Code Talker, Children of the Longhouse)</li>
+                            <li>Tim Tingle (How I Became a Ghost)</li>
+                            <li>Traci Sorell (We Are Grateful: Otsaliheliga)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Multicultural Folktales and Myths</h3>
+                <div class="resource-card">
+                    <h4>Third Grade Standard: Fables, Folktales, and Myths</h4>
+                    <p>Include diverse cultural traditions when teaching this standard:</p>
+                    <ul>
+                        <li><strong>African:</strong> Anansi tales, Why Mosquitoes Buzz in People's Ears</li>
+                        <li><strong>Asian:</strong> The Empty Pot, Tikki Tikki Tembo, Lon Po Po</li>
+                        <li><strong>Latin American:</strong> Adelita, The Legend of the Poinsettia</li>
+                        <li><strong>Native American:</strong> The Legend of the Bluebonnet, Coyote tales</li>
+                        <li><strong>European:</strong> Classic fairy tales with variants from multiple countries</li>
+                        <li><strong>Middle Eastern:</strong> Tales from 1001 Nights (age-appropriate versions)</li>
+                    </ul>
+                </div>
+                
+                <h3>Award-Winning Diverse Literature</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Coretta Scott King Award</h4>
+                        <p>Honors African American authors and illustrators</p>
+                        <ul>
+                            <li>Crown: An Ode to the Fresh Cut</li>
+                            <li>Each Kindness</li>
+                            <li>Dave the Potter</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Pura Belpré Award</h4>
+                        <p>Honors Latinx authors and illustrators</p>
+                        <ul>
+                            <li>Dreamers by Yuyi Morales</li>
+                            <li>Islandborn by Junot Díaz</li>
+                            <li>Front Desk by Kelly Yang</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Asian/Pacific American Award</h4>
+                        <p>Honors Asian American literature</p>
+                        <ul>
+                            <li>Inside Out and Back Again</li>
+                            <li>Where the Mountain Meets the Moon</li>
+                            <li>Watercress</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>American Indian Youth Literature Award</h4>
+                        <p>Honors Native American literature</p>
+                        <ul>
+                            <li>We Are Grateful: Otsaliheliga</li>
+                            <li>Fry Bread: A Native American Family Story</li>
+                            <li>When We Were Alone</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Inclusive Classroom Practices</h3>
+                <div class="resource-card">
+                    <h4>Creating an Inclusive Literacy Environment</h4>
+                    <ul>
+                        <li>Audit classroom library for diverse representation</li>
+                        <li>Include books with diverse characters as main characters (not just sidekicks)</li>
+                        <li>Represent various family structures, abilities, and socioeconomic backgrounds</li>
+                        <li>Avoid tokenism—include diverse books throughout the year, not just during heritage months</li>
+                        <li>Welcome students' home languages and cultural knowledge</li>
+                        <li>Select books that avoid stereotypes and feature authentic representation</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Books Tab -->
+            <div id="books" class="content-section">
+                <h2>📚 Book Recommendations</h2>
+                
+                <h3>Read-Alouds for Third Grade</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Charlotte's Web</strong> by E.B. White<br>
+                            <em>Classic about friendship, loyalty, and the cycle of life. Lexile 680L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>The One and Only Ivan</strong> by Katherine Applegate<br>
+                            <em>Newbery Medal winner about a gorilla's life in captivity. Lexile 570L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Because of Winn-Dixie</strong> by Kate DiCamillo<br>
+                            <em>Heartwarming story of a girl and her dog in a small town. Lexile 610L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Esperanza Rising</strong> by Pam Muñoz Ryan<br>
+                            <em>Immigration story from Mexico to California during the Depression. Lexile 750L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Ramona Quimby, Age 8</strong> by Beverly Cleary<br>
+                            <em>Relatable family and school experiences. Lexile 860L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Flora & Ulysses</strong> by Kate DiCamillo<br>
+                            <em>Newbery winner about a girl and a superhero squirrel. Lexile 520L</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Independent Reading - Chapter Book Series</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Magic Tree House</strong> by Mary Pope Osborne<br>
+                            <em>Adventure series with historical content. Lexile 380-590L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Junie B. Jones</strong> by Barbara Park<br>
+                            <em>Humorous school stories. Lexile 380-560L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Diary of a Wimpy Kid</strong> by Jeff Kinney<br>
+                            <em>Humorous illustrated diary format. Lexile 950L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Dog Man</strong> by Dav Pilkey<br>
+                            <em>Graphic novel hybrid, highly engaging. Lexile GN530L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>The Boxcar Children</strong> by Gertrude Chandler Warner<br>
+                            <em>Classic mystery series. Lexile 520L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Ivy + Bean</strong> by Annie Barrows<br>
+                            <em>Friendship series with humor. Lexile 530-640L</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Literature Circle Options</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Front Desk</strong> by Kelly Yang<br>
+                            <em>Chinese immigrant experience. Lexile 640L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>The Year of the Dog</strong> by Grace Lin<br>
+                            <em>Taiwanese American identity. Lexile 790L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Ghost</strong> by Jason Reynolds<br>
+                            <em>Track team and personal growth. Lexile 730L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Merci Suárez Changes Gears</strong> by Meg Medina<br>
+                            <em>Cuban American family. Newbery Medal. Lexile 710L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Hatchet</strong> by Gary Paulsen<br>
+                            <em>Survival story. Lexile 1020L (read with support)</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Pax</strong> by Sara Pennypacker<br>
+                            <em>Story of a boy and his fox. Lexile 760L</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Poetry Collections</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Where the Sidewalk Ends</strong> by Shel Silverstein<br>
+                            <em>Classic humorous poetry</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>The Random House Book of Poetry</strong> edited by Jack Prelutsky<br>
+                            <em>Comprehensive anthology</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Hip Hop Speaks to Children</strong> edited by Nikki Giovanni<br>
+                            <em>Diverse poetry with audio CD</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Brown Girl Dreaming</strong> by Jacqueline Woodson<br>
+                            <em>Memoir in verse (read selections)</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Nonfiction</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Who Was/What Was Series</strong><br>
+                            <em>Accessible biographies and history. Various Lexiles</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>National Geographic Kids Readers</strong><br>
+                            <em>Science and social studies topics with stunning photos</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>I Survived Series</strong> by Lauren Tarshis<br>
+                            <em>Historical events through fiction. Lexile 530-690L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>DK Eyewitness Books</strong><br>
+                            <em>Visually rich reference books on various topics</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Graphic Novels</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Raina Telgemeier titles</strong> (Smile, Sisters, Guts)<br>
+                            <em>Relatable middle grade graphic memoirs</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>New Kid</strong> by Jerry Craft<br>
+                            <em>Newbery Medal-winning graphic novel about navigating a new school</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>El Deafo</strong> by Cece Bell<br>
+                            <em>Memoir about growing up deaf</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Amulet Series</strong> by Kazu Kibuishi<br>
+                            <em>Fantasy adventure series</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <strong>Lexile Guidance:</strong> Third grade students typically read in the 420L-820L range. Use Lexile levels as one factor alongside student interest and background knowledge when selecting books.
+                </div>
+            </div>
+            
+            <!-- AI for Teachers Tab -->
+            <div id="aiteachers" class="content-section">
+                <h2>🤖 AI Tools for Teachers</h2>
+                
+                <h3>Lesson Planning and Preparation</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>ChatGPT / Claude</h4>
+                        <p>AI assistants for generating lesson ideas, creating differentiated materials, writing rubrics, and brainstorming activities.</p>
+                        <ul>
+                            <li>Generate reading comprehension questions</li>
+                            <li>Create vocabulary activities</li>
+                            <li>Develop writing prompts</li>
+                            <li>Differentiate existing lessons</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>MagicSchool AI</h4>
+                        <p>Education-specific AI tools for teachers including lesson planning, rubric creation, and text leveling.</p>
+                        <a href="https://www.magicschool.ai" target="_blank">Visit MagicSchool →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Curipod</h4>
+                        <p>AI-powered interactive lesson creator with polls, word clouds, and drawing activities.</p>
+                        <a href="https://curipod.com" target="_blank">Visit Curipod →</a>
+                    </div>
+                </div>
+                
+                <h3>Feedback and Assessment</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Writable</h4>
+                        <p>AI-assisted writing feedback platform that helps teachers provide personalized feedback efficiently.</p>
+                        <a href="https://www.writable.com" target="_blank">Visit Writable →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Formative</h4>
+                        <p>Assessment platform with AI-powered features for creating and grading assessments.</p>
+                        <a href="https://www.formative.com" target="_blank">Visit Formative →</a>
+                    </div>
+                </div>
+                
+                <h3>Content Creation</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Canva AI</h4>
+                        <p>Design tool with AI features for creating anchor charts, posters, and classroom materials.</p>
+                        <a href="https://www.canva.com" target="_blank">Visit Canva →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Diffit</h4>
+                        <p>AI tool that adapts texts to different reading levels while maintaining content.</p>
+                        <a href="https://www.diffit.me" target="_blank">Visit Diffit →</a>
+                    </div>
+                </div>
+                
+                <h3>Prompt Examples for ELA Teachers</h3>
+                <div class="resource-card">
+                    <h4>Useful AI Prompts</h4>
+                    <ul>
+                        <li>"Create 5 discussion questions for Charlotte's Web chapter 3 that focus on character development and text evidence."</li>
+                        <li>"Generate a vocabulary activity for the prefix 'un-' appropriate for third graders."</li>
+                        <li>"Write a rubric for a third-grade opinion writing piece based on CCSS W.3.1."</li>
+                        <li>"Create a graphic organizer for comparing two folktales."</li>
+                        <li>"Suggest 3 ways to differentiate a main idea lesson for struggling readers."</li>
+                        <li>"Write a parent newsletter explaining our current reading unit on folktales."</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <strong>Important:</strong> Always review AI-generated content for accuracy and appropriateness. AI is a tool to enhance teaching, not replace professional judgment.
+                </div>
+            </div>
+            
+            <!-- AI for Students Tab -->
+            <div id="aistudents" class="content-section">
+                <h2>🎓 AI Tools for Students</h2>
+                
+                <h3>Age-Appropriate Guidelines</h3>
+                <div class="warning-box">
+                    <strong>Important Considerations:</strong>
+                    <ul>
+                        <li>Most AI tools require users to be 13+ (check terms of service)</li>
+                        <li>Third graders should use AI only under adult supervision</li>
+                        <li>Focus on AI tools designed specifically for educational use</li>
+                        <li>Teach critical thinking about AI-generated content</li>
+                        <li>Emphasize that AI is a learning tool, not a replacement for thinking</li>
+                    </ul>
+                </div>
+                
+                <h3>Teacher-Supervised AI Activities</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Writing Brainstorming</h4>
+                        <p>Teacher uses AI to generate writing prompts or story starters. Students develop their own ideas from the prompts.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Vocabulary Exploration</h4>
+                        <p>As a class, ask AI to explain vocabulary words in kid-friendly language or create example sentences.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Question Generation</h4>
+                        <p>Students learn to ask good questions by seeing how AI responds to different types of questions.</p>
+                    </div>
+                </div>
+                
+                <h3>Educational Platforms with AI Features</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Epic!</h4>
+                        <p>Digital library with read-aloud features and comprehension support. AI suggests books based on reading level and interests.</p>
+                        <a href="https://www.getepic.com" target="_blank">Visit Epic! →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>IXL</h4>
+                        <p>Adaptive learning platform that uses AI to personalize practice and provide immediate feedback.</p>
+                        <a href="https://www.ixl.com" target="_blank">Visit IXL →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Lexia Core5</h4>
+                        <p>Adaptive reading program that adjusts to student needs in real-time.</p>
+                        <a href="https://www.lexialearning.com" target="_blank">Visit Lexia →</a>
+                    </div>
+                </div>
+                
+                <h3>Teaching AI Literacy</h3>
+                <div class="resource-card">
+                    <h4>Conversations About AI</h4>
+                    <ul>
+                        <li><strong>What is AI?</strong> A computer program that can learn and help with tasks</li>
+                        <li><strong>AI makes mistakes:</strong> Always check information from AI</li>
+                        <li><strong>AI can't replace thinking:</strong> You still need to learn, think, and do your own work</li>
+                        <li><strong>AI learns from people:</strong> The information AI has came from humans</li>
+                        <li><strong>Being safe online:</strong> Never share personal information with AI</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-box">
+                    <strong>Introducing AI Responsibly:</strong> Start conversations about AI as a tool that helps us—like a calculator for math or a dictionary for words. Emphasize that our own thinking, creativity, and effort are what make learning valuable.
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Georgia Gwinnett College Educator Preparation | Standards: GSE | AKS | NCTE | Science of Reading</p>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

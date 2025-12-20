@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourth Grade ELA Teacher Resource Hub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .header p { font-size: 1.2rem; opacity: 0.9; }
+        .tab-container { display: flex; flex-wrap: wrap; background: #2c3e50; padding: 10px; gap: 5px; justify-content: center; }
+        .tab { padding: 12px 18px; background: #34495e; color: white; border: none; cursor: pointer; border-radius: 8px; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; }
+        .tab:hover { background: #9b59b6; transform: translateY(-2px); }
+        .tab.active { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.4); }
+        .content { padding: 30px; min-height: 600px; }
+        .content-section { display: none; }
+        .content-section.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .content-section h2 { color: #2c3e50; font-size: 1.8rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #9b59b6; }
+        .content-section h3 { color: #34495e; font-size: 1.3rem; margin: 20px 0 10px 0; }
+        .content-section h4 { color: #9b59b6; font-size: 1.1rem; margin: 15px 0 10px 0; }
+        .content-section p, .content-section li { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .content-section ul, .content-section ol { margin-left: 25px; margin-bottom: 15px; }
+        .standards-box { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-left: 4px solid #9b59b6; padding: 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0; }
+        .resource-card { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; padding: 20px; border: 1px solid #dee2e6; transition: all 0.3s ease; }
+        .resource-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .resource-card h4 { color: #2c3e50; margin-bottom: 10px; }
+        .resource-card a { color: #9b59b6; text-decoration: none; }
+        .resource-card a:hover { text-decoration: underline; }
+        .tip-box { background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); border-left: 4px solid #28a745; padding: 15px 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .warning-box { background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%); border-left: 4px solid #ffc107; padding: 15px 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .book-section { background: #f8f9fa; padding: 15px; border-radius: 10px; margin: 10px 0; }
+        .book-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .book-item { background: white; padding: 12px; border-radius: 8px; border-left: 3px solid #9b59b6; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #dee2e6; padding: 12px; text-align: left; }
+        th { background: #9b59b6; color: white; }
+        tr:nth-child(even) { background: #f8f9fa; }
+        .footer { background: #2c3e50; color: white; text-align: center; padding: 20px; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Fourth Grade ELA Teacher Resource Hub</h1>
+            <p>Comprehensive English Language Arts Resources for Fourth Grade Teachers</p>
+        </div>
+        
+        <div class="tab-container">
+            <button class="tab active" onclick="showTab('standards')">Standards</button>
+            <button class="tab" onclick="showTab('background')">Background</button>
+            <button class="tab" onclick="showTab('websites')">Websites</button>
+            <button class="tab" onclick="showTab('lessons')">Lessons</button>
+            <button class="tab" onclick="showTab('investigations')">Investigations</button>
+            <button class="tab" onclick="showTab('videos')">Videos</button>
+            <button class="tab" onclick="showTab('articles')">Articles</button>
+            <button class="tab" onclick="showTab('assessments')">Assessments</button>
+            <button class="tab" onclick="showTab('printables')">Printables</button>
+            <button class="tab" onclick="showTab('vocabulary')">Vocabulary</button>
+            <button class="tab" onclick="showTab('games')">Games</button>
+            <button class="tab" onclick="showTab('differentiation')">Differentiation</button>
+            <button class="tab" onclick="showTab('misconceptions')">Misconceptions</button>
+            <button class="tab" onclick="showTab('cultural')">Cultural</button>
+            <button class="tab" onclick="showTab('books')">Books</button>
+            <button class="tab" onclick="showTab('aiteachers')">AI for Teachers</button>
+            <button class="tab" onclick="showTab('aistudents')">AI for Students</button>
+        </div>
+        
+        <div class="content">
+            <!-- Standards Tab -->
+            <div id="standards" class="content-section active">
+                <h2>📋 Fourth Grade ELA Standards</h2>
+                
+                <h3>Georgia Standards of Excellence (GSE) - Fourth Grade ELA</h3>
+                <div class="standards-box">
+                    <h4>Reading Literary Text (ELAGSE4RL)</h4>
+                    <ul>
+                        <li><strong>ELAGSE4RL1:</strong> Refer to details and examples in a text when explaining what the text says explicitly and when drawing inferences from the text</li>
+                        <li><strong>ELAGSE4RL2:</strong> Determine a theme of a story, drama, or poem from details in the text; summarize the text</li>
+                        <li><strong>ELAGSE4RL3:</strong> Describe in depth a character, setting, or event in a story or drama, drawing on specific details in the text</li>
+                        <li><strong>ELAGSE4RL4:</strong> Determine the meaning of words and phrases as they are used in a text, including those that allude to significant characters found in mythology</li>
+                        <li><strong>ELAGSE4RL5:</strong> Explain major differences between poems, drama, and prose, and refer to structural elements of poems and drama when writing or speaking</li>
+                        <li><strong>ELAGSE4RL6:</strong> Compare and contrast the point of view from which different stories are narrated, including the difference between first- and third-person narrations</li>
+                        <li><strong>ELAGSE4RL7:</strong> Make connections between the text of a story or drama and a visual or oral presentation of the text</li>
+                        <li><strong>ELAGSE4RL9:</strong> Compare and contrast the treatment of similar themes and topics and patterns of events in stories, myths, and traditional literature from different cultures</li>
+                        <li><strong>ELAGSE4RL10:</strong> By the end of the year, read and comprehend literature, including stories, dramas, and poetry, in the grades 4-5 text complexity band proficiently</li>
+                    </ul>
+                    
+                    <h4>Reading Informational Text (ELAGSE4RI)</h4>
+                    <ul>
+                        <li><strong>ELAGSE4RI1:</strong> Refer to details and examples in a text when explaining what the text says explicitly and when drawing inferences from the text</li>
+                        <li><strong>ELAGSE4RI2:</strong> Determine the main idea of a text and explain how it is supported by key details; summarize the text</li>
+                        <li><strong>ELAGSE4RI3:</strong> Explain events, procedures, ideas, or concepts in a historical, scientific, or technical text, including what happened and why</li>
+                        <li><strong>ELAGSE4RI4:</strong> Determine the meaning of general academic and domain-specific words or phrases in a text relevant to a grade 4 topic or subject area</li>
+                        <li><strong>ELAGSE4RI5:</strong> Describe the overall structure of events, ideas, concepts, or information in a text or part of a text</li>
+                        <li><strong>ELAGSE4RI6:</strong> Compare and contrast a firsthand and secondhand account of the same event or topic; describe the differences in focus and the information provided</li>
+                        <li><strong>ELAGSE4RI7:</strong> Interpret information presented visually, orally, or quantitatively and explain how it contributes to understanding</li>
+                        <li><strong>ELAGSE4RI8:</strong> Explain how an author uses reasons and evidence to support particular points in a text</li>
+                        <li><strong>ELAGSE4RI9:</strong> Integrate information from two texts on the same topic in order to write or speak about the subject knowledgeably</li>
+                        <li><strong>ELAGSE4RI10:</strong> By the end of year, read and comprehend informational texts, including history/social studies, science, and technical texts, in the grades 4-5 text complexity band proficiently</li>
+                    </ul>
+                    
+                    <h4>Reading Foundational Skills (ELAGSE4RF)</h4>
+                    <ul>
+                        <li><strong>ELAGSE4RF3:</strong> Know and apply grade-level phonics and word analysis skills in decoding words</li>
+                        <li><strong>ELAGSE4RF3a:</strong> Use combined knowledge of all letter-sound correspondences, syllabication patterns, and morphology to read accurately unfamiliar multisyllabic words</li>
+                        <li><strong>ELAGSE4RF4:</strong> Read with sufficient accuracy and fluency to support comprehension</li>
+                        <li><strong>ELAGSE4RF4a:</strong> Read grade-level text with purpose and understanding</li>
+                        <li><strong>ELAGSE4RF4b:</strong> Read grade-level prose and poetry orally with accuracy, appropriate rate, and expression</li>
+                        <li><strong>ELAGSE4RF4c:</strong> Use context to confirm or self-correct word recognition and understanding, rereading as necessary</li>
+                    </ul>
+                    
+                    <h4>Writing (ELAGSE4W)</h4>
+                    <ul>
+                        <li><strong>ELAGSE4W1:</strong> Write opinion pieces on topics or texts, supporting a point of view with reasons and information</li>
+                        <li><strong>ELAGSE4W2:</strong> Write informative/explanatory texts to examine a topic and convey ideas and information clearly</li>
+                        <li><strong>ELAGSE4W3:</strong> Write narratives to develop real or imagined experiences or events using effective technique, descriptive details, and clear event sequences</li>
+                        <li><strong>ELAGSE4W4:</strong> Produce clear and coherent writing in which the development and organization are appropriate to task, purpose, and audience</li>
+                        <li><strong>ELAGSE4W5:</strong> With guidance and support from peers and adults, develop and strengthen writing by planning, revising, and editing</li>
+                        <li><strong>ELAGSE4W6:</strong> With some guidance and support from adults, use technology, including the Internet, to produce and publish writing as well as to interact and collaborate with others</li>
+                        <li><strong>ELAGSE4W7:</strong> Conduct short research projects that build knowledge through investigation of different aspects of a topic</li>
+                        <li><strong>ELAGSE4W8:</strong> Recall relevant information from experiences or gather relevant information from print and digital sources; take notes and categorize information, and provide a list of sources</li>
+                        <li><strong>ELAGSE4W9:</strong> Draw evidence from literary or informational texts to support analysis, reflection, and research</li>
+                        <li><strong>ELAGSE4W10:</strong> Write routinely over extended time frames and shorter time frames for a range of discipline-specific tasks, purposes, and audiences</li>
+                    </ul>
+                    
+                    <h4>Speaking and Listening (ELAGSE4SL)</h4>
+                    <ul>
+                        <li><strong>ELAGSE4SL1:</strong> Engage effectively in a range of collaborative discussions with diverse partners on grade 4 topics and texts</li>
+                        <li><strong>ELAGSE4SL2:</strong> Paraphrase portions of a text read aloud or information presented in diverse media and formats</li>
+                        <li><strong>ELAGSE4SL3:</strong> Identify the reasons and evidence a speaker provides to support particular points</li>
+                        <li><strong>ELAGSE4SL4:</strong> Report on a topic or text, tell a story, or recount an experience in an organized manner with appropriate facts and relevant, descriptive details</li>
+                        <li><strong>ELAGSE4SL5:</strong> Add audio recordings and visual displays to presentations when appropriate to enhance the development of main ideas or themes</li>
+                        <li><strong>ELAGSE4SL6:</strong> Differentiate between contexts that call for formal English and situations where informal discourse is appropriate; use formal English when appropriate</li>
+                    </ul>
+                    
+                    <h4>Language (ELAGSE4L)</h4>
+                    <ul>
+                        <li><strong>ELAGSE4L1:</strong> Demonstrate command of the conventions of standard English grammar and usage when writing or speaking</li>
+                        <li><strong>ELAGSE4L2:</strong> Demonstrate command of the conventions of standard English capitalization, punctuation, and spelling when writing</li>
+                        <li><strong>ELAGSE4L3:</strong> Use knowledge of language and its conventions when writing, speaking, reading, or listening</li>
+                        <li><strong>ELAGSE4L4:</strong> Determine or clarify the meaning of unknown and multiple-meaning words and phrases based on grade 4 reading and content</li>
+                        <li><strong>ELAGSE4L5:</strong> Demonstrate understanding of figurative language, word relationships, and nuances in word meanings</li>
+                        <li><strong>ELAGSE4L6:</strong> Acquire and use accurately grade-appropriate general academic and domain-specific words and phrases</li>
+                    </ul>
+                </div>
+                
+                <h3>Science of Reading Standards - Fourth Grade</h3>
+                <div class="standards-box">
+                    <h4>Advanced Word Recognition</h4>
+                    <ul>
+                        <li>Decode multisyllabic words using all six syllable types</li>
+                        <li>Apply knowledge of Greek and Latin roots, prefixes, and suffixes</li>
+                        <li>Recognize grade-level irregular words automatically</li>
+                        <li>Use morphological analysis to determine word meaning</li>
+                        <li>Integrate multiple word-solving strategies simultaneously</li>
+                    </ul>
+                    
+                    <h4>Fluency Expectations</h4>
+                    <ul>
+                        <li>Beginning of year: 90-110 WCPM with 97%+ accuracy</li>
+                        <li>End of year: 118-140 WCPM with 97%+ accuracy</li>
+                        <li>Read with expression matching the text's meaning</li>
+                        <li>Adjust reading rate for text complexity and purpose</li>
+                        <li>Self-monitor and self-correct automatically</li>
+                    </ul>
+                    
+                    <h4>Deep Comprehension</h4>
+                    <ul>
+                        <li>Determine theme from multiple text details</li>
+                        <li>Make inferences using explicit and implicit information</li>
+                        <li>Analyze character development and motivation</li>
+                        <li>Compare and contrast across texts and genres</li>
+                        <li>Evaluate author's purpose and perspective</li>
+                        <li>Synthesize information from multiple sources</li>
+                    </ul>
+                    
+                    <h4>Vocabulary Development</h4>
+                    <ul>
+                        <li>Use context clues including definitions, examples, and restatement</li>
+                        <li>Apply knowledge of Greek and Latin affixes and roots</li>
+                        <li>Interpret figurative language (similes, metaphors, idioms)</li>
+                        <li>Distinguish between literal and nonliteral meanings</li>
+                        <li>Acquire academic vocabulary across content areas</li>
+                    </ul>
+                </div>
+                
+                <h3>Gwinnett County Academic Knowledge and Skills (AKS) - Fourth Grade ELA</h3>
+                <div class="standards-box">
+                    <h4>Reading and Vocabulary</h4>
+                    <ul>
+                        <li>Refer to text details and examples when explaining and inferring</li>
+                        <li>Determine theme and summarize literary texts</li>
+                        <li>Determine main idea and summarize informational texts</li>
+                        <li>Describe characters, settings, and events with text evidence</li>
+                        <li>Compare/contrast point of view including first and third person</li>
+                        <li>Compare themes and patterns across cultures</li>
+                        <li>Interpret visual information in texts</li>
+                    </ul>
+                    
+                    <h4>Writing</h4>
+                    <ul>
+                        <li>Write opinion pieces with organized reasons and information</li>
+                        <li>Write informative texts with grouped information and formatting</li>
+                        <li>Write narratives with dialogue, description, and pacing</li>
+                        <li>Use the writing process to develop and strengthen writing</li>
+                        <li>Conduct research, take notes, and cite sources</li>
+                        <li>Use technology to produce and publish writing</li>
+                    </ul>
+                    
+                    <h4>Language and Conventions</h4>
+                    <ul>
+                        <li>Use relative pronouns and adverbs correctly</li>
+                        <li>Form and use progressive verb tenses</li>
+                        <li>Order adjectives correctly within sentences</li>
+                        <li>Use correct capitalization and punctuation</li>
+                        <li>Spell grade-appropriate words correctly</li>
+                        <li>Use context clues and word parts to determine meaning</li>
+                        <li>Understand and use figurative language</li>
+                    </ul>
+                </div>
+                
+                <h3>NCTE/IRA Standards for English Language Arts</h3>
+                <div class="standards-box">
+                    <ul>
+                        <li><strong>Standard 1:</strong> Students read a wide range of print and non-print texts to build understanding</li>
+                        <li><strong>Standard 2:</strong> Students read a wide range of literature from many periods in many genres</li>
+                        <li><strong>Standard 3:</strong> Students apply a wide range of strategies to comprehend, interpret, evaluate, and appreciate texts</li>
+                        <li><strong>Standard 4:</strong> Students adjust their use of spoken, written, and visual language for different purposes and audiences</li>
+                        <li><strong>Standard 5:</strong> Students employ a wide range of strategies as they write for different purposes</li>
+                        <li><strong>Standard 6:</strong> Students apply knowledge of language structure and conventions</li>
+                        <li><strong>Standard 7:</strong> Students conduct research on issues and interests by generating ideas and questions</li>
+                        <li><strong>Standard 8:</strong> Students use a variety of technological and information resources</li>
+                        <li><strong>Standard 9:</strong> Students develop an understanding of and respect for diversity in language</li>
+                        <li><strong>Standard 10:</strong> Students whose first language is not English use their first language to develop competency in English</li>
+                        <li><strong>Standard 11:</strong> Students participate as knowledgeable, reflective, creative members of literacy communities</li>
+                        <li><strong>Standard 12:</strong> Students use spoken, written, and visual language to accomplish their own purposes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Background Tab -->
+            <div id="background" class="content-section">
+                <h2>📖 Teacher Background Knowledge</h2>
+                
+                <h3>Fourth Grade Literacy Development</h3>
+                <p>Fourth grade represents the heart of the "reading to learn" phase. Students should have automatic word recognition skills, allowing them to focus cognitive resources on comprehension and analysis. This is the year to build strong literary analysis skills and introduce more complex informational texts across content areas.</p>
+                
+                <div class="tip-box">
+                    <strong>Key Focus Areas:</strong> Theme identification, text evidence, comparing/contrasting, and integrating information from multiple sources are critical fourth-grade skills that build toward middle school expectations.
+                </div>
+                
+                <h3>Literary Analysis Skills</h3>
+                <div class="resource-card">
+                    <h4>Theme vs. Main Idea</h4>
+                    <p>Students often confuse these concepts:</p>
+                    <ul>
+                        <li><strong>Main Idea:</strong> What the text is mostly about (used for informational text)</li>
+                        <li><strong>Theme:</strong> The life lesson or message the author wants readers to take away (used for literature)</li>
+                    </ul>
+                    <p>Themes are typically stated as universal statements (e.g., "True friendship requires sacrifice") rather than topics (e.g., "friendship").</p>
+                </div>
+                
+                <h3>Point of View</h3>
+                <div class="resource-card">
+                    <h4>Narrative Perspectives</h4>
+                    <table>
+                        <tr>
+                            <th>Point of View</th>
+                            <th>Pronouns</th>
+                            <th>Reader Knows</th>
+                            <th>Example</th>
+                        </tr>
+                        <tr>
+                            <td>First Person</td>
+                            <td>I, me, my, we</td>
+                            <td>Narrator's thoughts only</td>
+                            <td>Diary of a Wimpy Kid</td>
+                        </tr>
+                        <tr>
+                            <td>Third Person Limited</td>
+                            <td>he, she, they</td>
+                            <td>One character's thoughts</td>
+                            <td>Harry Potter</td>
+                        </tr>
+                        <tr>
+                            <td>Third Person Omniscient</td>
+                            <td>he, she, they</td>
+                            <td>All characters' thoughts</td>
+                            <td>Charlotte's Web</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <h3>Text Structure in Informational Texts</h3>
+                <table>
+                    <tr>
+                        <th>Structure</th>
+                        <th>Purpose</th>
+                        <th>Signal Words</th>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>Describes characteristics or features</td>
+                        <td>for example, characteristics, such as</td>
+                    </tr>
+                    <tr>
+                        <td>Sequence/Chronological</td>
+                        <td>Events or steps in order</td>
+                        <td>first, next, then, finally, dates</td>
+                    </tr>
+                    <tr>
+                        <td>Compare/Contrast</td>
+                        <td>Shows similarities and differences</td>
+                        <td>both, however, unlike, similarly</td>
+                    </tr>
+                    <tr>
+                        <td>Cause/Effect</td>
+                        <td>Explains why and what happened</td>
+                        <td>because, therefore, as a result, since</td>
+                    </tr>
+                    <tr>
+                        <td>Problem/Solution</td>
+                        <td>Presents problem and how solved</td>
+                        <td>problem, solution, resolved, led to</td>
+                    </tr>
+                </table>
+                
+                <h3>Greek and Latin Roots</h3>
+                <p>Fourth grade introduces systematic study of Greek and Latin word parts, significantly expanding vocabulary:</p>
+                <table>
+                    <tr>
+                        <th>Root</th>
+                        <th>Origin</th>
+                        <th>Meaning</th>
+                        <th>Examples</th>
+                    </tr>
+                    <tr>
+                        <td>struct</td>
+                        <td>Latin</td>
+                        <td>build</td>
+                        <td>structure, construct, instruct</td>
+                    </tr>
+                    <tr>
+                        <td>graph/gram</td>
+                        <td>Greek</td>
+                        <td>write</td>
+                        <td>paragraph, diagram, biography</td>
+                    </tr>
+                    <tr>
+                        <td>port</td>
+                        <td>Latin</td>
+                        <td>carry</td>
+                        <td>transport, export, portable</td>
+                    </tr>
+                    <tr>
+                        <td>dict</td>
+                        <td>Latin</td>
+                        <td>say/speak</td>
+                        <td>dictionary, predict, contradict</td>
+                    </tr>
+                    <tr>
+                        <td>rupt</td>
+                        <td>Latin</td>
+                        <td>break</td>
+                        <td>interrupt, erupt, disrupt</td>
+                    </tr>
+                    <tr>
+                        <td>bio</td>
+                        <td>Greek</td>
+                        <td>life</td>
+                        <td>biography, biology, antibiotic</td>
+                    </tr>
+                    <tr>
+                        <td>tele</td>
+                        <td>Greek</td>
+                        <td>far/distant</td>
+                        <td>telephone, television, telescope</td>
+                    </tr>
+                </table>
+                
+                <h3>Figurative Language</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Types to Teach</h4>
+                        <ul>
+                            <li><strong>Simile:</strong> Compares using "like" or "as" (fast as lightning)</li>
+                            <li><strong>Metaphor:</strong> Direct comparison without like/as (life is a journey)</li>
+                            <li><strong>Idiom:</strong> Expression with non-literal meaning (raining cats and dogs)</li>
+                            <li><strong>Personification:</strong> Giving human qualities to non-human things</li>
+                            <li><strong>Hyperbole:</strong> Extreme exaggeration for effect</li>
+                            <li><strong>Adage/Proverb:</strong> Traditional wise sayings</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Writing Development</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Opinion Writing</h4>
+                        <ul>
+                            <li>Clear opinion with organizational structure</li>
+                            <li>Reasons supported by facts and details</li>
+                            <li>Linking words: furthermore, consequently, specifically</li>
+                            <li>Conclusion related to opinion</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Informative Writing</h4>
+                        <ul>
+                            <li>Clear topic introduction</li>
+                            <li>Grouped information with headings</li>
+                            <li>Formatting (lists, diagrams, tables)</li>
+                            <li>Precise language and vocabulary</li>
+                            <li>Concluding statement</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Narrative Writing</h4>
+                        <ul>
+                            <li>Establish situation and characters</li>
+                            <li>Dialogue and description</li>
+                            <li>Transitional words for pacing</li>
+                            <li>Concrete words and sensory details</li>
+                            <li>Conclusion that reflects on experience</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Grammar Focus</h3>
+                <table>
+                    <tr>
+                        <th>Skill</th>
+                        <th>Fourth Grade Expectations</th>
+                    </tr>
+                    <tr>
+                        <td>Pronouns</td>
+                        <td>Relative pronouns (who, whose, whom, which, that) and relative adverbs (where, when, why)</td>
+                    </tr>
+                    <tr>
+                        <td>Verb Tenses</td>
+                        <td>Progressive tenses (was walking, is walking, will be walking)</td>
+                    </tr>
+                    <tr>
+                        <td>Modal Auxiliaries</td>
+                        <td>Can, may, must to convey conditions</td>
+                    </tr>
+                    <tr>
+                        <td>Adjective Order</td>
+                        <td>Order adjectives within sentences according to conventional patterns</td>
+                    </tr>
+                    <tr>
+                        <td>Prepositional Phrases</td>
+                        <td>Complete sentences recognizing fragments and run-ons</td>
+                    </tr>
+                    <tr>
+                        <td>Homophones</td>
+                        <td>Frequently confused words (to/too/two, their/there/they're)</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Websites Tab -->
+            <div id="websites" class="content-section">
+                <h2>🌐 Educational Websites</h2>
+                
+                <h3>Reading and Literacy</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>CommonLit</h4>
+                        <p>Free reading passages with text-dependent questions, paired texts, and annotation tools. Ideal for close reading practice.</p>
+                        <a href="https://www.commonlit.org" target="_blank">Visit CommonLit →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Newsela</h4>
+                        <p>Current events at multiple reading levels. Great for informational text practice and building background knowledge.</p>
+                        <a href="https://newsela.com" target="_blank">Visit Newsela →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>ReadWorks</h4>
+                        <p>Leveled reading passages, comprehension questions, and vocabulary support aligned to standards.</p>
+                        <a href="https://www.readworks.org" target="_blank">Visit ReadWorks →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Achieve the Core</h4>
+                        <p>Text-dependent questions, writing rubrics, and close reading protocols aligned to standards.</p>
+                        <a href="https://achievethecore.org" target="_blank">Visit Achieve the Core →</a>
+                    </div>
+                </div>
+                
+                <h3>Writing Resources</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Writing A-Z</h4>
+                        <p>Process writing resources, interactive tools, and rubrics for all writing genres.</p>
+                        <a href="https://www.writinga-z.com" target="_blank">Visit Writing A-Z →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>ReadWriteThink</h4>
+                        <p>NCTE resource with interactive writing tools, graphic organizers, and lesson plans.</p>
+                        <a href="http://www.readwritethink.org" target="_blank">Visit ReadWriteThink →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>NoRedInk</h4>
+                        <p>Adaptive grammar and writing practice with personalized curriculum.</p>
+                        <a href="https://www.noredink.com" target="_blank">Visit NoRedInk →</a>
+                    </div>
+                </div>
+                
+                <h3>Vocabulary and Word Study</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Vocabulary.com</h4>
+                        <p>Adaptive vocabulary instruction with gamified learning. Builds academic vocabulary.</p>
+                        <a href="https://www.vocabulary.com" target="_blank">Visit Vocabulary.com →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Wordly Wise 3000</h4>
+                        <p>Vocabulary program with online activities and assessments.</p>
+                        <a href="https://www.wordlywise3000.com" target="_blank">Visit Wordly Wise →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Membean</h4>
+                        <p>Root-based vocabulary instruction using etymology and word relationships.</p>
+                        <a href="https://membean.com" target="_blank">Visit Membean →</a>
+                    </div>
+                </div>
+                
+                <h3>Comprehensive ELA Platforms</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>IXL Language Arts</h4>
+                        <p>Comprehensive practice covering reading, writing, vocabulary, and grammar with adaptive technology.</p>
+                        <a href="https://www.ixl.com/ela" target="_blank">Visit IXL →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Education.com</h4>
+                        <p>Printable worksheets, lesson plans, and interactive activities for ELA skills.</p>
+                        <a href="https://www.education.com" target="_blank">Visit Education.com →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>PBS LearningMedia</h4>
+                        <p>Free videos, lesson plans, and interactive activities from PBS programming.</p>
+                        <a href="https://www.pbslearningmedia.org" target="_blank">Visit PBS →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lessons Tab -->
+            <div id="lessons" class="content-section">
+                <h2>📝 Lesson Ideas and Instructional Strategies</h2>
+                
+                <h3>Theme Identification Lesson</h3>
+                <div class="resource-card">
+                    <h4>Objective</h4>
+                    <p>Students will determine the theme of a story by analyzing character actions, events, and the story's resolution.</p>
+                    
+                    <h4>Theme vs. Topic</h4>
+                    <p>First, clarify the difference:</p>
+                    <ul>
+                        <li><strong>Topic:</strong> One word or phrase (friendship, courage, family)</li>
+                        <li><strong>Theme:</strong> A complete statement about that topic (True friends stand by you in difficult times)</li>
+                    </ul>
+                    
+                    <h4>Steps to Find Theme</h4>
+                    <ol>
+                        <li>Identify the topic (What is this story about?)</li>
+                        <li>Examine character actions and decisions</li>
+                        <li>Consider the problem and how it was resolved</li>
+                        <li>Ask: What lesson did the character learn?</li>
+                        <li>State the theme as a universal statement</li>
+                    </ol>
+                    
+                    <div class="tip-box">
+                        <strong>Common Themes:</strong> Create an anchor chart of themes found in literature: perseverance, kindness, courage, honesty, friendship, acceptance, cooperation, responsibility.
+                    </div>
+                </div>
+                
+                <h3>Comparing Point of View Lesson</h3>
+                <div class="resource-card">
+                    <h4>Objective</h4>
+                    <p>Students will compare and contrast first-person and third-person narration and explain how point of view affects a story.</p>
+                    
+                    <h4>Mentor Texts</h4>
+                    <ul>
+                        <li>First Person: Diary of a Wimpy Kid, Wonder (August's sections)</li>
+                        <li>Third Person Limited: Because of Winn-Dixie</li>
+                        <li>Third Person Omniscient: Charlotte's Web</li>
+                    </ul>
+                    
+                    <h4>Lesson Procedure</h4>
+                    <ol>
+                        <li>Read two passages about the same event from different POVs</li>
+                        <li>Chart what we learn from each narrator</li>
+                        <li>Discuss: What can we know? What can't we know?</li>
+                        <li>Students rewrite a paragraph changing the POV</li>
+                    </ol>
+                </div>
+                
+                <h3>Greek and Latin Roots Lesson</h3>
+                <div class="resource-card">
+                    <h4>Objective</h4>
+                    <p>Students will use knowledge of Greek and Latin roots to determine the meaning of unfamiliar words.</p>
+                    
+                    <h4>Weekly Root Study Routine</h4>
+                    <table>
+                        <tr>
+                            <th>Day</th>
+                            <th>Activity</th>
+                        </tr>
+                        <tr>
+                            <td>Monday</td>
+                            <td>Introduce root, meaning, and origin. Create word web with examples.</td>
+                        </tr>
+                        <tr>
+                            <td>Tuesday</td>
+                            <td>Word sort: Identify words with the root in context sentences.</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td>Word building: Combine roots with prefixes and suffixes.</td>
+                        </tr>
+                        <tr>
+                            <td>Thursday</td>
+                            <td>Apply: Find words with the root in texts we're reading.</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>Assessment: Use roots to determine meaning of new words.</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <h3>Opinion Writing with Evidence Lesson</h3>
+                <div class="resource-card">
+                    <h4>Objective</h4>
+                    <p>Students will write an opinion piece supporting their point of view with reasons and information from texts.</p>
+                    
+                    <h4>RACES Paragraph Structure</h4>
+                    <ul>
+                        <li><strong>R</strong>estate the question in your answer</li>
+                        <li><strong>A</strong>nswer with your opinion</li>
+                        <li><strong>C</strong>ite evidence from the text</li>
+                        <li><strong>E</strong>xplain how the evidence supports your opinion</li>
+                        <li><strong>S</strong>um up your argument</li>
+                    </ul>
+                    
+                    <h4>Linking Words</h4>
+                    <p>Teach transitional phrases for opinion writing:</p>
+                    <ul>
+                        <li>To introduce opinion: In my opinion, I believe, From my point of view</li>
+                        <li>To add reasons: Furthermore, In addition, Another reason</li>
+                        <li>To cite evidence: For example, According to the text, The author states</li>
+                        <li>To conclude: Therefore, For these reasons, In conclusion</li>
+                    </ul>
+                </div>
+                
+                <h3>Firsthand vs. Secondhand Accounts</h3>
+                <div class="resource-card">
+                    <h4>Objective</h4>
+                    <p>Students will compare firsthand (primary) and secondhand (secondary) accounts of the same event.</p>
+                    
+                    <h4>Definitions</h4>
+                    <ul>
+                        <li><strong>Firsthand/Primary:</strong> Written by someone who was there (diary, letter, autobiography, interview)</li>
+                        <li><strong>Secondhand/Secondary:</strong> Written by someone who learned about it (textbook, encyclopedia, biography)</li>
+                    </ul>
+                    
+                    <h4>Comparison Activity</h4>
+                    <ol>
+                        <li>Read a firsthand account of a historical event (diary entry, letter)</li>
+                        <li>Read a secondhand account of the same event (textbook passage)</li>
+                        <li>Compare: What's included in each? What's the focus? What perspective is shown?</li>
+                        <li>Discuss advantages and limitations of each type of source</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Investigations Tab -->
+            <div id="investigations" class="content-section">
+                <h2>🔍 Close Reading and Text Analysis</h2>
+                
+                <h3>Text Evidence Investigation</h3>
+                <div class="resource-card">
+                    <h4>Teaching the "ACE" Strategy</h4>
+                    <p>For answering text-dependent questions:</p>
+                    <ul>
+                        <li><strong>A</strong>nswer the question</li>
+                        <li><strong>C</strong>ite evidence from the text</li>
+                        <li><strong>E</strong>xplain how the evidence supports your answer</li>
+                    </ul>
+                    
+                    <h4>Citing Evidence Stems</h4>
+                    <ul>
+                        <li>"According to the text..."</li>
+                        <li>"On page __, the author states..."</li>
+                        <li>"The text says..."</li>
+                        <li>"This is evident when..."</li>
+                        <li>"The author writes..."</li>
+                    </ul>
+                </div>
+                
+                <h3>Myth Comparison Investigation</h3>
+                <div class="resource-card">
+                    <h4>Essential Question</h4>
+                    <p>How do myths from different cultures explain similar phenomena, and what do they reveal about those cultures?</p>
+                    
+                    <h4>Text Set: Why the Sun and Moon Exist</h4>
+                    <ul>
+                        <li>Greek: Apollo and Helios myths</li>
+                        <li>Norse: Sol and Mani myths</li>
+                        <li>Native American: Various creation stories</li>
+                        <li>Egyptian: Ra mythology</li>
+                    </ul>
+                    
+                    <h4>Analysis Questions</h4>
+                    <ol>
+                        <li>What do these myths explain?</li>
+                        <li>What characters appear? Are they gods, humans, animals?</li>
+                        <li>What cultural values are reflected?</li>
+                        <li>What patterns appear across cultures?</li>
+                    </ol>
+                </div>
+                
+                <h3>Character Analysis Investigation</h3>
+                <div class="resource-card">
+                    <h4>Deep Character Study</h4>
+                    <p>Using STEAL method with text evidence:</p>
+                    
+                    <table>
+                        <tr>
+                            <th>Element</th>
+                            <th>Question</th>
+                            <th>Text Evidence</th>
+                            <th>Character Trait</th>
+                        </tr>
+                        <tr>
+                            <td>Speech</td>
+                            <td>What does the character say?</td>
+                            <td>[Quote from text]</td>
+                            <td>[Inferred trait]</td>
+                        </tr>
+                        <tr>
+                            <td>Thoughts</td>
+                            <td>What does the character think?</td>
+                            <td>[Quote from text]</td>
+                            <td>[Inferred trait]</td>
+                        </tr>
+                        <tr>
+                            <td>Effect</td>
+                            <td>How do others react to the character?</td>
+                            <td>[Quote from text]</td>
+                            <td>[Inferred trait]</td>
+                        </tr>
+                        <tr>
+                            <td>Actions</td>
+                            <td>What does the character do?</td>
+                            <td>[Quote from text]</td>
+                            <td>[Inferred trait]</td>
+                        </tr>
+                        <tr>
+                            <td>Looks</td>
+                            <td>How is the character described?</td>
+                            <td>[Quote from text]</td>
+                            <td>[Inferred trait]</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <h3>Author's Purpose and Perspective</h3>
+                <div class="resource-card">
+                    <h4>Analyzing Author's Choices</h4>
+                    <p>Guide students to analyze why authors make certain choices:</p>
+                    <ul>
+                        <li>Why did the author use this word instead of another?</li>
+                        <li>What effect does the author's word choice have on readers?</li>
+                        <li>How does the author feel about this topic? What evidence shows this?</li>
+                        <li>What reasons and evidence does the author provide?</li>
+                    </ul>
+                    
+                    <h4>Bias Detection</h4>
+                    <p>Introduce the concept of bias in informational texts:</p>
+                    <ul>
+                        <li>Who wrote this? What might be their perspective?</li>
+                        <li>Is this fact or opinion? How can we tell?</li>
+                        <li>What information might be missing?</li>
+                        <li>How might someone with a different view write about this?</li>
+                    </ul>
+                </div>
+                
+                <h3>Research Investigation</h3>
+                <div class="resource-card">
+                    <h4>Multi-Source Research Project</h4>
+                    <p>Students investigate a topic using multiple sources:</p>
+                    <ol>
+                        <li><strong>Wonder:</strong> Generate questions about the topic</li>
+                        <li><strong>Find Sources:</strong> Locate 2-3 sources (books, websites, articles)</li>
+                        <li><strong>Take Notes:</strong> Use graphic organizers to record information</li>
+                        <li><strong>Synthesize:</strong> Combine information from multiple sources</li>
+                        <li><strong>Write:</strong> Create informative report with evidence from sources</li>
+                        <li><strong>Cite:</strong> Create a simple bibliography</li>
+                    </ol>
+                    
+                    <div class="warning-box">
+                        <strong>Note-Taking Skills:</strong> Explicitly teach paraphrasing. Model: "The source says... In my own words, this means..."
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Videos Tab -->
+            <div id="videos" class="content-section">
+                <h2>🎬 Video Resources</h2>
+                
+                <h3>Reading Comprehension</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Flocabulary</h4>
+                        <p>Hip-hop videos teaching reading strategies, vocabulary, and language arts concepts.</p>
+                        <a href="https://www.flocabulary.com" target="_blank">Visit Flocabulary →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>BrainPOP</h4>
+                        <p>Animated videos on reading strategies, genres, grammar, and writing with quizzes.</p>
+                        <a href="https://www.brainpop.com" target="_blank">Visit BrainPOP →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>TED-Ed</h4>
+                        <p>Educational videos on literature, mythology, and language appropriate for upper elementary.</p>
+                        <a href="https://ed.ted.com" target="_blank">Visit TED-Ed →</a>
+                    </div>
+                </div>
+                
+                <h3>Writing Instruction</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Teaching Channel</h4>
+                        <p>Classroom videos showing effective writing instruction in action.</p>
+                        <a href="https://www.teachingchannel.com" target="_blank">Visit Teaching Channel →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Writeshop</h4>
+                        <p>Videos demonstrating writing techniques and strategies for elementary students.</p>
+                    </div>
+                </div>
+                
+                <h3>Author Resources</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>KidLit TV</h4>
+                        <p>Author interviews, read-alouds, and behind-the-scenes looks at book creation.</p>
+                        <a href="https://kidlit.tv" target="_blank">Visit KidLit TV →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Storyline Online</h4>
+                        <p>Celebrities read children's books aloud with illustrations.</p>
+                        <a href="https://www.storylineonline.net" target="_blank">Visit Storyline Online →</a>
+                    </div>
+                </div>
+                
+                <h3>Mythology and Traditional Literature</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Greek Mythology Videos</h4>
+                        <p>TED-Ed and other educational channels have engaging videos about Greek myths.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Myths from Around the World</h4>
+                        <p>Animated versions of myths from various cultures for comparison studies.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Articles Tab -->
+            <div id="articles" class="content-section">
+                <h2>📰 Professional Articles and Student Resources</h2>
+                
+                <h3>Professional Reading</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Reading Rockets</h4>
+                        <p>Research-based articles on reading comprehension, vocabulary, and fluency instruction.</p>
+                        <a href="https://www.readingrockets.org" target="_blank">Visit Reading Rockets →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>NCTE Journals</h4>
+                        <p>Language Arts journal offers research and practical strategies for ELA instruction.</p>
+                        <a href="https://ncte.org/resources/journals/" target="_blank">Visit NCTE →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Educational Leadership</h4>
+                        <p>ASCD publication with articles on literacy instruction and best practices.</p>
+                        <a href="https://www.ascd.org/el" target="_blank">Visit ASCD →</a>
+                    </div>
+                </div>
+                
+                <h3>Student Reading Resources</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Newsela</h4>
+                        <p>Current events at multiple reading levels for informational text practice.</p>
+                        <a href="https://newsela.com" target="_blank">Visit Newsela →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Time for Kids</h4>
+                        <p>Age-appropriate news covering current events, science, and social studies.</p>
+                        <a href="https://www.timeforkids.com" target="_blank">Visit Time for Kids →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Scholastic News</h4>
+                        <p>Grade-level news with comprehension activities and discussion questions.</p>
+                        <a href="https://sn4.scholastic.com" target="_blank">Visit Scholastic →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>DOGO News</h4>
+                        <p>Current events written for students with comprehension questions.</p>
+                        <a href="https://www.dogonews.com" target="_blank">Visit DOGO News →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Assessments Tab -->
+            <div id="assessments" class="content-section">
+                <h2>📊 Assessment Strategies</h2>
+                
+                <h3>Formative Assessment</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Quick Writes</h4>
+                        <ul>
+                            <li>Theme statement with evidence</li>
+                            <li>Summary in 3-5 sentences</li>
+                            <li>Character analysis paragraph</li>
+                            <li>Text-dependent question response</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Discussion Protocols</h4>
+                        <ul>
+                            <li>Socratic Seminar</li>
+                            <li>Think-Pair-Share</li>
+                            <li>Literature Circles</li>
+                            <li>Accountable Talk</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Reading Assessment</h3>
+                <div class="resource-card">
+                    <h4>Fluency Benchmarks</h4>
+                    <table>
+                        <tr>
+                            <th>Time of Year</th>
+                            <th>WCPM Goal</th>
+                            <th>Accuracy</th>
+                        </tr>
+                        <tr>
+                            <td>Beginning of Year</td>
+                            <td>90-110</td>
+                            <td>97%+</td>
+                        </tr>
+                        <tr>
+                            <td>Middle of Year</td>
+                            <td>105-125</td>
+                            <td>97%+</td>
+                        </tr>
+                        <tr>
+                            <td>End of Year</td>
+                            <td>118-140</td>
+                            <td>97%+</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <h3>Writing Assessment</h3>
+                <div class="resource-card">
+                    <h4>Fourth Grade Writing Rubric Elements</h4>
+                    <ul>
+                        <li><strong>Ideas:</strong> Clear focus, well-developed with details and evidence</li>
+                        <li><strong>Organization:</strong> Logical structure with effective transitions</li>
+                        <li><strong>Voice:</strong> Appropriate for purpose and audience</li>
+                        <li><strong>Word Choice:</strong> Precise language, academic vocabulary</li>
+                        <li><strong>Conventions:</strong> Grade-level grammar, punctuation, spelling</li>
+                    </ul>
+                </div>
+                
+                <h3>Georgia Milestones Preparation</h3>
+                <div class="resource-card">
+                    <h4>Fourth Grade Assessment Focus</h4>
+                    <ul>
+                        <li>Extended response with text evidence (citing specific details)</li>
+                        <li>Theme identification with textual support</li>
+                        <li>Main idea and supporting details in informational text</li>
+                        <li>Vocabulary in context (including figurative language)</li>
+                        <li>Opinion and informative writing responses</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Printables Tab -->
+            <div id="printables" class="content-section">
+                <h2>📄 Graphic Organizers and Printables</h2>
+                
+                <h3>Reading Comprehension</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Theme Analysis</h4>
+                        <ul>
+                            <li>Theme finder (topic → theme statement)</li>
+                            <li>Evidence organizer for theme</li>
+                            <li>Theme comparison chart</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Character Analysis</h4>
+                        <ul>
+                            <li>STEAL character chart</li>
+                            <li>Character change map</li>
+                            <li>Character comparison Venn diagram</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Informational Text</h4>
+                        <ul>
+                            <li>Main idea and details organizer</li>
+                            <li>Text structure identification chart</li>
+                            <li>Compare/contrast two sources organizer</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Writing Templates</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Opinion Writing</h4>
+                        <ul>
+                            <li>OREO planner (expanded)</li>
+                            <li>Argument map with evidence</li>
+                            <li>Counter-argument organizer</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Informative Writing</h4>
+                        <ul>
+                            <li>Research organizer</li>
+                            <li>Multi-paragraph planner</li>
+                            <li>Note-taking template</li>
+                            <li>Bibliography template</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Narrative Writing</h4>
+                        <ul>
+                            <li>Story mountain planner</li>
+                            <li>Dialogue planning sheet</li>
+                            <li>Show don't tell revision chart</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Vocabulary and Word Study</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Word Analysis</h4>
+                        <ul>
+                            <li>Greek and Latin roots reference</li>
+                            <li>Word dissection template</li>
+                            <li>Context clues detective worksheet</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Figurative Language</h4>
+                        <ul>
+                            <li>Figurative language identification chart</li>
+                            <li>Idiom journal</li>
+                            <li>Simile and metaphor practice</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vocabulary Tab -->
+            <div id="vocabulary" class="content-section">
+                <h2>📚 Vocabulary Instruction</h2>
+                
+                <h3>Academic Vocabulary</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Literary Terms</h4>
+                        <ul>
+                            <li>theme, central message</li>
+                            <li>point of view, narrator</li>
+                            <li>first person, third person</li>
+                            <li>drama, prose, poetry</li>
+                            <li>stanza, verse, scene</li>
+                            <li>myth, legend, fable</li>
+                            <li>allusion, reference</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Informational Text Terms</h4>
+                        <ul>
+                            <li>main idea, key details</li>
+                            <li>firsthand, secondhand account</li>
+                            <li>primary source, secondary source</li>
+                            <li>text structure, text features</li>
+                            <li>evidence, reasons</li>
+                            <li>integrate, synthesize</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Writing Terms</h4>
+                        <ul>
+                            <li>opinion, claim, argument</li>
+                            <li>evidence, support</li>
+                            <li>introduction, conclusion</li>
+                            <li>transition, linking words</li>
+                            <li>paraphrase, summarize</li>
+                            <li>revise, edit, publish</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Greek and Latin Roots</h3>
+                <table>
+                    <tr>
+                        <th>Root</th>
+                        <th>Meaning</th>
+                        <th>Examples</th>
+                    </tr>
+                    <tr>
+                        <td>auto</td>
+                        <td>self</td>
+                        <td>autobiography, automatic, automobile</td>
+                    </tr>
+                    <tr>
+                        <td>bio</td>
+                        <td>life</td>
+                        <td>biography, biology, biome</td>
+                    </tr>
+                    <tr>
+                        <td>graph</td>
+                        <td>write</td>
+                        <td>paragraph, biography, photograph</td>
+                    </tr>
+                    <tr>
+                        <td>ology</td>
+                        <td>study of</td>
+                        <td>mythology, biology, zoology</td>
+                    </tr>
+                    <tr>
+                        <td>tele</td>
+                        <td>far</td>
+                        <td>telephone, television, telescope</td>
+                    </tr>
+                    <tr>
+                        <td>rupt</td>
+                        <td>break</td>
+                        <td>interrupt, erupt, corrupt</td>
+                    </tr>
+                    <tr>
+                        <td>struct</td>
+                        <td>build</td>
+                        <td>structure, construct, destruct</td>
+                    </tr>
+                    <tr>
+                        <td>port</td>
+                        <td>carry</td>
+                        <td>transport, export, import</td>
+                    </tr>
+                </table>
+                
+                <h3>Figurative Language</h3>
+                <div class="resource-card">
+                    <h4>Types with Examples</h4>
+                    <ul>
+                        <li><strong>Simile:</strong> The stars were like diamonds in the sky.</li>
+                        <li><strong>Metaphor:</strong> Time is money.</li>
+                        <li><strong>Personification:</strong> The wind whispered through the trees.</li>
+                        <li><strong>Hyperbole:</strong> I've told you a million times!</li>
+                        <li><strong>Idiom:</strong> It's raining cats and dogs. (means raining heavily)</li>
+                        <li><strong>Adage:</strong> Actions speak louder than words.</li>
+                        <li><strong>Proverb:</strong> A penny saved is a penny earned.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Games Tab -->
+            <div id="games" class="content-section">
+                <h2>🎮 Interactive Games and Activities</h2>
+                
+                <h3>Digital Games</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Vocabulary Games</h4>
+                        <ul>
+                            <li><a href="https://www.vocabulary.com" target="_blank">Vocabulary.com</a></li>
+                            <li><a href="https://www.freerice.com" target="_blank">Free Rice</a></li>
+                            <li><a href="https://www.spellingcity.com" target="_blank">SpellingCity</a></li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Grammar Games</h4>
+                        <ul>
+                            <li><a href="https://www.noredink.com" target="_blank">NoRedInk</a></li>
+                            <li><a href="https://www.grammaropolis.com" target="_blank">Grammaropolis</a></li>
+                            <li><a href="https://www.ixl.com" target="_blank">IXL Language Arts</a></li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Reading Games</h4>
+                        <ul>
+                            <li><a href="https://www.funbrain.com" target="_blank">Funbrain</a></li>
+                            <li><a href="https://www.roomrecess.com" target="_blank">Room Recess</a></li>
+                            <li>ReadWorks Reading Games</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Classroom Games</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Vocabulary Games</h4>
+                        <ul>
+                            <li><strong>Root Word Relay:</strong> Teams race to build words from roots</li>
+                            <li><strong>Figurative Language Charades:</strong> Act out idioms</li>
+                            <li><strong>Vocabulary Jeopardy:</strong> Categories by word part or theme</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Reading Comprehension Games</h4>
+                        <ul>
+                            <li><strong>Theme Hunt:</strong> Find theme evidence in passages</li>
+                            <li><strong>Point of View Switch:</strong> Rewrite passages in different POV</li>
+                            <li><strong>Text Structure Bingo:</strong> Identify structures in passages</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Writing Games</h4>
+                        <ul>
+                            <li><strong>Sentence Expansion:</strong> Build sentences adding details</li>
+                            <li><strong>Evidence Race:</strong> Find text evidence quickly</li>
+                            <li><strong>Word Choice Challenge:</strong> Replace boring words</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Differentiation Tab -->
+            <div id="differentiation" class="content-section">
+                <h2>🎯 Differentiation Strategies</h2>
+                
+                <h3>Supporting Struggling Readers</h3>
+                <div class="resource-card">
+                    <h4>Intervention Approaches</h4>
+                    <ul>
+                        <li>Provide texts at instructional level for independent practice</li>
+                        <li>Use graphic organizers to support comprehension</li>
+                        <li>Pre-teach vocabulary and background knowledge</li>
+                        <li>Offer audio support for complex texts</li>
+                        <li>Provide sentence frames for written responses</li>
+                        <li>Use close reading with teacher support</li>
+                        <li>Chunk texts into smaller sections</li>
+                    </ul>
+                </div>
+                
+                <h3>English Language Learners</h3>
+                <div class="resource-card">
+                    <h4>Language Support</h4>
+                    <ul>
+                        <li>Build background knowledge before reading</li>
+                        <li>Provide visuals for vocabulary instruction</li>
+                        <li>Use cognates when possible</li>
+                        <li>Allow use of bilingual resources</li>
+                        <li>Provide sentence stems and frames</li>
+                        <li>Partner with English-proficient peers</li>
+                        <li>Use total physical response for vocabulary</li>
+                    </ul>
+                </div>
+                
+                <h3>Gifted and Advanced Learners</h3>
+                <div class="resource-card">
+                    <h4>Extension Opportunities</h4>
+                    <ul>
+                        <li>Literature circles with complex texts</li>
+                        <li>Independent research projects</li>
+                        <li>Creative writing in various genres</li>
+                        <li>Critical analysis of author's craft</li>
+                        <li>Cross-curricular connections</li>
+                        <li>Mentorship with younger students</li>
+                        <li>Publication of original works</li>
+                    </ul>
+                </div>
+                
+                <h3>Flexible Grouping</h3>
+                <div class="resource-card">
+                    <h4>Grouping Strategies</h4>
+                    <ul>
+                        <li><strong>Skill-based:</strong> Temporary groups for specific instruction</li>
+                        <li><strong>Interest-based:</strong> Groups by reading interests</li>
+                        <li><strong>Heterogeneous:</strong> Mixed-ability for collaborative learning</li>
+                        <li><strong>Literature Circles:</strong> Student-led discussion groups</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Misconceptions Tab -->
+            <div id="misconceptions" class="content-section">
+                <h2>❌ Common Misconceptions</h2>
+                
+                <h3>Reading Misconceptions</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Theme = Topic</h4>
+                        <p><strong>Reality:</strong> Topic is one word (friendship). Theme is a complete statement about that topic (True friends support each other through difficulties).</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Main idea is always in the first sentence</h4>
+                        <p><strong>Reality:</strong> Main idea can be anywhere in a paragraph or implied across the whole text.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>First person always uses "I"</h4>
+                        <p><strong>Reality:</strong> First person can also use "we" for plural. The key is the narrator is a character in the story.</p>
+                    </div>
+                </div>
+                
+                <h3>Writing Misconceptions</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Longer = Better</h4>
+                        <p><strong>Reality:</strong> Quality matters more than quantity. Strong writing is focused and uses precise words.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Good writers don't need to revise</h4>
+                        <p><strong>Reality:</strong> All writers revise. The best writing comes from multiple drafts.</p>
+                    </div>
+                </div>
+                
+                <h3>Grammar Misconceptions</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Never start a sentence with "Because"</h4>
+                        <p><strong>Reality:</strong> You can start with "Because" if you complete the sentence with an independent clause.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Always add -ly to make an adverb</h4>
+                        <p><strong>Reality:</strong> Some adverbs don't end in -ly (fast, hard, well).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cultural Tab -->
+            <div id="cultural" class="content-section">
+                <h2>🌍 Diverse and Multicultural Literature</h2>
+                
+                <h3>Diverse Authors for Fourth Grade</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>African American Authors</h4>
+                        <ul>
+                            <li>Jacqueline Woodson</li>
+                            <li>Christopher Paul Curtis</li>
+                            <li>Jason Reynolds</li>
+                            <li>Kwame Alexander</li>
+                            <li>Sharon Draper</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Latinx Authors</h4>
+                        <ul>
+                            <li>Pam Muñoz Ryan</li>
+                            <li>Matt de la Peña</li>
+                            <li>Meg Medina</li>
+                            <li>Yuyi Morales</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Asian American Authors</h4>
+                        <ul>
+                            <li>Grace Lin</li>
+                            <li>Kelly Yang</li>
+                            <li>Cynthia Kadohata</li>
+                            <li>Linda Sue Park</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Native American Authors</h4>
+                        <ul>
+                            <li>Cynthia Leitich Smith</li>
+                            <li>Joseph Bruchac</li>
+                            <li>Tim Tingle</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Mythology from World Cultures</h3>
+                <div class="resource-card">
+                    <h4>Fourth Grade Standard: Myths and Traditional Literature</h4>
+                    <ul>
+                        <li><strong>Greek:</strong> D'Aulaires' Book of Greek Myths</li>
+                        <li><strong>Norse:</strong> Norse Mythology by Neil Gaiman (selections)</li>
+                        <li><strong>Egyptian:</strong> Egyptian Myths (Tales of Ancient Civilizations)</li>
+                        <li><strong>African:</strong> African Myths and Legends</li>
+                        <li><strong>Native American:</strong> Various tribal creation stories</li>
+                        <li><strong>Asian:</strong> Chinese, Japanese, and Indian mythology</li>
+                    </ul>
+                </div>
+                
+                <h3>Award-Winning Diverse Literature</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Coretta Scott King Award</h4>
+                        <ul>
+                            <li>The Crossover</li>
+                            <li>Brown Girl Dreaming</li>
+                            <li>One Crazy Summer</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Pura Belpré Award</h4>
+                        <ul>
+                            <li>Esperanza Rising</li>
+                            <li>Becoming Naomi León</li>
+                            <li>The First Rule of Punk</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Books Tab -->
+            <div id="books" class="content-section">
+                <h2>📚 Book Recommendations</h2>
+                
+                <h3>Read-Alouds for Fourth Grade</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Wonder</strong> by R.J. Palacio<br>
+                            <em>Story of kindness and acceptance. Lexile 790L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Esperanza Rising</strong> by Pam Muñoz Ryan<br>
+                            <em>Immigration and resilience during Great Depression. Lexile 750L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>The One and Only Ivan</strong> by Katherine Applegate<br>
+                            <em>Newbery winner about hope and friendship. Lexile 570L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Bud, Not Buddy</strong> by Christopher Paul Curtis<br>
+                            <em>Newbery winner set during Great Depression. Lexile 950L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>The Wild Robot</strong> by Peter Brown<br>
+                            <em>Robot survives on island—themes of nature and belonging. Lexile 740L</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Independent Reading - Chapter Books</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Percy Jackson Series</strong> by Rick Riordan<br>
+                            <em>Greek mythology in modern times. Lexile 680-740L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Front Desk</strong> by Kelly Yang<br>
+                            <em>Chinese immigrant experience. Lexile 640L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Holes</strong> by Louis Sachar<br>
+                            <em>Newbery winner—mystery and justice. Lexile 660L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>The Penderwicks</strong> by Jeanne Birdsall<br>
+                            <em>Family adventure series. Lexile 800L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Wings of Fire Series</strong> by Tui T. Sutherland<br>
+                            <em>Fantasy series about dragons. Lexile 680-790L</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Mythology</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>D'Aulaires' Book of Greek Myths</strong><br>
+                            <em>Classic collection of Greek mythology</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>D'Aulaires' Book of Norse Myths</strong><br>
+                            <em>Norse mythology accessible for elementary</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Treasury of Egyptian Mythology</strong> by Donna Jo Napoli<br>
+                            <em>Egyptian myths beautifully illustrated</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Graphic Novels</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>New Kid</strong> by Jerry Craft<br>
+                            <em>Newbery-winning graphic novel</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Smile/Sisters/Guts</strong> by Raina Telgemeier<br>
+                            <em>Relatable graphic memoirs</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Amulet Series</strong> by Kazu Kibuishi<br>
+                            <em>Fantasy adventure series</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <strong>Lexile Guidance:</strong> Fourth grade typically ranges from 640L-940L. Consider student interest and background knowledge alongside reading level.
+                </div>
+            </div>
+            
+            <!-- AI for Teachers Tab -->
+            <div id="aiteachers" class="content-section">
+                <h2>🤖 AI Tools for Teachers</h2>
+                
+                <h3>Lesson Planning</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>ChatGPT / Claude</h4>
+                        <p>Generate discussion questions, vocabulary activities, differentiated materials, and writing prompts aligned to standards.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>MagicSchool AI</h4>
+                        <p>Education-specific tools including rubric creators, text levelers, and lesson planners.</p>
+                        <a href="https://www.magicschool.ai" target="_blank">Visit MagicSchool →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Diffit</h4>
+                        <p>Adapt texts to different reading levels while maintaining content.</p>
+                        <a href="https://www.diffit.me" target="_blank">Visit Diffit →</a>
+                    </div>
+                </div>
+                
+                <h3>Feedback and Assessment</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Writable</h4>
+                        <p>AI-assisted writing feedback to help teachers provide personalized comments efficiently.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Formative</h4>
+                        <p>Assessment platform with AI features for creating and analyzing assessments.</p>
+                    </div>
+                </div>
+                
+                <h3>Useful Prompts</h3>
+                <div class="resource-card">
+                    <h4>Example Prompts for Fourth Grade ELA</h4>
+                    <ul>
+                        <li>"Create 5 discussion questions about theme for [book title] that require text evidence."</li>
+                        <li>"Generate a vocabulary activity for the Greek root 'graph' for fourth graders."</li>
+                        <li>"Write a rubric for fourth-grade opinion writing aligned to Georgia standards."</li>
+                        <li>"Create a graphic organizer for comparing firsthand and secondhand accounts."</li>
+                        <li>"Suggest three ways to differentiate a lesson on figurative language."</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <strong>Important:</strong> Always review AI-generated content for accuracy and appropriateness before using with students.
+                </div>
+            </div>
+            
+            <!-- AI for Students Tab -->
+            <div id="aistudents" class="content-section">
+                <h2>🎓 AI Tools for Students</h2>
+                
+                <h3>Guidelines for Student AI Use</h3>
+                <div class="warning-box">
+                    <strong>Important Considerations:</strong>
+                    <ul>
+                        <li>Most AI tools require users to be 13+ (check terms of service)</li>
+                        <li>Fourth graders should use AI only under adult supervision</li>
+                        <li>Focus on educational AI tools designed for students</li>
+                        <li>Teach critical evaluation of AI-generated content</li>
+                        <li>Emphasize AI as a learning tool, not a replacement for thinking</li>
+                    </ul>
+                </div>
+                
+                <h3>Teacher-Supervised Activities</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Brainstorming Support</h4>
+                        <p>Use AI to generate writing prompts or topic ideas. Students develop their own ideas from the starting points.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Vocabulary Exploration</h4>
+                        <p>As a class, explore word meanings, roots, and example sentences with AI assistance.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Research Support</h4>
+                        <p>Teach students to evaluate AI responses by fact-checking with reliable sources.</p>
+                    </div>
+                </div>
+                
+                <h3>Adaptive Learning Platforms</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>IXL</h4>
+                        <p>Adaptive practice with personalized learning paths and immediate feedback.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Lexia Core5</h4>
+                        <p>Adaptive reading program that adjusts to student needs.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Vocabulary.com</h4>
+                        <p>Adaptive vocabulary practice that learns from student responses.</p>
+                    </div>
+                </div>
+                
+                <h3>Teaching AI Literacy</h3>
+                <div class="resource-card">
+                    <h4>Fourth Grade Conversations About AI</h4>
+                    <ul>
+                        <li>How does AI "learn"? It's trained on information from the internet and books.</li>
+                        <li>AI can make mistakes. Always verify information.</li>
+                        <li>AI can't replace your own thinking and creativity.</li>
+                        <li>Using AI to do your work for you is like having someone else exercise for you—you don't get stronger.</li>
+                        <li>Never share personal information with AI tools.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Georgia Gwinnett College Educator Preparation | Standards: GSE | AKS | NCTE | Science of Reading</p>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

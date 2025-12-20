@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Grade ELA Teacher Resource Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .tab-container {
+            display: flex;
+            flex-wrap: wrap;
+            background: #2c3e50;
+            padding: 10px;
+            gap: 5px;
+            justify-content: center;
+        }
+        .tab {
+            padding: 12px 18px;
+            background: #34495e;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .tab:hover {
+            background: #e74c3c;
+            transform: translateY(-2px);
+        }
+        .tab.active {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+        }
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .content-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #e74c3c;
+        }
+        .content-section h3 {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin: 20px 0 10px 0;
+        }
+        .content-section h4 {
+            color: #c0392b;
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+        .content-section p, .content-section li {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        .content-section ul, .content-section ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        .standards-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid #e74c3c;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .resource-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            transition: all 0.3s ease;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .resource-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .resource-card a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left: 4px solid #28a745;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .book-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .book-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .book-item {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #e74c3c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #e74c3c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8rem; }
+            .tab { padding: 8px 12px; font-size: 0.8rem; }
+            .content { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 First Grade ELA Teacher Resource Hub</h1>
+            <p>Comprehensive English Language Arts Resources for First Grade Teachers</p>
+        </div>
+        
+        <div class="tab-container">
+            <button class="tab active" onclick="showTab('standards')">Standards</button>
+            <button class="tab" onclick="showTab('background')">Background</button>
+            <button class="tab" onclick="showTab('websites')">Websites</button>
+            <button class="tab" onclick="showTab('lessons')">Lessons</button>
+            <button class="tab" onclick="showTab('investigations')">Investigations</button>
+            <button class="tab" onclick="showTab('videos')">Videos</button>
+            <button class="tab" onclick="showTab('articles')">Articles</button>
+            <button class="tab" onclick="showTab('assessments')">Assessments</button>
+            <button class="tab" onclick="showTab('printables')">Printables</button>
+            <button class="tab" onclick="showTab('vocabulary')">Vocabulary</button>
+            <button class="tab" onclick="showTab('games')">Games</button>
+            <button class="tab" onclick="showTab('differentiation')">Differentiation</button>
+            <button class="tab" onclick="showTab('misconceptions')">Misconceptions</button>
+            <button class="tab" onclick="showTab('cultural')">Cultural</button>
+            <button class="tab" onclick="showTab('books')">Books</button>
+            <button class="tab" onclick="showTab('aiteachers')">AI for Teachers</button>
+            <button class="tab" onclick="showTab('aistudents')">AI for Students</button>
+        </div>
+        
+        <div class="content">
+            <!-- Standards Tab -->
+            <div id="standards" class="content-section active">
+                <h2>📋 First Grade ELA Standards</h2>
+                
+                <h3>Georgia Standards of Excellence (GSE) - First Grade ELA</h3>
+                <div class="standards-box">
+                    <h4>Reading Literary Text (ELAGSE1RL)</h4>
+                    <ul>
+                        <li><strong>ELAGSE1RL1:</strong> Ask and answer questions about key details in a text</li>
+                        <li><strong>ELAGSE1RL2:</strong> Retell stories, including key details, and demonstrate understanding of their central message or lesson</li>
+                        <li><strong>ELAGSE1RL3:</strong> Describe characters, settings, and major events in a story, using key details</li>
+                        <li><strong>ELAGSE1RL4:</strong> Identify words and phrases in stories or poems that suggest feelings or appeal to the senses</li>
+                        <li><strong>ELAGSE1RL5:</strong> Explain major differences between books that tell stories and books that give information</li>
+                        <li><strong>ELAGSE1RL6:</strong> Identify who is telling the story at various points in a text</li>
+                        <li><strong>ELAGSE1RL7:</strong> Use illustrations and details in a story to describe its characters, setting, or events</li>
+                        <li><strong>ELAGSE1RL9:</strong> Compare and contrast the adventures and experiences of characters in stories</li>
+                        <li><strong>ELAGSE1RL10:</strong> With prompting and support, read prose and poetry of appropriate complexity for grade 1</li>
+                    </ul>
+                    
+                    <h4>Reading Informational Text (ELAGSE1RI)</h4>
+                    <ul>
+                        <li><strong>ELAGSE1RI1:</strong> Ask and answer questions about key details in a text</li>
+                        <li><strong>ELAGSE1RI2:</strong> Identify the main topic and retell key details of a text</li>
+                        <li><strong>ELAGSE1RI3:</strong> Describe the connection between two individuals, events, ideas, or pieces of information</li>
+                        <li><strong>ELAGSE1RI4:</strong> Ask and answer questions to determine or clarify meaning of words and phrases</li>
+                        <li><strong>ELAGSE1RI5:</strong> Know and use various text features to locate key facts or information</li>
+                        <li><strong>ELAGSE1RI6:</strong> Distinguish between information provided by pictures and information provided by words</li>
+                        <li><strong>ELAGSE1RI7:</strong> Use illustrations and details in a text to describe its key ideas</li>
+                        <li><strong>ELAGSE1RI8:</strong> Identify the reasons an author gives to support points in a text</li>
+                        <li><strong>ELAGSE1RI9:</strong> Identify basic similarities and differences between two texts on the same topic</li>
+                        <li><strong>ELAGSE1RI10:</strong> With prompting and support, read informational texts appropriately complex for grade 1</li>
+                    </ul>
+                    
+                    <h4>Reading Foundational Skills (ELAGSE1RF)</h4>
+                    <ul>
+                        <li><strong>ELAGSE1RF1:</strong> Demonstrate understanding of the organization and basic features of print</li>
+                        <li><strong>ELAGSE1RF2:</strong> Demonstrate understanding of spoken words, syllables, and sounds (phonemes)</li>
+                        <li><strong>ELAGSE1RF3:</strong> Know and apply grade-level phonics and word analysis skills in decoding words</li>
+                        <li><strong>ELAGSE1RF4:</strong> Read with sufficient accuracy and fluency to support comprehension</li>
+                    </ul>
+                    
+                    <h4>Writing (ELAGSE1W)</h4>
+                    <ul>
+                        <li><strong>ELAGSE1W1:</strong> Write opinion pieces introducing the topic, stating an opinion, supplying a reason, and providing closure</li>
+                        <li><strong>ELAGSE1W2:</strong> Write informative/explanatory texts naming a topic, supplying facts, and providing closure</li>
+                        <li><strong>ELAGSE1W3:</strong> Write narratives recounting two or more appropriately sequenced events</li>
+                        <li><strong>ELAGSE1W5:</strong> With guidance, focus on a topic, respond to questions and suggestions, and add details</li>
+                        <li><strong>ELAGSE1W6:</strong> With guidance, use digital tools to produce and publish writing</li>
+                        <li><strong>ELAGSE1W7:</strong> Participate in shared research and writing projects</li>
+                        <li><strong>ELAGSE1W8:</strong> With guidance, recall information from experiences or gather from sources</li>
+                    </ul>
+                    
+                    <h4>Speaking and Listening (ELAGSE1SL)</h4>
+                    <ul>
+                        <li><strong>ELAGSE1SL1:</strong> Participate in collaborative conversations with diverse partners about grade 1 topics</li>
+                        <li><strong>ELAGSE1SL2:</strong> Ask and answer questions about key details in a text read aloud or information presented</li>
+                        <li><strong>ELAGSE1SL3:</strong> Ask and answer questions about what a speaker says to gather information or clarify</li>
+                        <li><strong>ELAGSE1SL4:</strong> Describe people, places, things, and events with relevant details, expressing ideas clearly</li>
+                        <li><strong>ELAGSE1SL5:</strong> Add drawings or other visual displays to descriptions when appropriate</li>
+                        <li><strong>ELAGSE1SL6:</strong> Produce complete sentences when appropriate to task and situation</li>
+                    </ul>
+                    
+                    <h4>Language (ELAGSE1L)</h4>
+                    <ul>
+                        <li><strong>ELAGSE1L1:</strong> Demonstrate command of the conventions of standard English grammar and usage</li>
+                        <li><strong>ELAGSE1L2:</strong> Demonstrate command of capitalization, punctuation, and spelling conventions</li>
+                        <li><strong>ELAGSE1L4:</strong> Determine or clarify the meaning of unknown words and multiple-meaning words</li>
+                        <li><strong>ELAGSE1L5:</strong> With guidance, demonstrate understanding of word relationships and nuances</li>
+                        <li><strong>ELAGSE1L6:</strong> Use words and phrases acquired through conversations, reading, and responding to texts</li>
+                    </ul>
+                </div>
+                
+                <h3>Science of Reading Standards</h3>
+                <div class="standards-box">
+                    <h4>Phonological Awareness</h4>
+                    <ul>
+                        <li>Distinguish long from short vowel sounds in spoken single-syllable words</li>
+                        <li>Orally produce single-syllable words by blending sounds including consonant blends</li>
+                        <li>Isolate and pronounce initial, medial vowel, and final sounds in spoken single-syllable words</li>
+                        <li>Segment spoken single-syllable words into their complete sequence of phonemes</li>
+                    </ul>
+                    
+                    <h4>Phonics and Word Recognition</h4>
+                    <ul>
+                        <li>Know the spelling-sound correspondences for common consonant digraphs (sh, th, ch, wh, ck)</li>
+                        <li>Decode regularly spelled one-syllable words</li>
+                        <li>Know final -e and common vowel team conventions for representing long vowel sounds</li>
+                        <li>Use knowledge that every syllable must have a vowel sound</li>
+                        <li>Decode two-syllable words following basic patterns by breaking into syllables</li>
+                        <li>Read words with inflectional endings (-s, -ed, -ing)</li>
+                        <li>Recognize and read grade-appropriate irregularly spelled words</li>
+                    </ul>
+                    
+                    <h4>Fluency</h4>
+                    <ul>
+                        <li>Read on-level text with purpose and understanding</li>
+                        <li>Read on-level text orally with accuracy, appropriate rate, and expression</li>
+                        <li>Use context to confirm or self-correct word recognition and understanding</li>
+                    </ul>
+                    
+                    <h4>Vocabulary Development</h4>
+                    <ul>
+                        <li>Use sentence-level context as a clue to meaning of words and phrases</li>
+                        <li>Use frequently occurring affixes as clues to meaning</li>
+                        <li>Identify frequently occurring root words and their inflectional forms</li>
+                    </ul>
+                    
+                    <h4>Comprehension</h4>
+                    <ul>
+                        <li>Build background knowledge through wide reading</li>
+                        <li>Apply comprehension strategies before, during, and after reading</li>
+                        <li>Understand story structure and text features</li>
+                        <li>Make inferences and draw conclusions from text</li>
+                    </ul>
+                </div>
+                
+                <h3>Academic Knowledge and Skills (AKS) - Gwinnett County</h3>
+                <div class="standards-box">
+                    <h4>Reading Literature</h4>
+                    <ul>
+                        <li>Ask and answer questions about key details</li>
+                        <li>Retell stories demonstrating understanding of central message</li>
+                        <li>Describe characters, settings, and major events using key details</li>
+                        <li>Identify sensory words and phrases</li>
+                        <li>Compare and contrast characters' experiences</li>
+                    </ul>
+                    
+                    <h4>Reading Informational Text</h4>
+                    <ul>
+                        <li>Identify main topic and key details</li>
+                        <li>Describe connections between information</li>
+                        <li>Use text features to locate information</li>
+                        <li>Identify author's reasons for supporting points</li>
+                    </ul>
+                    
+                    <h4>Foundational Skills</h4>
+                    <ul>
+                        <li>Apply phonics skills to decode words</li>
+                        <li>Recognize and read grade-level sight words</li>
+                        <li>Read with fluency and comprehension</li>
+                        <li>Use context clues and self-correction strategies</li>
+                    </ul>
+                    
+                    <h4>Writing</h4>
+                    <ul>
+                        <li>Write opinion pieces with reasons</li>
+                        <li>Write informative texts with facts</li>
+                        <li>Write narratives with sequenced events</li>
+                        <li>Revise writing based on feedback</li>
+                    </ul>
+                    
+                    <h4>Speaking and Listening</h4>
+                    <ul>
+                        <li>Participate in collaborative discussions</li>
+                        <li>Ask and answer questions to clarify</li>
+                        <li>Describe with relevant details</li>
+                        <li>Produce complete sentences</li>
+                    </ul>
+                </div>
+                
+                <h3>NCTE/IRA Standards for English Language Arts</h3>
+                <div class="standards-box">
+                    <ul>
+                        <li><strong>Standard 1:</strong> Read a wide range of print and non-print texts to build understanding</li>
+                        <li><strong>Standard 2:</strong> Read a wide range of literature from many periods in many genres</li>
+                        <li><strong>Standard 3:</strong> Apply a wide range of strategies to comprehend, interpret, evaluate, and appreciate texts</li>
+                        <li><strong>Standard 4:</strong> Adjust use of spoken, written, and visual language for different purposes and audiences</li>
+                        <li><strong>Standard 5:</strong> Employ a wide range of strategies in the writing process</li>
+                        <li><strong>Standard 6:</strong> Apply knowledge of language structure, conventions, media techniques</li>
+                        <li><strong>Standard 7:</strong> Conduct research by generating ideas and questions, posing problems</li>
+                        <li><strong>Standard 8:</strong> Use a variety of technological and information resources</li>
+                        <li><strong>Standard 9:</strong> Develop understanding of and respect for diversity in language use</li>
+                        <li><strong>Standard 10:</strong> Participate as knowledgeable, reflective, creative members of literacy communities</li>
+                        <li><strong>Standard 11:</strong> Use spoken, written, and visual language to accomplish purposes</li>
+                        <li><strong>Standard 12:</strong> Read to build understanding of themselves and cultures</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Background Tab -->
+            <div id="background" class="content-section">
+                <h2>📖 Teacher Background Knowledge</h2>
+                
+                <h3>Understanding First Grade Literacy Development</h3>
+                <p>First grade marks a critical transition from emergent to early reading. Students move from "learning to read" foundations toward more independent reading while continuing to build foundational skills. The Science of Reading research emphasizes systematic, explicit instruction in phonics alongside rich language experiences.</p>
+                
+                <h3>The Simple View of Reading</h3>
+                <div class="resource-card">
+                    <h4>Reading Comprehension = Decoding × Language Comprehension</h4>
+                    <p>Both components are essential. Strong decoding with weak language comprehension, or vice versa, results in poor reading comprehension. First grade instruction must address both.</p>
+                </div>
+                
+                <h3>Phonics Scope and Sequence for First Grade</h3>
+                <div class="tip-box">
+                    <p><strong>Typical First Grade Phonics Progression:</strong></p>
+                    <ol>
+                        <li>Review short vowels and consonants</li>
+                        <li>Consonant digraphs (sh, ch, th, wh, ck)</li>
+                        <li>Consonant blends (beginning and ending)</li>
+                        <li>Long vowel patterns (CVCe, vowel teams)</li>
+                        <li>R-controlled vowels (ar, or, er, ir, ur)</li>
+                        <li>Soft c and g</li>
+                        <li>Inflectional endings (-s, -es, -ed, -ing)</li>
+                        <li>Two-syllable words</li>
+                    </ol>
+                </div>
+                
+                <h3>Fluency Development</h3>
+                <div class="standards-box">
+                    <h4>First Grade Fluency Expectations</h4>
+                    <ul>
+                        <li><strong>Beginning of Year:</strong> 10-30 WCPM (words correct per minute)</li>
+                        <li><strong>Middle of Year:</strong> 30-50 WCPM</li>
+                        <li><strong>End of Year:</strong> 50-80 WCPM</li>
+                    </ul>
+                    <p><em>Focus on accuracy first, then rate and expression.</em></p>
+                </div>
+                
+                <h3>Writing Development in First Grade</h3>
+                <p>First graders move from emergent writing to more conventional forms. They should:</p>
+                <ul>
+                    <li>Write multiple sentences on a topic</li>
+                    <li>Use beginning, middle, and end in narratives</li>
+                    <li>Apply phonics knowledge to spell words</li>
+                    <li>Use capitals and end punctuation</li>
+                    <li>Revise with guidance</li>
+                </ul>
+                
+                <h3>High-Frequency Words</h3>
+                <p>First graders should master approximately 100 high-frequency words by year's end. Many are irregular (don't follow phonics patterns) and must be memorized. Practice should include reading in context, not just flash cards.</p>
+            </div>
+            
+            <!-- Websites Tab -->
+            <div id="websites" class="content-section">
+                <h2>🌐 Educational Websites</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Starfall</h4>
+                        <p>Systematic phonics program with engaging interactive activities.</p>
+                        <a href="https://www.starfall.com" target="_blank">www.starfall.com</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Reading A-Z</h4>
+                        <p>Leveled readers, running records, and comprehension resources.</p>
+                        <a href="https://www.readinga-z.com" target="_blank">www.readinga-z.com</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Epic!</h4>
+                        <p>Digital library with thousands of books for young readers.</p>
+                        <a href="https://www.getepic.com" target="_blank">www.getepic.com</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Florida Center for Reading Research</h4>
+                        <p>Research-based student center activities for phonics and fluency.</p>
+                        <a href="https://www.fcrr.org" target="_blank">www.fcrr.org</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>ReadWorks</h4>
+                        <p>Free reading passages and comprehension questions.</p>
+                        <a href="https://www.readworks.org" target="_blank">www.readworks.org</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Raz-Kids</h4>
+                        <p>Interactive leveled reading with comprehension quizzes.</p>
+                        <a href="https://www.raz-kids.com" target="_blank">www.raz-kids.com</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Education.com</h4>
+                        <p>Worksheets, games, and lesson plans for first grade ELA.</p>
+                        <a href="https://www.education.com" target="_blank">www.education.com</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>PBS LearningMedia</h4>
+                        <p>Videos, games, and lesson plans aligned to standards.</p>
+                        <a href="https://www.pbslearningmedia.org" target="_blank">www.pbslearningmedia.org</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lessons Tab -->
+            <div id="lessons" class="content-section">
+                <h2>📝 Ready-to-Use Lessons</h2>
+                
+                <h3>Phonics Lessons</h3>
+                <div class="resource-card">
+                    <h4>Consonant Digraph Introduction (sh, ch, th)</h4>
+                    <p><strong>Objective:</strong> Students will identify and read words with consonant digraphs.</p>
+                    <p><strong>Materials:</strong> Digraph cards, word sorts, decodable text</p>
+                    <p><strong>Procedure:</strong></p>
+                    <ol>
+                        <li>Introduce the concept: "Two letters that make one sound"</li>
+                        <li>Model each digraph with picture cards and key words</li>
+                        <li>Guide students through a word sort (sh/ch/th)</li>
+                        <li>Practice reading decodable sentences with digraphs</li>
+                        <li>Students apply in writing: dictation sentences</li>
+                    </ol>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>Long Vowel Silent-e (CVCe Pattern)</h4>
+                    <p><strong>Objective:</strong> Students will decode CVCe words and understand the silent-e rule.</p>
+                    <p><strong>Procedure:</strong></p>
+                    <ol>
+                        <li>Review CVC words (can, hop, pin)</li>
+                        <li>Add 'e' and model the vowel change (cane, hope, pine)</li>
+                        <li>Practice with word chains: can → cane → cape</li>
+                        <li>Read decodable text featuring CVCe words</li>
+                        <li>Write sentences using CVCe words</li>
+                    </ol>
+                </div>
+                
+                <h3>Comprehension Lessons</h3>
+                <div class="resource-card">
+                    <h4>Story Elements with Story Map</h4>
+                    <p><strong>Objective:</strong> Students will identify and describe characters, setting, and major events.</p>
+                    <p><strong>Procedure:</strong></p>
+                    <ol>
+                        <li>Before reading: Preview book and make predictions</li>
+                        <li>During reading: Pause to discuss characters, setting, problem</li>
+                        <li>After reading: Complete story map together</li>
+                        <li>Students retell to a partner using story map</li>
+                        <li>Independent practice with leveled reader</li>
+                    </ol>
+                </div>
+                
+                <h3>Writing Workshop Mini-Lessons</h3>
+                <div class="resource-card">
+                    <h4>Small Moment Narrative Writing</h4>
+                    <p><strong>Objective:</strong> Students will write a focused narrative about one small moment.</p>
+                    <p><strong>Procedure:</strong></p>
+                    <ol>
+                        <li>Model zooming in: "Instead of my whole birthday, just opening one present"</li>
+                        <li>Students brainstorm small moments from their lives</li>
+                        <li>Sketch beginning, middle, end across three pages</li>
+                        <li>Add words to pictures, stretching sounds</li>
+                        <li>Share with writing partners</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Investigations Tab -->
+            <div id="investigations" class="content-section">
+                <h2>🔍 Investigations & Close Reading</h2>
+                
+                <h3>Close Reading for First Grade</h3>
+                <p>First graders can engage in close reading with short, complex texts read multiple times for different purposes.</p>
+                
+                <div class="resource-card">
+                    <h4>Three Reads Protocol</h4>
+                    <p><strong>First Read:</strong> What is the text about? (Literal comprehension)</p>
+                    <p><strong>Second Read:</strong> How does the text work? (Craft and structure)</p>
+                    <p><strong>Third Read:</strong> What does the text mean? (Integration and deeper understanding)</p>
+                </div>
+                
+                <h3>Text-Dependent Questions</h3>
+                <div class="tip-box">
+                    <p><strong>Question stems for first grade:</strong></p>
+                    <ul>
+                        <li>"What does the author tell us about...?"</li>
+                        <li>"How do you know that...? Show me in the text."</li>
+                        <li>"What happened first/next/last?"</li>
+                        <li>"Why do you think the character...?"</li>
+                        <li>"What does this word mean in the story?"</li>
+                    </ul>
+                </div>
+                
+                <h3>Author's Purpose Investigation</h3>
+                <div class="resource-card">
+                    <h4>PIE: Persuade, Inform, Entertain</h4>
+                    <ol>
+                        <li>Read several short texts of different types</li>
+                        <li>Introduce PIE anchor chart</li>
+                        <li>Sort texts by author's purpose</li>
+                        <li>Discuss clues that helped identify purpose</li>
+                        <li>Students identify purpose in independent reading</li>
+                    </ol>
+                </div>
+                
+                <h3>Compare and Contrast Investigation</h3>
+                <div class="resource-card">
+                    <h4>Two Books, Same Topic</h4>
+                    <p>Choose two books on the same topic (e.g., penguins, weather, friendship)</p>
+                    <ol>
+                        <li>Read both books over several days</li>
+                        <li>Create comparison chart: "Book 1 says... Book 2 says..."</li>
+                        <li>Identify similarities and differences</li>
+                        <li>Discuss which book taught more/was more interesting</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Videos Tab -->
+            <div id="videos" class="content-section">
+                <h2>🎥 Video Resources</h2>
+                
+                <h3>Phonics Instruction Videos</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Phonics Dance</h4>
+                        <p>Kinesthetic phonics instruction with movement and songs.</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Between the Lions</h4>
+                        <p>PBS series teaching reading skills through stories and songs.</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Alphablocks</h4>
+                        <p>Animated letters that come together to make words.</p>
+                        <a href="https://www.youtube.com/alphablocks" target="_blank">YouTube Channel</a>
+                    </div>
+                </div>
+                
+                <h3>Read-Alouds</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Storyline Online</h4>
+                        <p>Celebrities reading picture books with animations.</p>
+                        <a href="https://www.storylineonline.net" target="_blank">www.storylineonline.net</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Brightly Storytime</h4>
+                        <p>Author read-alouds and book recommendations.</p>
+                    </div>
+                </div>
+                
+                <h3>Teacher Professional Development</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Reading Rockets Classroom Strategies</h4>
+                        <p>Video demonstrations of evidence-based instruction.</p>
+                        <a href="https://www.readingrockets.org/strategies" target="_blank">Reading Rockets</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Heinemann Digital Library</h4>
+                        <p>Professional development videos on reading and writing workshop.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Articles Tab -->
+            <div id="articles" class="content-section">
+                <h2>📰 Professional Articles</h2>
+                
+                <h3>Science of Reading</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Shifting the Balance</h4>
+                        <p>Key findings from the book on bridging science of reading with balanced literacy.</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>ILA Position Statement on Phonics</h4>
+                        <p>International Literacy Association's stance on phonics instruction.</p>
+                    </div>
+                </div>
+                
+                <h3>Best Practices</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>How to Teach Fluency</h4>
+                        <p>Research-based strategies for developing reading fluency.</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Interactive Read-Aloud Best Practices</h4>
+                        <p>Maximizing comprehension through purposeful read-alouds.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Assessments Tab -->
+            <div id="assessments" class="content-section">
+                <h2>📊 Assessment Strategies</h2>
+                
+                <h3>Foundational Skills Assessments</h3>
+                <div class="resource-card">
+                    <h4>DIBELS/Acadience Assessments</h4>
+                    <ul>
+                        <li><strong>Phoneme Segmentation Fluency (PSF):</strong> Segment words into sounds</li>
+                        <li><strong>Nonsense Word Fluency (NWF):</strong> Decode unfamiliar words</li>
+                        <li><strong>Oral Reading Fluency (ORF):</strong> Read grade-level passages</li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>Phonics Assessments</h4>
+                    <ul>
+                        <li>Consonant sounds and digraphs</li>
+                        <li>Short and long vowel patterns</li>
+                        <li>Blends and r-controlled vowels</li>
+                        <li>Decoding real and nonsense words</li>
+                    </ul>
+                </div>
+                
+                <h3>Running Records</h3>
+                <div class="tip-box">
+                    <p><strong>First Grade Running Record Guidelines:</strong></p>
+                    <ul>
+                        <li>Use texts at instructional level (90-94% accuracy)</li>
+                        <li>Analyze error patterns (visual, meaning, structure)</li>
+                        <li>Track self-correction ratio</li>
+                        <li>Note fluency and expression</li>
+                        <li>Conduct every 2-4 weeks</li>
+                    </ul>
+                </div>
+                
+                <h3>Writing Assessments</h3>
+                <div class="resource-card">
+                    <h4>On-Demand Writing Samples</h4>
+                    <p>Collect quarterly samples to assess:</p>
+                    <ul>
+                        <li>Message/content development</li>
+                        <li>Organization (beginning, middle, end)</li>
+                        <li>Use of conventions</li>
+                        <li>Spelling development</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Printables Tab -->
+            <div id="printables" class="content-section">
+                <h2>🖨️ Printable Resources</h2>
+                
+                <h3>Phonics Practice</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Word Sorts</h4>
+                        <p>Sorting mats for digraphs, blends, vowel patterns</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Decodable Readers</h4>
+                        <p>Printable readers aligned to phonics scope and sequence</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Word Chains</h4>
+                        <p>Practice changing one letter at a time</p>
+                    </div>
+                </div>
+                
+                <h3>Comprehension Graphic Organizers</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Story Map</h4>
+                        <p>Characters, setting, beginning, middle, end</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Somebody-Wanted-But-So</h4>
+                        <p>Summarizing fiction texts</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Main Idea and Details</h4>
+                        <p>Umbrella with supporting details</p>
+                    </div>
+                </div>
+                
+                <h3>Writing Templates</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Opinion Writing</h4>
+                        <p>I think... because... template</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Narrative Pages</h4>
+                        <p>First, Then, Finally with picture boxes</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>All About Books</h4>
+                        <p>Informational writing templates with fact boxes</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vocabulary Tab -->
+            <div id="vocabulary" class="content-section">
+                <h2>📚 Vocabulary Instruction</h2>
+                
+                <h3>Academic Vocabulary</h3>
+                <div class="standards-box">
+                    <h4>First Grade Literary Terms</h4>
+                    <ul>
+                        <li><strong>Main character:</strong> The most important person in the story</li>
+                        <li><strong>Setting:</strong> Where and when the story happens</li>
+                        <li><strong>Problem:</strong> The trouble in the story</li>
+                        <li><strong>Solution:</strong> How the problem gets fixed</li>
+                        <li><strong>Retell:</strong> Tell the story again in your own words</li>
+                        <li><strong>Main idea:</strong> What the text is mostly about</li>
+                        <li><strong>Detail:</strong> A small piece of information</li>
+                    </ul>
+                </div>
+                
+                <h3>Vocabulary Instruction Strategies</h3>
+                <div class="resource-card">
+                    <h4>Word Learning Routine</h4>
+                    <ol>
+                        <li>Introduce the word in context</li>
+                        <li>Provide kid-friendly definition</li>
+                        <li>Give examples and non-examples</li>
+                        <li>Have students use the word</li>
+                        <li>Review throughout the week</li>
+                    </ol>
+                </div>
+                
+                <h3>Tier 2 Vocabulary for First Grade</h3>
+                <table>
+                    <tr>
+                        <th>Word</th>
+                        <th>Definition</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>describe</td>
+                        <td>tell about something with words</td>
+                        <td>Can you describe your pet?</td>
+                    </tr>
+                    <tr>
+                        <td>compare</td>
+                        <td>see how things are alike</td>
+                        <td>Let's compare these two books.</td>
+                    </tr>
+                    <tr>
+                        <td>sequence</td>
+                        <td>the order things happen</td>
+                        <td>What is the sequence of events?</td>
+                    </tr>
+                    <tr>
+                        <td>predict</td>
+                        <td>make a good guess</td>
+                        <td>What do you predict will happen?</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Games Tab -->
+            <div id="games" class="content-section">
+                <h2>🎮 Interactive Games & Activities</h2>
+                
+                <h3>Phonics Games</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Word Building with Magnetic Letters</h4>
+                        <p>Build and change words on cookie sheets</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Roll and Read</h4>
+                        <p>Roll dice, read corresponding word family words</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Phonics BINGO</h4>
+                        <p>Call out sounds, students cover corresponding letters/words</p>
+                    </div>
+                </div>
+                
+                <h3>Fluency Games</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Phrase Pyramids</h4>
+                        <p>Read phrases with increasing length</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Reader's Theater</h4>
+                        <p>Practice repeated reading with purpose</p>
+                    </div>
+                </div>
+                
+                <h3>Digital Games</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Starfall Learn to Read</h4>
+                        <p>Interactive phonics activities</p>
+                        <a href="https://www.starfall.com/h/ltr-classic/" target="_blank">Play Now</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>ABCya First Grade</h4>
+                        <p>Reading and word games</p>
+                        <a href="https://www.abcya.com/grades/1" target="_blank">Play Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Differentiation Tab -->
+            <div id="differentiation" class="content-section">
+                <h2>🎯 Differentiation Strategies</h2>
+                
+                <h3>Supporting Struggling Readers</h3>
+                <div class="resource-card">
+                    <h4>Intervention Strategies</h4>
+                    <ul>
+                        <li>Provide additional phonics practice with decodable texts</li>
+                        <li>Use multisensory approaches (sand writing, arm tapping)</li>
+                        <li>Offer more repetition and practice opportunities</li>
+                        <li>Break skills into smaller steps</li>
+                        <li>Use visual supports and graphic organizers</li>
+                    </ul>
+                </div>
+                
+                <h3>ELL Support</h3>
+                <div class="resource-card">
+                    <h4>Strategies for English Learners</h4>
+                    <ul>
+                        <li>Build oral language before reading</li>
+                        <li>Use pictures, realia, and gestures</li>
+                        <li>Pre-teach vocabulary before reading</li>
+                        <li>Provide native language support when possible</li>
+                        <li>Allow wait time for responses</li>
+                    </ul>
+                </div>
+                
+                <h3>Gifted Extensions</h3>
+                <div class="resource-card">
+                    <h4>Challenge Activities</h4>
+                    <ul>
+                        <li>Independent reading at higher levels</li>
+                        <li>Book club discussions</li>
+                        <li>Author studies</li>
+                        <li>Creative writing projects</li>
+                        <li>Research on self-selected topics</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Misconceptions Tab -->
+            <div id="misconceptions" class="content-section">
+                <h2>⚠️ Common Misconceptions</h2>
+                
+                <h3>Phonics Misconceptions</h3>
+                <div class="resource-card">
+                    <h4>"Silent E makes the vowel say its name"</h4>
+                    <p><strong>Better understanding:</strong> The silent e signals a long vowel sound in the pattern. The vowel doesn't "say its name" - it makes its long sound.</p>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>Guessing from pictures is a good reading strategy</h4>
+                    <p><strong>Reality:</strong> While pictures support comprehension, skilled readers decode words. Encourage students to look at letters first, then confirm with pictures.</p>
+                </div>
+                
+                <h3>Comprehension Misconceptions</h3>
+                <div class="resource-card">
+                    <h4>Retelling means listing every event</h4>
+                    <p><strong>Better understanding:</strong> Retelling captures the most important events and central message, not every detail.</p>
+                </div>
+                
+                <h3>Writing Misconceptions</h3>
+                <div class="resource-card">
+                    <h4>Correct spelling is most important in first grade writing</h4>
+                    <p><strong>Reality:</strong> Message and ideas come first. Invented spelling that shows phonetic understanding is developmentally appropriate. Correct spelling develops over time.</p>
+                </div>
+            </div>
+            
+            <!-- Cultural Tab -->
+            <div id="cultural" class="content-section">
+                <h2>🌍 Cultural Connections & Diverse Texts</h2>
+                
+                <h3>Diverse Picture Books for First Grade</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Books with Diverse Main Characters</h4>
+                        <ul>
+                            <li>"Alma and How She Got Her Name" by Juana Martinez-Neal</li>
+                            <li>"The Name Jar" by Yangsook Choi</li>
+                            <li>"Hair Love" by Matthew Cherry</li>
+                            <li>"Islandborn" by Junot Díaz</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Books Showing Different Family Structures</h4>
+                        <ul>
+                            <li>"Stella Brings the Family" by Miriam Schiffer</li>
+                            <li>"The Family Book" by Todd Parr</li>
+                            <li>"In Our Mothers' House" by Patricia Polacco</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Inclusive Classroom Practices</h3>
+                <div class="tip-box">
+                    <ul>
+                        <li>Include books where diversity is incidental, not the "issue"</li>
+                        <li>Represent various family structures in writing prompts</li>
+                        <li>Value students' home languages and dialects</li>
+                        <li>Choose read-alouds from diverse authors</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Books Tab -->
+            <div id="books" class="content-section">
+                <h2>📖 Book Recommendations</h2>
+                
+                <h3>Read-Aloud Favorites</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Chrysanthemum</strong> by Kevin Henkes
+                            <br><em>Self-acceptance; beginning of school</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Enemy Pie</strong> by Derek Munson
+                            <br><em>Friendship; perspective-taking</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Those Shoes</strong> by Maribeth Boelts
+                            <br><em>Wants vs. needs; empathy</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>A Chair for My Mother</strong> by Vera Williams
+                            <br><em>Family; saving money; community</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Decodable Readers</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Primary Phonics</strong> Sets 1-3
+                        </div>
+                        <div class="book-item">
+                            <strong>Bob Books</strong> Sets 2-4
+                        </div>
+                        <div class="book-item">
+                            <strong>UFLI Foundations Readers</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Early Chapter Books</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Elephant and Piggie</strong> by Mo Willems
+                        </div>
+                        <div class="book-item">
+                            <strong>Frog and Toad</strong> by Arnold Lobel
+                        </div>
+                        <div class="book-item">
+                            <strong>Henry and Mudge</strong> by Cynthia Rylant
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI for Teachers Tab -->
+            <div id="aiteachers" class="content-section">
+                <h2>🤖 AI Tools for Teachers</h2>
+                
+                <h3>Lesson Planning</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>MagicSchool AI</h4>
+                        <p>Generate lesson plans, rubrics, and differentiated materials.</p>
+                        <a href="https://www.magicschool.ai" target="_blank">www.magicschool.ai</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Diffit</h4>
+                        <p>Adapt reading passages to different levels instantly.</p>
+                        <a href="https://www.diffit.me" target="_blank">www.diffit.me</a>
+                    </div>
+                </div>
+                
+                <h3>AI Prompts for First Grade</h3>
+                <div class="tip-box">
+                    <ul>
+                        <li>"Create a phonics lesson for teaching the -ake word family"</li>
+                        <li>"Generate comprehension questions for [book title] at Bloom's levels"</li>
+                        <li>"Write a decodable story using only CVC words and digraphs"</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- AI for Students Tab -->
+            <div id="aistudents" class="content-section">
+                <h2>🧒 AI Tools for Students</h2>
+                
+                <div class="warning-box">
+                    <h4>Adult Supervision Required</h4>
+                    <p>First graders should not use AI tools independently. All AI interactions should be teacher-facilitated.</p>
+                </div>
+                
+                <h3>Teacher-Facilitated Activities</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Story Starters</h4>
+                        <p>Use AI to generate story beginnings; students continue the narrative.</p>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h4>Question Exploration</h4>
+                        <p>Class asks "wondering" questions; teacher uses AI to find answers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>First Grade ELA Teacher Resource Hub | Georgia Gwinnett College Educator Preparation</p>
+            <p>Standards: GSE | AKS | NCTE | Science of Reading</p>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

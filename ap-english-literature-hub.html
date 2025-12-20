@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP English Literature and Composition Teacher Resource Hub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #6b2d5c 0%, #9b4d8b 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #6b2d5c 0%, #8b3d7c 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .header p { font-size: 1.2rem; opacity: 0.9; }
+        .ap-badge { background: #f39c12; color: #6b2d5c; padding: 5px 15px; border-radius: 20px; font-weight: bold; display: inline-block; margin-top: 10px; }
+        .tab-container { display: flex; flex-wrap: wrap; background: #2c3e50; padding: 10px; gap: 5px; justify-content: center; }
+        .tab { padding: 12px 18px; background: #34495e; color: white; border: none; cursor: pointer; border-radius: 8px; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; }
+        .tab:hover { background: #6b2d5c; transform: translateY(-2px); }
+        .tab.active { background: linear-gradient(135deg, #6b2d5c 0%, #8b3d7c 100%); box-shadow: 0 4px 15px rgba(107, 45, 92, 0.4); }
+        .content { padding: 30px; min-height: 600px; }
+        .content-section { display: none; }
+        .content-section.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .content-section h2 { color: #2c3e50; font-size: 1.8rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #6b2d5c; }
+        .content-section h3 { color: #34495e; font-size: 1.3rem; margin: 20px 0 10px 0; }
+        .content-section h4 { color: #6b2d5c; font-size: 1.1rem; margin: 15px 0 10px 0; }
+        .content-section p, .content-section li { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .content-section ul, .content-section ol { margin-left: 25px; margin-bottom: 15px; }
+        .standards-box { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-left: 4px solid #6b2d5c; padding: 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .cb-box { background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%); border-left: 4px solid #f39c12; padding: 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0; }
+        .resource-card { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; padding: 20px; border: 1px solid #dee2e6; transition: all 0.3s ease; }
+        .resource-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .resource-card h4 { color: #2c3e50; margin-bottom: 10px; }
+        .resource-card a { color: #6b2d5c; text-decoration: none; }
+        .resource-card a:hover { text-decoration: underline; }
+        .tip-box { background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); border-left: 4px solid #28a745; padding: 15px 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .warning-box { background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%); border-left: 4px solid #ffc107; padding: 15px 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .book-section { background: #f8f9fa; padding: 15px; border-radius: 10px; margin: 10px 0; }
+        .book-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .book-item { background: white; padding: 12px; border-radius: 8px; border-left: 3px solid #6b2d5c; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #dee2e6; padding: 12px; text-align: left; }
+        th { background: #6b2d5c; color: white; }
+        tr:nth-child(even) { background: #f8f9fa; }
+        .footer { background: #2c3e50; color: white; text-align: center; padding: 20px; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 AP English Literature and Composition</h1>
+            <p>Comprehensive Resources for AP Literature Teachers</p>
+            <div class="ap-badge">College Board AP Course</div>
+        </div>
+        
+        <div class="tab-container">
+            <button class="tab active" onclick="showTab('standards')">Standards</button>
+            <button class="tab" onclick="showTab('background')">Background</button>
+            <button class="tab" onclick="showTab('websites')">Websites</button>
+            <button class="tab" onclick="showTab('lessons')">Lessons</button>
+            <button class="tab" onclick="showTab('investigations')">Investigations</button>
+            <button class="tab" onclick="showTab('videos')">Videos</button>
+            <button class="tab" onclick="showTab('articles')">Articles</button>
+            <button class="tab" onclick="showTab('assessments')">Assessments</button>
+            <button class="tab" onclick="showTab('printables')">Printables</button>
+            <button class="tab" onclick="showTab('vocabulary')">Vocabulary</button>
+            <button class="tab" onclick="showTab('games')">Games</button>
+            <button class="tab" onclick="showTab('differentiation')">Differentiation</button>
+            <button class="tab" onclick="showTab('misconceptions')">Misconceptions</button>
+            <button class="tab" onclick="showTab('cultural')">Cultural</button>
+            <button class="tab" onclick="showTab('books')">Books</button>
+            <button class="tab" onclick="showTab('aiteachers')">AI for Teachers</button>
+            <button class="tab" onclick="showTab('aistudents')">AI for Students</button>
+        </div>
+        
+        <div class="content">
+            <!-- Standards Tab -->
+            <div id="standards" class="content-section active">
+                <h2>📋 AP English Literature Standards</h2>
+                
+                <h3>College Board AP English Literature Course Framework</h3>
+                <div class="cb-box">
+                    <h4>Course Skills</h4>
+                    <table>
+                        <tr>
+                            <th>Skill</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>1. Explain the function of character</td>
+                            <td>Identify and describe what specific textual details reveal about a character and their perspective</td>
+                        </tr>
+                        <tr>
+                            <td>2. Explain the function of setting</td>
+                            <td>Explain the function of setting in a narrative</td>
+                        </tr>
+                        <tr>
+                            <td>3. Explain the function of plot and structure</td>
+                            <td>Explain the function of structure in a text</td>
+                        </tr>
+                        <tr>
+                            <td>4. Explain the function of the narrator or speaker</td>
+                            <td>Identify and explain the function of point of view</td>
+                        </tr>
+                        <tr>
+                            <td>5. Explain the function of word choice, imagery, and symbols</td>
+                            <td>Explain the function of specific words and phrases</td>
+                        </tr>
+                        <tr>
+                            <td>6. Explain the function of comparison</td>
+                            <td>Identify and explain the function of comparison</td>
+                        </tr>
+                        <tr>
+                            <td>7. Develop textually substantiated arguments</td>
+                            <td>Develop a thesis statement that conveys a defensible interpretation</td>
+                        </tr>
+                    </table>
+                    
+                    <h4>Big Ideas</h4>
+                    <ul>
+                        <li><strong>CHR - Character:</strong> Characters in literature allow readers to study and explore human conditions and conflicts</li>
+                        <li><strong>SET - Setting:</strong> Setting and the details associated with it establish mood and affect characters and plot</li>
+                        <li><strong>STR - Structure:</strong> The arrangement of parts and sections of a text contributes to meaning</li>
+                        <li><strong>NAR - Narration:</strong> A narrator's perspective controls the details and emphases that affect how readers experience a text</li>
+                        <li><strong>FIG - Figurative Language:</strong> Comparisons, representations, and associations create meaning</li>
+                        <li><strong>LAN - Literary Argumentation:</strong> Readers establish interpretations through arguments about texts</li>
+                    </ul>
+                </div>
+                
+                <h3>AP Exam Format</h3>
+                <div class="cb-box">
+                    <h4>Section I: Multiple Choice (45% of score)</h4>
+                    <ul>
+                        <li>55 questions in 60 minutes</li>
+                        <li>4-5 prose fiction and poetry passages</li>
+                    </ul>
+                    
+                    <h4>Section II: Free Response (55% of score)</h4>
+                    <ul>
+                        <li><strong>Q1 - Poetry Analysis:</strong> Analyze a poem examining how literary elements contribute to meaning (suggested 40 minutes)</li>
+                        <li><strong>Q2 - Prose Fiction Analysis:</strong> Analyze a prose passage examining how literary elements contribute to meaning (suggested 40 minutes)</li>
+                        <li><strong>Q3 - Literary Argument:</strong> Develop literary argument about a novel, play, or poem from a list or student choice (suggested 40 minutes)</li>
+                    </ul>
+                </div>
+                
+                <h3>Georgia Standards of Excellence (GSE) - 11th-12th Grade</h3>
+                <div class="standards-box">
+                    <p>AP Literature aligns with 11-12 GSE standards with emphasis on literary analysis and interpretation.</p>
+                    
+                    <h4>Key Standards Alignment</h4>
+                    <ul>
+                        <li><strong>ELAGSE11-12RL1:</strong> Cite strong and thorough textual evidence including where text leaves matters uncertain</li>
+                        <li><strong>ELAGSE11-12RL2:</strong> Analyze two or more themes and how they interact</li>
+                        <li><strong>ELAGSE11-12RL3:</strong> Analyze author's choices regarding how to develop and relate elements</li>
+                        <li><strong>ELAGSE11-12RL4:</strong> Analyze word choices on meaning and tone, including language that is fresh, engaging, or beautiful</li>
+                        <li><strong>ELAGSE11-12RL5:</strong> Analyze structure's contribution to meaning and aesthetic impact</li>
+                        <li><strong>ELAGSE11-12RL6:</strong> Analyze cases requiring distinction between stated and meant (irony, satire)</li>
+                        <li><strong>ELAGSE11-12RL9:</strong> Demonstrate knowledge of foundational works</li>
+                    </ul>
+                </div>
+                
+                <h3>Science of Reading - AP Application</h3>
+                <div class="standards-box">
+                    <h4>Advanced Literary Comprehension</h4>
+                    <ul>
+                        <li>Analyze complex literary techniques and their effects</li>
+                        <li>Interpret ambiguity and multiple meanings</li>
+                        <li>Synthesize understanding across elements</li>
+                        <li>Develop sophisticated interpretations with evidence</li>
+                    </ul>
+                    
+                    <h4>Vocabulary and Language</h4>
+                    <ul>
+                        <li>Master literary terminology</li>
+                        <li>Analyze diction, syntax, and imagery effects</li>
+                        <li>Understand period-specific language</li>
+                    </ul>
+                </div>
+                
+                <h3>Gwinnett County AKS Alignment</h3>
+                <div class="standards-box">
+                    <ul>
+                        <li>Analyze complex character development and motivation</li>
+                        <li>Analyze how structure creates meaning and aesthetic effect</li>
+                        <li>Interpret sophisticated figurative language</li>
+                        <li>Develop defensible literary interpretations</li>
+                        <li>Write college-level literary analysis</li>
+                    </ul>
+                </div>
+                
+                <h3>NCTE/IRA Standards</h3>
+                <div class="standards-box">
+                    <ul>
+                        <li><strong>Standard 2:</strong> Read wide range of literature from many periods/genres</li>
+                        <li><strong>Standard 3:</strong> Apply strategies to comprehend, interpret, evaluate texts</li>
+                        <li><strong>Standard 5:</strong> Employ range of writing strategies</li>
+                        <li><strong>Standard 12:</strong> Use language to accomplish own purposes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Background Tab -->
+            <div id="background" class="content-section">
+                <h2>📖 Teacher Background Knowledge</h2>
+                
+                <h3>Literary Analysis Approaches</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Character Analysis</h4>
+                        <ul>
+                            <li>Motivation and desires</li>
+                            <li>Internal conflicts</li>
+                            <li>Development and change</li>
+                            <li>Relationships with other characters</li>
+                            <li>Function in advancing theme</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Setting Analysis</h4>
+                        <ul>
+                            <li>Physical environment</li>
+                            <li>Time period and historical context</li>
+                            <li>Social/cultural environment</li>
+                            <li>Atmosphere and mood</li>
+                            <li>Symbolic significance</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Structure Analysis</h4>
+                        <ul>
+                            <li>Narrative structure (chronology, flashback)</li>
+                            <li>Chapter/scene divisions</li>
+                            <li>Beginnings and endings</li>
+                            <li>Juxtaposition and contrast</li>
+                            <li>Pacing and tension</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Narration Analysis</h4>
+                        <ul>
+                            <li>Point of view (1st, 3rd limited, omniscient)</li>
+                            <li>Reliability of narrator</li>
+                            <li>Narrative distance</li>
+                            <li>Stream of consciousness</li>
+                            <li>Multiple narrators</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Poetry Analysis</h3>
+                <div class="resource-card">
+                    <h4>Elements to Analyze</h4>
+                    <table>
+                        <tr>
+                            <th>Element</th>
+                            <th>Focus</th>
+                        </tr>
+                        <tr>
+                            <td>Speaker</td>
+                            <td>Who speaks? What is their perspective, tone, situation?</td>
+                        </tr>
+                        <tr>
+                            <td>Form/Structure</td>
+                            <td>Stanza structure, line breaks, traditional forms (sonnet, villanelle)</td>
+                        </tr>
+                        <tr>
+                            <td>Sound Devices</td>
+                            <td>Rhyme, rhythm, meter, alliteration, assonance</td>
+                        </tr>
+                        <tr>
+                            <td>Imagery</td>
+                            <td>Sensory details, visual images, patterns of imagery</td>
+                        </tr>
+                        <tr>
+                            <td>Figurative Language</td>
+                            <td>Metaphor, simile, personification, symbolism</td>
+                        </tr>
+                        <tr>
+                            <td>Diction</td>
+                            <td>Word choice, connotation, tone</td>
+                        </tr>
+                        <tr>
+                            <td>Syntax</td>
+                            <td>Sentence structure, enjambment, caesura</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <h3>Developing Literary Arguments</h3>
+                <div class="resource-card">
+                    <h4>The Thesis Statement</h4>
+                    <p>A defensible interpretation that:</p>
+                    <ul>
+                        <li>Makes a claim about the text's meaning</li>
+                        <li>Can be supported with textual evidence</li>
+                        <li>Is not a statement of fact or summary</li>
+                        <li>Reveals insight about how the text works</li>
+                    </ul>
+                    
+                    <h4>Evidence and Commentary</h4>
+                    <ul>
+                        <li>Select specific, relevant textual evidence</li>
+                        <li>Explain HOW evidence supports interpretation</li>
+                        <li>Connect analysis back to thesis</li>
+                        <li>Build a line of reasoning</li>
+                    </ul>
+                </div>
+                
+                <h3>Critical Lenses</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Formalist/New Criticism</h4>
+                        <p>Focus on text itself—structure, language, imagery</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Feminist</h4>
+                        <p>Gender roles, power dynamics, representation</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Marxist</h4>
+                        <p>Class, economics, power structures</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Postcolonial</h4>
+                        <p>Colonial power, othering, cultural identity</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Psychoanalytic</h4>
+                        <p>Unconscious motivations, symbols, desires</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Reader Response</h4>
+                        <p>Reader's role in creating meaning</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Websites Tab -->
+            <div id="websites" class="content-section">
+                <h2>🌐 Educational Websites</h2>
+                
+                <h3>Official AP Resources</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>AP Classroom</h4>
+                        <p>Official College Board resources, practice, and assessments.</p>
+                        <a href="https://apclassroom.collegeboard.org" target="_blank">Visit AP Classroom →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>AP Central</h4>
+                        <p>Course description, sample essays, scoring guidelines.</p>
+                        <a href="https://apcentral.collegeboard.org" target="_blank">Visit AP Central →</a>
+                    </div>
+                </div>
+                
+                <h3>Literary Analysis Resources</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Poetry Foundation</h4>
+                        <p>Extensive poetry collection with analysis.</p>
+                        <a href="https://www.poetryfoundation.org" target="_blank">Visit Poetry Foundation →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Lit Charts</h4>
+                        <p>Analysis guides for major works.</p>
+                        <a href="https://www.litcharts.com" target="_blank">Visit LitCharts →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>JSTOR</h4>
+                        <p>Literary criticism and scholarly articles.</p>
+                        <a href="https://www.jstor.org" target="_blank">Visit JSTOR →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lessons Tab -->
+            <div id="lessons" class="content-section">
+                <h2>📝 Lesson Ideas</h2>
+                
+                <h3>Poetry Analysis Lesson Sequence</h3>
+                <div class="resource-card">
+                    <h4>Building Poetry Skills</h4>
+                    <ol>
+                        <li>Day 1: Speaker and situation analysis</li>
+                        <li>Day 2: Form and structure</li>
+                        <li>Day 3: Imagery and figurative language</li>
+                        <li>Day 4: Diction and tone</li>
+                        <li>Day 5: Synthesis—how elements create meaning</li>
+                        <li>Day 6: Timed poetry analysis practice</li>
+                    </ol>
+                </div>
+                
+                <h3>Prose Fiction Analysis</h3>
+                <div class="resource-card">
+                    <h4>Passage Analysis Protocol</h4>
+                    <ol>
+                        <li>First read for comprehension</li>
+                        <li>Annotate for literary elements</li>
+                        <li>Identify patterns and connections</li>
+                        <li>Develop interpretive thesis</li>
+                        <li>Select and organize evidence</li>
+                        <li>Write analysis essay</li>
+                    </ol>
+                </div>
+                
+                <h3>Literary Argument (Q3) Preparation</h3>
+                <div class="resource-card">
+                    <h4>Building a Text Repertoire</h4>
+                    <ul>
+                        <li>Read diverse works of literary merit</li>
+                        <li>Track themes, characters, and techniques</li>
+                        <li>Practice applying different works to prompts</li>
+                        <li>Develop flexibility in text selection</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Investigations Tab -->
+            <div id="investigations" class="content-section">
+                <h2>🔍 Close Reading and Analysis</h2>
+                
+                <h3>Close Reading Protocol</h3>
+                <div class="resource-card">
+                    <h4>Multi-Read Strategy</h4>
+                    <ol>
+                        <li><strong>First Read:</strong> What happens? What is this about?</li>
+                        <li><strong>Second Read:</strong> How does it work? (literary elements)</li>
+                        <li><strong>Third Read:</strong> Why does it matter? (meaning, theme)</li>
+                        <li><strong>Fourth Read:</strong> How do elements work together?</li>
+                    </ol>
+                </div>
+                
+                <h3>Comparative Analysis</h3>
+                <div class="resource-card">
+                    <h4>Essential Question</h4>
+                    <p>How do different texts/authors approach similar themes or use similar techniques differently?</p>
+                </div>
+            </div>
+            
+            <!-- Videos Tab -->
+            <div id="videos" class="content-section">
+                <h2>🎬 Video Resources</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>AP Daily Videos</h4>
+                        <p>Official College Board instruction.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Crash Course Literature</h4>
+                        <p>Engaging literary analysis videos.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Thug Notes</h4>
+                        <p>Accessible literary summaries and analysis.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Articles Tab -->
+            <div id="articles" class="content-section">
+                <h2>📰 Articles and Resources</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>The Paris Review</h4>
+                        <p>Author interviews and literary essays.</p>
+                        <a href="https://www.theparisreview.org" target="_blank">Visit Paris Review →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Literary Hub</h4>
+                        <p>Literary news and criticism.</p>
+                        <a href="https://lithub.com" target="_blank">Visit LitHub →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Assessments Tab -->
+            <div id="assessments" class="content-section">
+                <h2>📊 Assessment Strategies</h2>
+                
+                <h3>AP Free Response Scoring</h3>
+                <div class="resource-card">
+                    <h4>AP Rubric Categories</h4>
+                    <table>
+                        <tr>
+                            <th>Row</th>
+                            <th>Criteria</th>
+                            <th>Points</th>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>Thesis</td>
+                            <td>0-1</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>Evidence and Commentary</td>
+                            <td>0-4</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>Sophistication</td>
+                            <td>0-1</td>
+                        </tr>
+                    </table>
+                    
+                    <h4>Sophistication Indicators</h4>
+                    <ul>
+                        <li>Identifying and exploring complexities or tensions</li>
+                        <li>Situating interpretation in broader context</li>
+                        <li>Accounting for alternative interpretations</li>
+                        <li>Employing a style especially appropriate to literary analysis</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Printables Tab -->
+            <div id="printables" class="content-section">
+                <h2>📄 Graphic Organizers</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Poetry Analysis Template</h4>
+                        <p>Speaker, form, imagery, diction, meaning</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Prose Passage Analysis</h4>
+                        <p>Character, setting, narration, style, theme</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Literary Argument Planning</h4>
+                        <p>Thesis, evidence selection, organization</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Text Repertoire Tracker</h4>
+                        <p>Track works for Q3 application</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vocabulary Tab -->
+            <div id="vocabulary" class="content-section">
+                <h2>📚 Vocabulary Instruction</h2>
+                
+                <h3>Literary Terms</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Poetry Terms</h4>
+                        <ul>
+                            <li>meter, iambic, trochaic, spondaic</li>
+                            <li>enjambment, caesura, end-stopped</li>
+                            <li>volta, couplet, quatrain, sestet, octave</li>
+                            <li>sonnet, villanelle, ode, elegy</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Prose Terms</h4>
+                        <ul>
+                            <li>free indirect discourse</li>
+                            <li>unreliable narrator</li>
+                            <li>bildungsroman, picaresque</li>
+                            <li>in medias res, denouement</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Figurative Language</h4>
+                        <ul>
+                            <li>extended metaphor, conceit</li>
+                            <li>synecdoche, metonymy</li>
+                            <li>apostrophe, personification</li>
+                            <li>litotes, hyperbole</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Games Tab -->
+            <div id="games" class="content-section">
+                <h2>🎮 Games and Activities</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Poetry Speed Dating</h4>
+                        <p>Rotate through poems analyzing quickly</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Passage Tournaments</h4>
+                        <p>Competitive close reading analysis</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Literary Terms Jeopardy</h4>
+                        <p>Review terminology through game</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Differentiation Tab -->
+            <div id="differentiation" class="content-section">
+                <h2>🎯 Differentiation Strategies</h2>
+                
+                <div class="resource-card">
+                    <h4>Supporting Struggling Students</h4>
+                    <ul>
+                        <li>Scaffolded analysis templates</li>
+                        <li>Model essays and annotations</li>
+                        <li>Chunked analysis practice</li>
+                        <li>One-on-one conferencing</li>
+                    </ul>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>Extending Strong Students</h4>
+                    <ul>
+                        <li>Independent critical lens projects</li>
+                        <li>Literary criticism reading</li>
+                        <li>Creative writing in literary styles</li>
+                        <li>Peer tutoring</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Misconceptions Tab -->
+            <div id="misconceptions" class="content-section">
+                <h2>❌ Common Misconceptions</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Literary analysis = summary</h4>
+                        <p><strong>Reality:</strong> Analysis explains HOW and WHY, not just WHAT happens.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>There's one "right" interpretation</h4>
+                        <p><strong>Reality:</strong> Multiple valid interpretations exist if supported by evidence.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Complex vocabulary = good analysis</h4>
+                        <p><strong>Reality:</strong> Clear, precise analysis matters more than impressive vocabulary.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cultural Tab -->
+            <div id="cultural" class="content-section">
+                <h2>🌍 Diverse Literary Voices</h2>
+                
+                <h3>Recommended Diverse Authors</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>African American</h4>
+                        <ul>
+                            <li>Toni Morrison - Beloved, Song of Solomon</li>
+                            <li>James Baldwin - Go Tell It on the Mountain</li>
+                            <li>Zora Neale Hurston - Their Eyes Were Watching God</li>
+                            <li>Gwendolyn Brooks - Poetry</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Latinx</h4>
+                        <ul>
+                            <li>Gabriel García Márquez - One Hundred Years of Solitude</li>
+                            <li>Julia Alvarez - In the Time of the Butterflies</li>
+                            <li>Sandra Cisneros - The House on Mango Street</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Asian/Asian American</h4>
+                        <ul>
+                            <li>Amy Tan - The Joy Luck Club</li>
+                            <li>Kazuo Ishiguro - Never Let Me Go</li>
+                            <li>Jhumpa Lahiri - Interpreter of Maladies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Books Tab -->
+            <div id="books" class="content-section">
+                <h2>📚 Recommended Texts</h2>
+                
+                <h3>Novels of Literary Merit</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Beloved</strong> by Toni Morrison<br>
+                            <em>Slavery's legacy, magical realism, memory</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Wuthering Heights</strong> by Emily Brontë<br>
+                            <em>Gothic romance, obsessive love, class</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>The Great Gatsby</strong> by F. Scott Fitzgerald<br>
+                            <em>American Dream, class, narration</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Invisible Man</strong> by Ralph Ellison<br>
+                            <em>Identity, race, visibility</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Drama</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Hamlet</strong> by Shakespeare<br>
+                            <em>Revenge, mortality, madness</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Death of a Salesman</strong> by Arthur Miller<br>
+                            <em>American Dream, delusion, family</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>A Raisin in the Sun</strong> by Lorraine Hansberry<br>
+                            <em>Race, dreams, family</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Poetry Collections</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Shakespeare's Sonnets</strong><br>
+                            <em>Love, time, mortality</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Emily Dickinson - Collected Poems</strong><br>
+                            <em>Death, nature, identity</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Langston Hughes - Poetry</strong><br>
+                            <em>African American experience, dreams</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI for Teachers Tab -->
+            <div id="aiteachers" class="content-section">
+                <h2>🤖 AI Tools for Teachers</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>ChatGPT / Claude</h4>
+                        <p>Generate practice prompts, sample analyses, feedback on student work.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>MagicSchool AI</h4>
+                        <p>Education-specific tools.</p>
+                    </div>
+                </div>
+                
+                <h3>Useful Prompts</h3>
+                <div class="resource-card">
+                    <ul>
+                        <li>"Generate a poetry analysis prompt in AP Lit style."</li>
+                        <li>"Create a prose passage question about [element] in [text]."</li>
+                        <li>"What literary argument prompts could work for [text]?"</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- AI for Students Tab -->
+            <div id="aistudents" class="content-section">
+                <h2>🎓 AI Tools for Students</h2>
+                
+                <div class="warning-box">
+                    <p>AP Literature tests YOUR ability to analyze texts and develop interpretations. AI can help you practice, but your analytical skills must be developed through your own reading and thinking.</p>
+                </div>
+                
+                <h3>Appropriate Uses</h3>
+                <div class="resource-card">
+                    <ul>
+                        <li>Brainstorming interpretation angles</li>
+                        <li>Checking understanding of literary terms</li>
+                        <li>Getting feedback on practice essays</li>
+                        <li>Finding additional context about texts</li>
+                    </ul>
+                </div>
+                
+                <h3>Critical Reminders</h3>
+                <div class="resource-card">
+                    <ul>
+                        <li>Your interpretation must come from your reading</li>
+                        <li>AI literary analysis may miss nuance</li>
+                        <li>Practice develops skills; shortcuts don't</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Georgia Gwinnett College Educator Preparation | Standards: GSE | AKS | NCTE | College Board</p>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

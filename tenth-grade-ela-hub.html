@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10th Grade Literature & Composition Teacher Resource Hub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%); color: white; padding: 30px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .header p { font-size: 1.2rem; opacity: 0.9; }
+        .tab-container { display: flex; flex-wrap: wrap; background: #2c3e50; padding: 10px; gap: 5px; justify-content: center; }
+        .tab { padding: 12px 18px; background: #34495e; color: white; border: none; cursor: pointer; border-radius: 8px; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; }
+        .tab:hover { background: #16a085; transform: translateY(-2px); }
+        .tab.active { background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%); box-shadow: 0 4px 15px rgba(22, 160, 133, 0.4); }
+        .content { padding: 30px; min-height: 600px; }
+        .content-section { display: none; }
+        .content-section.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .content-section h2 { color: #2c3e50; font-size: 1.8rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #16a085; }
+        .content-section h3 { color: #34495e; font-size: 1.3rem; margin: 20px 0 10px 0; }
+        .content-section h4 { color: #16a085; font-size: 1.1rem; margin: 15px 0 10px 0; }
+        .content-section p, .content-section li { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .content-section ul, .content-section ol { margin-left: 25px; margin-bottom: 15px; }
+        .standards-box { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-left: 4px solid #16a085; padding: 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0; }
+        .resource-card { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; padding: 20px; border: 1px solid #dee2e6; transition: all 0.3s ease; }
+        .resource-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .resource-card h4 { color: #2c3e50; margin-bottom: 10px; }
+        .resource-card a { color: #16a085; text-decoration: none; }
+        .resource-card a:hover { text-decoration: underline; }
+        .tip-box { background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); border-left: 4px solid #28a745; padding: 15px 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .warning-box { background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%); border-left: 4px solid #ffc107; padding: 15px 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .book-section { background: #f8f9fa; padding: 15px; border-radius: 10px; margin: 10px 0; }
+        .book-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .book-item { background: white; padding: 12px; border-radius: 8px; border-left: 3px solid #16a085; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #dee2e6; padding: 12px; text-align: left; }
+        th { background: #16a085; color: white; }
+        tr:nth-child(even) { background: #f8f9fa; }
+        .footer { background: #2c3e50; color: white; text-align: center; padding: 20px; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 10th Grade Literature & Composition</h1>
+            <p>Comprehensive Resources for Tenth Grade ELA Teachers</p>
+        </div>
+        
+        <div class="tab-container">
+            <button class="tab active" onclick="showTab('standards')">Standards</button>
+            <button class="tab" onclick="showTab('background')">Background</button>
+            <button class="tab" onclick="showTab('websites')">Websites</button>
+            <button class="tab" onclick="showTab('lessons')">Lessons</button>
+            <button class="tab" onclick="showTab('investigations')">Investigations</button>
+            <button class="tab" onclick="showTab('videos')">Videos</button>
+            <button class="tab" onclick="showTab('articles')">Articles</button>
+            <button class="tab" onclick="showTab('assessments')">Assessments</button>
+            <button class="tab" onclick="showTab('printables')">Printables</button>
+            <button class="tab" onclick="showTab('vocabulary')">Vocabulary</button>
+            <button class="tab" onclick="showTab('games')">Games</button>
+            <button class="tab" onclick="showTab('differentiation')">Differentiation</button>
+            <button class="tab" onclick="showTab('misconceptions')">Misconceptions</button>
+            <button class="tab" onclick="showTab('cultural')">Cultural</button>
+            <button class="tab" onclick="showTab('books')">Books</button>
+            <button class="tab" onclick="showTab('aiteachers')">AI for Teachers</button>
+            <button class="tab" onclick="showTab('aistudents')">AI for Students</button>
+        </div>
+        
+        <div class="content">
+            <!-- Standards Tab -->
+            <div id="standards" class="content-section active">
+                <h2>📋 Tenth Grade ELA Standards</h2>
+                
+                <h3>Georgia Standards of Excellence (GSE) - 9th-10th Grade ELA</h3>
+                <div class="standards-box">
+                    <p>Tenth grade shares the 9-10 grade band standards with 9th grade but with increased expectations for independence, sophistication, and text complexity at the HIGH END of the band.</p>
+                    
+                    <h4>Reading Literary Text (ELAGSE9-10RL) - 10th Grade Focus</h4>
+                    <ul>
+                        <li><strong>ELAGSE9-10RL1:</strong> Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text</li>
+                        <li><strong>ELAGSE9-10RL2:</strong> Determine a theme or central idea of a text and analyze in detail its development over the course of the text</li>
+                        <li><strong>ELAGSE9-10RL3:</strong> Analyze how complex characters develop over the course of a text, interact with other characters, and advance the plot or develop the theme</li>
+                        <li><strong>ELAGSE9-10RL4:</strong> Determine the meaning of words and phrases as they are used in the text; analyze the cumulative impact of specific word choices on meaning and tone</li>
+                        <li><strong>ELAGSE9-10RL5:</strong> Analyze how an author's choices concerning how to structure a text, order events, and manipulate time create such effects as mystery, tension, or surprise</li>
+                        <li><strong>ELAGSE9-10RL6:</strong> Analyze a particular point of view or cultural experience reflected in a work of literature from outside the United States, drawing on a wide reading of world literature</li>
+                        <li><strong>ELAGSE9-10RL7:</strong> Analyze the representation of a subject or a key scene in two different artistic mediums</li>
+                        <li><strong>ELAGSE9-10RL9:</strong> Analyze how an author draws on and transforms source material in a specific work</li>
+                        <li><strong>ELAGSE9-10RL10:</strong> By the end of grade 10, read and comprehend literature at the high end of the grades 9-10 text complexity band independently and proficiently</li>
+                    </ul>
+                    
+                    <h4>Reading Informational Text (ELAGSE9-10RI) - 10th Grade Focus</h4>
+                    <ul>
+                        <li><strong>ELAGSE9-10RI1:</strong> Cite strong and thorough textual evidence to support analysis</li>
+                        <li><strong>ELAGSE9-10RI2:</strong> Determine a central idea and analyze its development</li>
+                        <li><strong>ELAGSE9-10RI3:</strong> Analyze how the author unfolds an analysis or series of ideas or events</li>
+                        <li><strong>ELAGSE9-10RI4:</strong> Analyze the cumulative impact of specific word choices on meaning and tone</li>
+                        <li><strong>ELAGSE9-10RI5:</strong> Analyze how an author's ideas or claims are developed and refined</li>
+                        <li><strong>ELAGSE9-10RI6:</strong> Determine author's point of view or purpose; analyze how author uses rhetoric</li>
+                        <li><strong>ELAGSE9-10RI7:</strong> Analyze various accounts of a subject told in different mediums</li>
+                        <li><strong>ELAGSE9-10RI8:</strong> Delineate and evaluate argument and claims; identify false statements and fallacious reasoning</li>
+                        <li><strong>ELAGSE9-10RI9:</strong> Analyze seminal U.S. documents of historical and literary significance</li>
+                        <li><strong>ELAGSE9-10RI10:</strong> By the end of grade 10, read and comprehend literary nonfiction at the high end of the grades 9-10 text complexity band</li>
+                    </ul>
+                    
+                    <h4>Writing (ELAGSE9-10W) - 10th Grade Focus</h4>
+                    <ul>
+                        <li><strong>ELAGSE9-10W1:</strong> Write arguments to support claims with valid reasoning and relevant and sufficient evidence</li>
+                        <li><strong>ELAGSE9-10W2:</strong> Write informative/explanatory texts to examine and convey complex ideas clearly and accurately</li>
+                        <li><strong>ELAGSE9-10W3:</strong> Write narratives with effective technique, well-chosen details, and well-structured event sequences</li>
+                        <li><strong>ELAGSE9-10W4-6:</strong> Produce clear, coherent writing appropriate to task; develop/strengthen through process; use technology</li>
+                        <li><strong>ELAGSE9-10W7-8:</strong> Conduct research projects; gather information from authoritative sources; integrate selectively</li>
+                        <li><strong>ELAGSE9-10W9-10:</strong> Draw evidence from texts; write routinely for various purposes</li>
+                    </ul>
+                </div>
+                
+                <h3>Science of Reading - 10th Grade Application</h3>
+                <div class="standards-box">
+                    <h4>Advanced Comprehension at High End of Band</h4>
+                    <ul>
+                        <li>Cite strong and thorough evidence with increasing sophistication</li>
+                        <li>Analyze complex themes and their detailed development</li>
+                        <li>Analyze sophisticated structural choices and their effects</li>
+                        <li>Evaluate rhetoric and identify fallacious reasoning</li>
+                        <li>Synthesize multiple complex texts</li>
+                    </ul>
+                    
+                    <h4>Vocabulary and Language</h4>
+                    <ul>
+                        <li>Analyze cumulative impact of word choices</li>
+                        <li>Understand nuanced meanings and connotations</li>
+                        <li>Use academic and domain-specific vocabulary precisely</li>
+                        <li>Write with varied syntax for effect</li>
+                    </ul>
+                    
+                    <h4>Text Complexity</h4>
+                    <ul>
+                        <li>HIGH END of Lexile Range: 1050L-1335L</li>
+                        <li>More complex literary techniques and structures</li>
+                        <li>Sophisticated rhetorical analysis</li>
+                        <li>Preparation for 11th-12th grade complexity</li>
+                    </ul>
+                </div>
+                
+                <h3>Gwinnett County Academic Knowledge and Skills (AKS) - 10th Grade ELA</h3>
+                <div class="standards-box">
+                    <h4>Reading and Literature</h4>
+                    <ul>
+                        <li>Cite strong and thorough textual evidence with increasing sophistication</li>
+                        <li>Analyze theme development through specific details at advanced level</li>
+                        <li>Analyze complex characters and their roles in advancing plot/theme</li>
+                        <li>Analyze cumulative impact of word choices independently</li>
+                        <li>Analyze structural choices and their effects on reader</li>
+                        <li>Analyze world literature with cultural and historical context</li>
+                    </ul>
+                    
+                    <h4>Writing</h4>
+                    <ul>
+                        <li>Write sophisticated arguments with nuanced claims and evidence</li>
+                        <li>Write informative texts examining complex ideas thoroughly</li>
+                        <li>Write narratives with sophisticated technique</li>
+                        <li>Conduct sustained research with multiple authoritative sources</li>
+                        <li>Demonstrate mastery of citation formats</li>
+                    </ul>
+                    
+                    <h4>Language</h4>
+                    <ul>
+                        <li>Use parallel structure for emphasis</li>
+                        <li>Use various phrase and clause types for effect</li>
+                        <li>Use semicolons and colons correctly</li>
+                        <li>Vary syntax for meaning, interest, and style</li>
+                    </ul>
+                </div>
+                
+                <h3>NCTE/IRA Standards</h3>
+                <div class="standards-box">
+                    <ul>
+                        <li><strong>Standard 1:</strong> Read wide range of print and non-print texts</li>
+                        <li><strong>Standard 2:</strong> Read wide range of literature from many periods/genres</li>
+                        <li><strong>Standard 3:</strong> Apply strategies to comprehend, interpret, evaluate texts</li>
+                        <li><strong>Standard 4:</strong> Adjust language for different purposes and audiences</li>
+                        <li><strong>Standard 5:</strong> Employ range of writing strategies</li>
+                        <li><strong>Standard 6:</strong> Apply knowledge of language conventions</li>
+                        <li><strong>Standard 7:</strong> Conduct research on issues and interests</li>
+                        <li><strong>Standard 8:</strong> Use technological and information resources</li>
+                        <li><strong>Standard 9:</strong> Develop understanding of diversity in language</li>
+                        <li><strong>Standard 10:</strong> Use first language to develop English competency</li>
+                        <li><strong>Standard 11:</strong> Participate in literacy communities</li>
+                        <li><strong>Standard 12:</strong> Use language to accomplish own purposes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Background Tab -->
+            <div id="background" class="content-section">
+                <h2>📖 Teacher Background Knowledge</h2>
+                
+                <h3>Tenth Grade: Mastery of 9-10 Band</h3>
+                <p>Tenth grade represents the mastery level of the 9-10 grade band. Students should demonstrate independent proficiency with the skills introduced in 9th grade, handling more complex texts and producing more sophisticated analysis and writing. The focus shifts toward preparation for the 11-12 grade band and, for some students, AP courses.</p>
+                
+                <div class="tip-box">
+                    <strong>Key Expectation:</strong> By end of 10th grade, students should read and comprehend at the HIGH END of the 9-10 text complexity band INDEPENDENTLY and PROFICIENTLY.
+                </div>
+                
+                <h3>Deepening Literary Analysis</h3>
+                <div class="resource-card">
+                    <h4>More Sophisticated Character Analysis</h4>
+                    <ul>
+                        <li>Analyze psychological complexity and motivation</li>
+                        <li>Trace character arcs across entire texts</li>
+                        <li>Analyze character as vehicle for theme</li>
+                        <li>Compare character development across texts</li>
+                    </ul>
+                    
+                    <h4>Advanced Theme Analysis</h4>
+                    <ul>
+                        <li>Analyze multiple themes within single work</li>
+                        <li>Trace theme development across literary movements</li>
+                        <li>Connect themes to historical/cultural context</li>
+                        <li>Analyze how themes are refined and complicated</li>
+                    </ul>
+                </div>
+                
+                <h3>World Literature Focus</h3>
+                <div class="resource-card">
+                    <h4>Cultural Experience in Literature</h4>
+                    <p>10th grade often focuses on world literature, analyzing how cultural context shapes literature:</p>
+                    <ul>
+                        <li>European literature (Greek tragedy, Renaissance)</li>
+                        <li>African literature (postcolonial perspectives)</li>
+                        <li>Asian literature (Japanese, Chinese, Indian traditions)</li>
+                        <li>Latin American literature (magical realism)</li>
+                        <li>Middle Eastern literature (ancient and modern)</li>
+                    </ul>
+                </div>
+                
+                <h3>Advanced Rhetorical Analysis</h3>
+                <div class="resource-card">
+                    <h4>Beyond Basic Appeals</h4>
+                    <table>
+                        <tr>
+                            <th>Rhetorical Strategy</th>
+                            <th>Definition</th>
+                            <th>Effect</th>
+                        </tr>
+                        <tr>
+                            <td>Juxtaposition</td>
+                            <td>Placing contrasting elements side by side</td>
+                            <td>Highlights differences, creates meaning through contrast</td>
+                        </tr>
+                        <tr>
+                            <td>Understatement</td>
+                            <td>Deliberate minimization for effect</td>
+                            <td>Creates irony, draws attention through restraint</td>
+                        </tr>
+                        <tr>
+                            <td>Hyperbole</td>
+                            <td>Deliberate exaggeration</td>
+                            <td>Emphasizes a point, creates humor or urgency</td>
+                        </tr>
+                        <tr>
+                            <td>Allusion</td>
+                            <td>Reference to other work/event</td>
+                            <td>Adds depth, connects to larger ideas</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <h3>Seminal U.S. Documents</h3>
+                <div class="resource-card">
+                    <h4>10th Grade Document Study</h4>
+                    <ul>
+                        <li>Declaration of Independence (continued analysis)</li>
+                        <li>U.S. Constitution and Bill of Rights</li>
+                        <li>Federalist Papers (excerpts)</li>
+                        <li>Lincoln's Second Inaugural Address</li>
+                        <li>Frederick Douglass speeches</li>
+                        <li>Supreme Court decisions (excerpts)</li>
+                    </ul>
+                </div>
+                
+                <h3>Preparation for 11th-12th Grade</h3>
+                <div class="resource-card">
+                    <h4>Building Toward Upper Level Skills</h4>
+                    <ul>
+                        <li>Extended literary analysis essays</li>
+                        <li>Research papers with multiple sources</li>
+                        <li>Synthesis across texts and genres</li>
+                        <li>Independent reading and analysis</li>
+                        <li>AP readiness skills</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Websites Tab -->
+            <div id="websites" class="content-section">
+                <h2>🌐 Educational Websites</h2>
+                
+                <h3>Reading and Analysis</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>CommonLit</h4>
+                        <p>World literature, paired texts, and rhetorical analysis.</p>
+                        <a href="https://www.commonlit.org" target="_blank">Visit CommonLit →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Project Gutenberg</h4>
+                        <p>Free access to world literature classics.</p>
+                        <a href="https://www.gutenberg.org" target="_blank">Visit Project Gutenberg →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>National Archives</h4>
+                        <p>Primary sources and seminal U.S. documents.</p>
+                        <a href="https://www.archives.gov" target="_blank">Visit National Archives →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Khan Academy</h4>
+                        <p>Grammar, reading, and writing courses.</p>
+                        <a href="https://www.khanacademy.org" target="_blank">Visit Khan Academy →</a>
+                    </div>
+                </div>
+                
+                <h3>Writing and Research</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Purdue OWL</h4>
+                        <p>Comprehensive writing resources and citation guides.</p>
+                        <a href="https://owl.purdue.edu" target="_blank">Visit Purdue OWL →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>JSTOR Daily</h4>
+                        <p>Academic articles accessible to students.</p>
+                        <a href="https://daily.jstor.org" target="_blank">Visit JSTOR Daily →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lessons Tab -->
+            <div id="lessons" class="content-section">
+                <h2>📝 Lesson Ideas</h2>
+                
+                <h3>World Literature Analysis</h3>
+                <div class="resource-card">
+                    <h4>Cultural Context Lesson</h4>
+                    <ol>
+                        <li>Build background on cultural/historical context</li>
+                        <li>Read and annotate for cultural elements</li>
+                        <li>Analyze how culture shapes narrative choices</li>
+                        <li>Compare to American literary traditions</li>
+                        <li>Write analysis connecting culture to literary choices</li>
+                    </ol>
+                </div>
+                
+                <h3>Advanced Character Analysis</h3>
+                <div class="resource-card">
+                    <h4>Psychological Complexity</h4>
+                    <ul>
+                        <li>Analyze internal conflicts and contradictions</li>
+                        <li>Trace motivation and change across text</li>
+                        <li>Connect character choices to theme</li>
+                        <li>Evaluate character as representation of ideas</li>
+                    </ul>
+                </div>
+                
+                <h3>Seminal Document Analysis</h3>
+                <div class="resource-card">
+                    <h4>Constitutional Document Study</h4>
+                    <ol>
+                        <li>Establish historical context</li>
+                        <li>Analyze rhetorical strategies and appeals</li>
+                        <li>Evaluate argument structure and evidence</li>
+                        <li>Connect to contemporary issues</li>
+                        <li>Compare to other foundational documents</li>
+                    </ol>
+                </div>
+                
+                <h3>Extended Research Project</h3>
+                <div class="resource-card">
+                    <h4>Multi-Source Research Paper</h4>
+                    <ul>
+                        <li>Develop focused research question</li>
+                        <li>Gather authoritative sources (minimum 5-7)</li>
+                        <li>Evaluate source credibility and usefulness</li>
+                        <li>Synthesize information across sources</li>
+                        <li>Integrate sources with proper citation</li>
+                        <li>Present findings in polished research paper</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Investigations Tab -->
+            <div id="investigations" class="content-section">
+                <h2>🔍 Close Reading and Text Analysis</h2>
+                
+                <h3>World Literature Investigation</h3>
+                <div class="resource-card">
+                    <h4>Essential Question</h4>
+                    <p>How does cultural context shape literary choices and meanings?</p>
+                    
+                    <h4>Investigation Protocol</h4>
+                    <ol>
+                        <li>Select text from non-U.S. tradition</li>
+                        <li>Research cultural and historical context</li>
+                        <li>Analyze how context shapes elements</li>
+                        <li>Compare to familiar traditions</li>
+                        <li>Present findings with textual evidence</li>
+                    </ol>
+                </div>
+                
+                <h3>Rhetorical Effectiveness Investigation</h3>
+                <div class="resource-card">
+                    <h4>Essential Question</h4>
+                    <p>How effectively do authors use rhetoric to achieve their purpose?</p>
+                    
+                    <h4>Analysis Protocol</h4>
+                    <ol>
+                        <li>Identify author's purpose and audience</li>
+                        <li>Analyze rhetorical strategies used</li>
+                        <li>Evaluate effectiveness of choices</li>
+                        <li>Identify any fallacious reasoning</li>
+                        <li>Write evaluation with specific evidence</li>
+                    </ol>
+                </div>
+                
+                <h3>Theme Comparison Investigation</h3>
+                <div class="resource-card">
+                    <h4>Essential Question</h4>
+                    <p>How do different authors/cultures approach similar themes?</p>
+                    
+                    <h4>Investigation Steps</h4>
+                    <ol>
+                        <li>Select texts with similar themes from different traditions</li>
+                        <li>Analyze theme development in each</li>
+                        <li>Compare approaches and perspectives</li>
+                        <li>Connect to cultural context</li>
+                        <li>Write comparative analysis</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Videos Tab -->
+            <div id="videos" class="content-section">
+                <h2>🎬 Video Resources</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Crash Course Literature</h4>
+                        <p>World literature and rhetorical analysis.</p>
+                        <a href="https://www.youtube.com/crashcourse" target="_blank">Visit Crash Course →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>TED-Ed</h4>
+                        <p>Literature and language lessons.</p>
+                        <a href="https://ed.ted.com" target="_blank">Visit TED-Ed →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Great Courses</h4>
+                        <p>World literature lectures.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Articles Tab -->
+            <div id="articles" class="content-section">
+                <h2>📰 Articles and Resources</h2>
+                
+                <h3>Professional Reading</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>English Journal (NCTE)</h4>
+                        <p>High school ELA research and practice.</p>
+                        <a href="https://ncte.org" target="_blank">Visit NCTE →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Facing History and Ourselves</h4>
+                        <p>Resources for teaching difficult literature.</p>
+                        <a href="https://www.facinghistory.org" target="_blank">Visit Facing History →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Assessments Tab -->
+            <div id="assessments" class="content-section">
+                <h2>📊 Assessment Strategies</h2>
+                
+                <h3>Literary Analysis Essay</h3>
+                <div class="resource-card">
+                    <h4>Rubric Elements</h4>
+                    <ul>
+                        <li>Clear, sophisticated thesis</li>
+                        <li>Strong and thorough evidence</li>
+                        <li>Deep analysis of literary elements</li>
+                        <li>Connection to cultural/historical context</li>
+                        <li>Sophisticated style and conventions</li>
+                    </ul>
+                </div>
+                
+                <h3>Research Paper Assessment</h3>
+                <div class="resource-card">
+                    <ul>
+                        <li>Focused, arguable thesis</li>
+                        <li>Multiple authoritative sources</li>
+                        <li>Effective synthesis and integration</li>
+                        <li>Proper citation format</li>
+                        <li>Clear organization and style</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Remaining tabs abbreviated for space but follow same pattern -->
+            <!-- Printables Tab -->
+            <div id="printables" class="content-section">
+                <h2>📄 Graphic Organizers</h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>World Literature Analysis</h4>
+                        <p>Cultural context analysis template</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Advanced Character Analysis</h4>
+                        <p>Psychological complexity tracker</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Research Paper Planning</h4>
+                        <p>Source integration organizer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vocabulary Tab -->
+            <div id="vocabulary" class="content-section">
+                <h2>📚 Vocabulary Instruction</h2>
+                <h3>Academic Vocabulary</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Literary Terms</h4>
+                        <ul>
+                            <li>allegory, archetype, motif</li>
+                            <li>irony (dramatic, situational, verbal)</li>
+                            <li>juxtaposition, paradox</li>
+                            <li>satire, parody</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>World Literature Terms</h4>
+                        <ul>
+                            <li>epic, tragedy, comedy</li>
+                            <li>magical realism</li>
+                            <li>postcolonial literature</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Games Tab -->
+            <div id="games" class="content-section">
+                <h2>🎮 Games and Activities</h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Digital Resources</h4>
+                        <ul>
+                            <li><a href="https://www.vocabulary.com" target="_blank">Vocabulary.com</a></li>
+                            <li><a href="https://www.noredink.com" target="_blank">NoRedInk</a></li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Classroom Activities</h4>
+                        <ul>
+                            <li>Socratic Seminars</li>
+                            <li>Philosophical Chairs</li>
+                            <li>Literary Debates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Differentiation Tab -->
+            <div id="differentiation" class="content-section">
+                <h2>🎯 Differentiation Strategies</h2>
+                <h3>Supporting Struggling Readers</h3>
+                <div class="resource-card">
+                    <ul>
+                        <li>Scaffolded analysis frameworks</li>
+                        <li>Audio support for complex texts</li>
+                        <li>Graphic organizers</li>
+                        <li>Chunked reading assignments</li>
+                    </ul>
+                </div>
+                <h3>Advanced Learners</h3>
+                <div class="resource-card">
+                    <ul>
+                        <li>AP preparation materials</li>
+                        <li>Independent research projects</li>
+                        <li>Critical lens approaches</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Misconceptions Tab -->
+            <div id="misconceptions" class="content-section">
+                <h2>❌ Common Misconceptions</h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>World literature is "exotic"</h4>
+                        <p><strong>Reality:</strong> World literature addresses universal themes through diverse cultural lenses.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Research is just finding quotes</h4>
+                        <p><strong>Reality:</strong> Research requires synthesis, evaluation, and integration of sources.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cultural Tab -->
+            <div id="cultural" class="content-section">
+                <h2>🌍 Diverse and World Literature</h2>
+                <h3>World Literature Traditions</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Classical World Literature</h4>
+                        <ul>
+                            <li>Greek tragedy (Sophocles, Euripides)</li>
+                            <li>Epic poetry (Homer, Virgil)</li>
+                            <li>Eastern classics (Ramayana, Tale of Genji)</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Modern World Literature</h4>
+                        <ul>
+                            <li>African: Things Fall Apart, Nervous Conditions</li>
+                            <li>Latin American: One Hundred Years of Solitude</li>
+                            <li>Asian: The Kite Runner, Interpreter of Maladies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Books Tab -->
+            <div id="books" class="content-section">
+                <h2>📚 Book Recommendations</h2>
+                
+                <h3>World Literature</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Things Fall Apart</strong> by Chinua Achebe<br>
+                            <em>Nigerian literature classic. Lexile 890L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Antigone</strong> by Sophocles<br>
+                            <em>Greek tragedy. Lexile NP</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Night</strong> by Elie Wiesel<br>
+                            <em>Holocaust memoir. Lexile 590L</em>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Classic Literature</h3>
+                <div class="book-section">
+                    <div class="book-list">
+                        <div class="book-item">
+                            <strong>Julius Caesar</strong> by Shakespeare<br>
+                            <em>Roman political drama. Lexile NP</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Lord of the Flies</strong> by William Golding<br>
+                            <em>Allegory and human nature. Lexile 770L</em>
+                        </div>
+                        <div class="book-item">
+                            <strong>Animal Farm</strong> by George Orwell<br>
+                            <em>Political allegory. Lexile 1170L</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI for Teachers Tab -->
+            <div id="aiteachers" class="content-section">
+                <h2>🤖 AI Tools for Teachers</h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>ChatGPT / Claude</h4>
+                        <p>Generate world literature context, analysis questions, differentiated materials.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h4>MagicSchool AI</h4>
+                        <p>Education-specific tools.</p>
+                        <a href="https://www.magicschool.ai" target="_blank">Visit MagicSchool →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI for Students Tab -->
+            <div id="aistudents" class="content-section">
+                <h2>🎓 AI Tools for Students</h2>
+                <div class="warning-box">
+                    <p>Use AI ethically with academic integrity. AI is a tool to support learning.</p>
+                </div>
+                <h3>Appropriate Uses</h3>
+                <div class="resource-card">
+                    <ul>
+                        <li>Research brainstorming (verify with sources)</li>
+                        <li>Writing feedback and revision</li>
+                        <li>Cultural context clarification</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Georgia Gwinnett College Educator Preparation | Standards: GSE | AKS | NCTE | Science of Reading</p>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
